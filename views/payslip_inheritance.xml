@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="payslip_template_inherited" inherit_id="hr_payroll.report_payslip">
+          <xpath expr="//h2[@id='payslip_name']" position="replace">
+            <div id='payslip_name'>
+                <h1></h1>
+            </div>
+          </xpath>
+
+
+
+        <xpath expr="//strong[@id='invalid_warning']" position="replace">
+            <div id='invalid_warning'>
+                <h1></h1>
+            </div>
+        </xpath>
+
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_1']" position="replace">
+            <div id="employee_info_table_1">
+                <tr style="border-bottom: 1px solid black; text-align: center;">
+                    <th style="width:10% ; text-align: center;background-color: #D7E4C0;" class="highlight-cell">BULLETIN DE PAIE</th>
+                    <th colspan="3" style="text-align: center;">Période du: </th>
+                    <th colspan="2" style="text-align: center;">Paiement le: </th>
+                    <th colspan="4" style="text-align: center;">Par:</th>
+                </tr>
+            </div>
+        </xpath>
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_2']" position="replace">
+                <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_line_2'>
+                    <th rowspan="3" style="width:30%"></th>
+                    <th style="text-align: center;">Matricule: </th>
+                    <th style="text-align: center;" colspan="3" >Ancienneté: </th>
+                    <th style="text-align: center;">N°CNSS: </th>
+                    <th style="text-align: center;"> N°CIN: </th>
+                    <th style="text-align: center;" colspan="3" >N°Retraite: </th>
+                </tr>
+        </xpath>
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_3']" position="replace">
+                <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_line_3'>
+                    <th style="text-align: center;">Catégorie: </th>
+                    <th style="text-align: center;" colspan="4">Emploi occupé: </th>
+                    <th style="text-align: center;">Département: </th>
+                    <th style="text-align: center;" colspan="3" >Date d'éntrée: </th>
+                </tr>
+
+        </xpath>
+
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_4']" position="replace">
+               <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_line_4'>
+                   <th style="text-align: center;">Qualification: </th>
+                   <th style="text-align: center;">Horaire: </th>
+                   <th style="text-align: center;" colspan="2">Salaire de base: </th>
+                   <th style="text-align: center;">Taux horraire: </th>
+                   <th style="text-align: center;">Situation familiale: </th>
+                   <th style="text-align: center;" colspan="3">Nbre déductions: </th>
+               </tr>
+
+        </xpath>
+
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_4']" position="after">
+                <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_5'>
+
+                    <th></th>
+                    <th style="text-align: center; background-color: #D7E4C0;" colspan="9" class="highlight-cell">ADRESSE EMPLOYE </th>
+
+
+                </tr>
+
+        </xpath>
+
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_5']" position="after">
+                <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_6'>
+                    <th style="text-align: center;" rowspan="2">Commentaire:</th>
+                    <th style="text-align: center;" colspan="2">Congés</th>
+                    <th style="text-align: center;" colspan="2">Répliquat n-1</th>
+                    <th></th>
+                    <th style="text-align: center;">Pris</th>
+                    <th style="text-align: center;" colspan="3"></th>
+
+                </tr>
+
+        </xpath>
+
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_6']" position="after">
+                 <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_7'>
+                     <th style="text-align: center;" colspan="2"></th>
+                     <th style="text-align: center;" colspan="2">Droit</th>
+                     <th></th>
+                     <th style="text-align: center;">Solde</th>
+                     <th style="text-align: center;" colspan="3"></th>
+
+                 </tr>
+        </xpath>
+
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_7']" position="after">
+                 <tr style="border-bottom: 1px solid black; text-align: center;background-color: #D5F0C1;" id='employee_info_8'>
+                     <th colspan="3" class="left"><b>Désignation</b></th>
+                     <th><b>Nombre</b></th>
+                     <th><b>Base</b></th>
+                     <th><b>Taux</b></th>
+                     <th><b>Gain</b></th>
+                     <th colspan="3"><b>Retenue</b></th>
+
+                 </tr>
+        </xpath>
+
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_8']" position="after">
+                 <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_9'>
+                    <th colspan="3" style="text-align: left;">Salaire Journalier</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th colspan="3"></th>
+
+                 </tr>
+        </xpath>
+
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_9']" position="after">
+                 <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_10'>
+                     <th colspan="3" style="text-align: left;">Congés Payés</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th colspan="3"></th>
+
+                 </tr>
+        </xpath>
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_10']" position="after">
+                 <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_11'>
+                     <th colspan="3" style="text-align: left;">Jours Férier</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th colspan="3"></th>
+
+                 </tr>
+        </xpath>
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_11']" position="after">
+                 <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_12'>
+                      <th colspan="3" style="text-align: left;">Prime D'ancienneté</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th  colspan="3"></th>
+
+                 </tr>
+        </xpath>
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_12']" position="after">
+                 <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_13'>
+                      <th colspan="3" style="text-align: left;">Prime Variable</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th colspan="3"></th>
+
+                 </tr>
+        </xpath>
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_13']" position="after">
+                 <tr style="border-bottom: 1px solid black; text-align: left;" id='employee_info_14'>
+                      <th colspan="3" class="left">Primes Exceptionnelle</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th colspan="3"></th>
+
+                 </tr>
+        </xpath>
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_14']" position="after">
+                 <tr style="border-bottom: 1px solid black; text-align: left;" id='employee_info_15'>
+                     <th colspan="3" class="left">Indemnité De Panier</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th colspan="3"></th>
+
+                 </tr>
+        </xpath>
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_15']" position="after">
+                 <tr style="border-bottom: 1px solid black; text-align: left;" id='employee_info_16'>
+                     <th colspan="3" class="left">Indemnité De Transport</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th colspan="3"></th>
+
+                 </tr>
+        </xpath>
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_16']" position="after">
+                 <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_17'>
+                     <th colspan="3"> <b>Total Brut (SB)</b></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th colspan="3"></th>
+
+                 </tr>
+        </xpath>
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_17']" position="after">
+                 <tr style="border-bottom: 1px solid black; text-align: left;" id='employee_info_18'>
+                     <th colspan="3" class="left">Cotisation CNSS + IPE</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th colspan="3"></th>
+
+                 </tr>
+        </xpath>
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_18']" position="after">
+                 <tr style="border-bottom: 1px solid black; text-align: left;" id='employee_info_19'>
+                     <th colspan="3" class="left">AMO</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th colspan="3"></th>
+
+                 </tr>
+        </xpath>
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_19']" position="after">
+                 <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_20'>
+                     <th colspan="3"><b>TOTAL COTISATIONS</b></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th colspan="3"></th>
+
+                 </tr>
+        </xpath>
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_20']" position="after">
+                 <tr style="border-bottom: 1px solid black; text-align: left;" id='employee_info_21'>
+                     <th colspan="3" class="left">Prélévement IGR</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th colspan="3"></th>
+
+                 </tr>
+        </xpath>
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_21']" position="after">
+                 <tr style="border-bottom: 1px solid black; text-align: left;" id='employee_info_22'>
+                     <th  colspan="3" class="left">Gain Net</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th colspan="3"></th>
+
+                 </tr>
+        </xpath>
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_22']" position="after">
+                 <tr style="border-bottom: 1px solid black; text-align: left;" id='employee_info_23'>
+                      <th colspan="3" class="left">Arrodi Du Mois Précédent</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th colspan="3"></th>
+
+                 </tr>
+        </xpath>
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_23']" position="after">
+                 <tr style="border-bottom: 1px solid black; text-align: left;" id='employee_info_24'>
+                     <th colspan="3" class="left">Arrodi Du Mois En Cours</th>
+                                    <th></th>
+                                     <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th colspan="3"></th>
+
+                 </tr>
+        </xpath>
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_24']" position="after">
+                 <tr style="border-bottom: 1px solid black; text-align: center; background-color: #74E291;
+                            color: green;" id='employee_info_25'>
+                     <th></th>
+                                    <th>Brut Imposable</th>
+                                    <th>Net Imposable</th>
+                                    <th>Ch.Salaires</th>
+                                    <th>F.Professionnels</th>
+                                    <th>Déd.Logement</th>
+                                    <th>Déd.Charges Familales</th>
+                                    <th>Jours Travaillés</th>
+                                    <th colspan="3"> Net A Payer</th>
+
+                 </tr>
+        </xpath>
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_25']" position="after">
+                 <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_26'>
+                     <th>Période</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th ></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th rowspan="2"></th>
+
+                 </tr>
+        </xpath>
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_26']" position="after">
+                 <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_27'>
+                                    <th>Année</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+
+                 </tr>
+        </xpath>
+
+
+
+
+
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_5']" position="attributes">
+            <attribute name="style">display: none;</attribute>
+        </xpath>
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_6']" position="attributes">
+            <attribute name="style">display: none;</attribute>
+        </xpath>
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_7']" position="attributes">
+            <attribute name="style">display: none;</attribute>
+        </xpath>
+
+        <xpath expr="//table[@class='table table-sm']//tr" position="attributes">
+            <attribute name="style">display: none;</attribute>
+        </xpath>
+
+
+
+        <xpath expr="//div[@id='total']" position="attributes">
+            <attribute name="style">display: none;</attribute>
+        </xpath>
+
+
+
+
+        <xpath expr="//div[@id='to_pay']" position="replace">
+            <div id='to_pay'>
+                <h1></h1>
+            </div>
+        </xpath>
+
+
+
+    </template>
+
+
+</odoo>

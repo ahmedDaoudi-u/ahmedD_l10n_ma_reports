@@ -1,0 +1,31 @@
+.table {
+                            border-collapse: collapse;
+                            width: 100%;
+
+                        }
+                        th, td {
+                            border: 1px solid black;
+                            text-align: center;
+                            padding: 5px;
+                        }
+                        .left{
+                            text-align: left;
+                        }
+                        .highlight-cell {
+                            background-color: #D7E4C0;
+                        }
+                        .highlight-cell-green {
+                            background-color: #74E291;
+                            color: green;
+                        }
+
+                        .highlight-cell-blue {
+                            background-color: #D5F0C1;
+                        }
+
+                        .border{
+                            border: none;
+                        }
+                        .border-right td{
+                            border-right: none;
+                        }
