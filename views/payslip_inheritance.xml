@@ -321,15 +321,25 @@
                                     <th></th>
                                     <th></th>
                                     <th></th>
-
                  </tr>
         </xpath>
 
 
 
 
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_5']" position="attributes">
+            <attribute name="style">display: none;</attribute>
+        </xpath>
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_6']" position="attributes">
+            <attribute name="style">display: none;</attribute>
+        </xpath>
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_7']" position="attributes">
+            <attribute name="style">display: none;</attribute>
+        </xpath>
 
-        
+        <xpath expr="//table[@class='table table-sm']//tr" position="attributes">
+            <attribute name="style">display: none;</attribute>
+        </xpath>
 
 
 
