@@ -1,19 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+
 <odoo>
 
     <template id="payslip_template_inherited" inherit_id="hr_payroll.report_payslip">
-          <xpath expr="//h2[@id='payslip_name']" position="replace">
-            <div id='payslip_name'>
-                <h1></h1>
-            </div>
+        <xpath expr="//div[@class='page']" position="attributes">
+            <attribute name="style">margin-top: 0px;margin-bottom: 100px;</attribute>
+        </xpath>
+
+          <xpath expr="//h2[@id='payslip_name']" position="attributes">
+                <attribute name="style">display: none;</attribute>
           </xpath>
 
 
-
-        <xpath expr="//strong[@id='invalid_warning']" position="replace">
-            <div id='invalid_warning'>
-                <h1></h1>
-            </div>
+        <xpath expr="//strong[@id='invalid_warning']" position="attributes">
+              <attribute name="style">display: none;</attribute>
         </xpath>
 
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_1']" position="replace">
@@ -355,6 +354,11 @@
                 <h1></h1>
             </div>
         </xpath>
+
+        <xpath expr="//t[@t-set='line_style']" position="replace">
+            <t t-set="line_style" t-value="'payslip_custom_paper_report'"/>
+        </xpath>
+
 
 
 
