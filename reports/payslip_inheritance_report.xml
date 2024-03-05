@@ -174,7 +174,7 @@
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_14']" position="after">
                  <tr style="border-bottom: 1px solid black; text-align: left;" id='employee_info_15'>
                      <th colspan="3" class="left">Indemnité De Panier</th>
-                                    <th></th>
+                                    <th><span t-field="o.contract_id.l10n_ma_meal_allowance" style="color: #888888;"/></th>
                                     <th></th>
                                     <th></th>
                                     <th></th>
@@ -184,7 +184,7 @@
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_15']" position="after">
                  <tr style="border-bottom: 1px solid black; text-align: left;" id='employee_info_16'>
                      <th colspan="3" class="left">Indemnité De Transport</th>
-                                    <th></th>
+                                    <th><span t-field="o.contract_id.l10n_ma_transport_exemption" style="color: #888888;"/></th>
                                     <th></th>
                                     <th></th>
                                     <th></th>
