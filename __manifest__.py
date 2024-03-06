@@ -9,8 +9,7 @@
     "data": [
         'security/ir.model.access.csv',
         'reports/payslip_inheritance_report.xml',
-        'data/paper_format_report.xml',
-        'views/employee_data.xml'
+        'data/paper_format_report.xml'
     ],
     "category": "",
     "depends": ['l10n_ma_hr_payroll','hr_payroll', 'l10n_ma'],

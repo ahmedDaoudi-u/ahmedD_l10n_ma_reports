@@ -27,8 +27,8 @@
         </xpath>
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_2']" position="replace">
                 <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_line_2'>
-                    <th rowspan="3" style="width:30%"></th>
-                    <th style="text-align: center;">Matricule: </th>
+                    <th rowspan="3" style="width:30%"><span t-field="o.employee_id.company_id"/></th>
+                    <th style="text-align: center;">Matricule: <span t-field="o.employee_id.registration_number"/></th>
                     <th style="text-align: center;" colspan="3" >Ancienneté: </th>
                     <th style="text-align: center;">N°CNSS: <span t-field="o.employee_id.l10n_ma_cin_number" style="color: #888888;"/></th>
                     <th style="text-align: center;"> N°CIN: <span t-field="o.employee_id.l10n_ma_cnss_number" style="color: #888888;"/></th>
@@ -39,7 +39,7 @@
                 <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_line_3'>
                     <th style="text-align: center;">Catégorie: </th>
                     <th style="text-align: center;" colspan="4">Emploi occupé: <span t-field="o.employee_id.job_title" style="color: #888888;"/></th>
-                    <th style="text-align: center;">Département: </th>
+                    <th style="text-align: center;">Département: <span t-field="o.employee_id.department_id" style="color: #888888;"/></th>
                     <th style="text-align: center;" colspan="3" >Date d'éntrée: <span t-field="o.contract_id.date_start" style="color: #888888;"/></th>
                 </tr>
 
@@ -50,7 +50,7 @@
                    <th style="text-align: center;">Qualification: </th>
                    <th style="text-align: center;">Horaire:</th>
                    <th style="text-align: center;" colspan="2">Salaire de base: (<span class="text-capitalize" t-out="o.contract_id.wage_type"/>) <span t-out="o.contract_id._get_contract_wage()" style="color: #888888;"/></th>
-                   <th style="text-align: center;">Taux horraire:</th>
+                   <th style="text-align: center;">Taux horraire:<span t-field="o.employee_id.hourly_cost" style="color: #888888;"/></th>
                    <th style="text-align: center;">Situation familiale: <span t-field="o.employee_id.marital" style="color: #888888;"/></th>
                    <th style="text-align: center;" colspan="3">Nbre déductions: </th>
                </tr>
@@ -59,11 +59,8 @@
 
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_4']" position="after">
                 <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_5'>
-
                     <th></th>
-                    <th style="text-align: center; background-color: #D7E4C0;" colspan="9" class="highlight-cell">Adress Employe : <span t-field="o.employee_id.private_street" style="color: #888888;"/></th>
-
-
+                    <th style="text-align: center; background-color: #D7E4C0;" colspan="9" class="highlight-cell">Address Employe : <span t-field="o.employee_id.address_id" style="color: #888888;"/></th>
                 </tr>
 
         </xpath>
@@ -124,7 +121,6 @@
                                     <th></th>
                                     <th></th>
                                     <th colspan="3"></th>
-
                  </tr>
         </xpath>
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_10']" position="after">
@@ -135,7 +131,6 @@
                                     <th></th>
                                     <th></th>
                                     <th colspan="3"></th>
-
                  </tr>
         </xpath>
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_11']" position="after">
