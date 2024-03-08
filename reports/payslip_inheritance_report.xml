@@ -62,7 +62,6 @@
                     <th></th>
                     <th style="text-align: center; background-color: #D7E4C0;" colspan="9" class="highlight-cell">Address Employe : <span t-field="o.employee_id.address_id" style="color: #888888;"/></th>
                 </tr>
-
         </xpath>
 
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_5']" position="after">
