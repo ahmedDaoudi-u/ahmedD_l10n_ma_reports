@@ -10,3 +10,5 @@ class HrPayslip(models.Model):
          ('Dépôt', 'dépôt'),
          ('Chèque', 'chèque'), ],
         String="Paiement Par")
+
+    commentaire = fields.Char(String="comment about the employee")
