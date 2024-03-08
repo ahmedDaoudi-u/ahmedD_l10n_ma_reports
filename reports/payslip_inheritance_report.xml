@@ -292,10 +292,10 @@
                                     <th></th>
                                     <th></th>
                                     <th></th>
-                                    <th ></th>
                                     <th></th>
                                     <th></th>
                                     <th></th>
+                                    <th><span t-field="o.worked_days_line_ids.number_of_days" style="color: #888888;"/></th>
                                     <th rowspan="2"></th>
                  </tr>
         </xpath>
