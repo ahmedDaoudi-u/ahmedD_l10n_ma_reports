@@ -1,5 +1,4 @@
 <odoo>
-
     <template id="payslip_template_inherited" inherit_id="hr_payroll.report_payslip">
         <xpath expr="//div[@class='page']" position="attributes">
             <attribute name="style">margin-top: 0px;margin-bottom: 100px;</attribute>
@@ -8,7 +7,6 @@
         <xpath expr="//h2[@id='payslip_name']" position="attributes">
             <attribute name="style">display: none;</attribute>
         </xpath>
-
 
         <xpath expr="//strong[@id='invalid_warning']" position="attributes">
             <attribute name="style">display: none;</attribute>
@@ -32,13 +30,15 @@
                 </tr>
             </div>
         </xpath>
+
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_2']" position="replace">
             <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_line_2'>
                 <td rowspan="3" style="width:30%">
                     <span t-field="o.employee_id.company_id" style="color: #888888;text-align: center;"/>
                 </td>
                 <td style="text-align: center;">Matricule:
-                    <span t-field="o.employee_id.registration_number" style="color: #888888;text-align: center;"/>
+                    <span t-foreach="o.worked_days_line_ids" t-as="line" style="color: #888888;"/>
+                    <t t-esc="line.number_of_hours"/>
                 </td>
                 <td style="text-align: center;" colspan="3">Ancienneté:</td>
                 <td style="text-align: center;">N°CNSS:
@@ -52,6 +52,7 @@
                 </td>
             </tr>
         </xpath>
+
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_3']" position="replace">
             <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_line_3'>
                 <td style="text-align: center;">Catégorie:</td>
@@ -70,7 +71,9 @@
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_4']" position="replace">
             <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_line_4'>
                 <td style="text-align: center;">Qualification:</td>
-                <td style="text-align: center;">Horaire:</td>
+                <td style="text-align: center;">Horaire:
+                    <span t-field="o.worked_days_line_ids.number_of_hours" style="color: #888888;text-align: center;"/>
+                </td>
                 <td style="text-align: center;" colspan="2">Salaire de base: (<span class="text-capitalize"
                                                                                     t-out="o.contract_id.wage_type"/>)
                     <span t-out="o.contract_id._get_contract_wage()" style="color: #888888;"/>
@@ -83,7 +86,6 @@
                 </td>
                 <td style="text-align: center;" colspan="3">Nbre déductions:</td>
             </tr>
-
         </xpath>
 
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_4']" position="after">
@@ -106,9 +108,7 @@
                 <td></td>
                 <td style="text-align: center;">Pris</td>
                 <td style="text-align: center;" colspan="3"></td>
-
             </tr>
-
         </xpath>
 
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_6']" position="after">
@@ -118,7 +118,6 @@
                 <td></td>
                 <td style="text-align: center;">Solde</td>
                 <td style="text-align: center;" colspan="3"></td>
-
             </tr>
         </xpath>
 
@@ -143,7 +142,6 @@
                 <td colspan="3">
                     <b>Retenue</b>
                 </td>
-
             </tr>
         </xpath>
 
@@ -151,11 +149,16 @@
             <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_9'>
                 <td colspan="3" style="text-align: left;">Salaire Journalier</td>
                 <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>
+                    <span t-field="o.worked_days_line_ids.number_of_hours" style="color: #888888;"/>
+                </td>
+                <td>
+                    <span t-field="o.employee_id.hourly_cost" style="color: #888888;"/>
+                </td>
+                <td>
+                    <span t-field="o.worked_days_line_ids.amount" style="color: #888888;"/>
+                </td>
                 <td colspan="3"></td>
-
             </tr>
         </xpath>
 
@@ -169,6 +172,7 @@
                 <td colspan="3"></td>
             </tr>
         </xpath>
+
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_10']" position="after">
             <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_11'>
                 <td colspan="3" style="text-align: left;">Jours Férier</td>
@@ -179,6 +183,7 @@
                 <td colspan="3"></td>
             </tr>
         </xpath>
+
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_11']" position="after">
             <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_12'>
                 <td colspan="3" style="text-align: left;">Prime D'ancienneté</td>
@@ -189,9 +194,9 @@
                 <td></td>
                 <td></td>
                 <td colspan="3"></td>
-
             </tr>
         </xpath>
+
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_12']" position="after">
             <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_13'>
                 <td colspan="3" style="text-align: left;">Prime Variable</td>
@@ -200,9 +205,9 @@
                 <td></td>
                 <td></td>
                 <td colspan="3"></td>
-
             </tr>
         </xpath>
+
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_13']" position="after">
             <tr style="border-bottom: 1px solid black; text-align: left;" id='employee_info_14'>
                 <td colspan="3" class="left">Primes Exceptionnelle</td>
@@ -211,9 +216,9 @@
                 <td></td>
                 <td></td>
                 <td colspan="3"></td>
-
             </tr>
         </xpath>
+
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_14']" position="after">
             <tr style="border-bottom: 1px solid black; text-align: left;" id='employee_info_15'>
                 <td colspan="3" class="left">Indemnité De Panier</td>
@@ -226,6 +231,7 @@
                 <td colspan="3"></td>
             </tr>
         </xpath>
+
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_15']" position="after">
             <tr style="border-bottom: 1px solid black; text-align: left;" id='employee_info_16'>
                 <td colspan="3" class="left">Indemnité De Transport</td>
@@ -240,6 +246,7 @@
 
             </tr>
         </xpath>
+
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_16']" position="after">
             <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_17'>
                 <td colspan="3">
@@ -250,9 +257,9 @@
                 <td></td>
                 <td></td>
                 <td colspan="3"></td>
-
             </tr>
         </xpath>
+
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_17']" position="after">
             <tr style="border-bottom: 1px solid black; text-align: left;" id='employee_info_18'>
                 <td colspan="3" class="left">Cotisation CNSS + IPE</td>
@@ -261,9 +268,9 @@
                 <td style="text-align: center;">4.48%</td>
                 <td></td>
                 <td colspan="3"></td>
-
             </tr>
         </xpath>
+
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_18']" position="after">
             <tr style="border-bottom: 1px solid black; text-align: left;" id='employee_info_19'>
                 <td colspan="3" class="left">AMO</td>
@@ -272,9 +279,9 @@
                 <td style="text-align: center;">2.26%</td>
                 <td></td>
                 <td colspan="3"></td>
-
             </tr>
         </xpath>
+
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_19']" position="after">
             <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_20'>
                 <td colspan="3">
@@ -285,9 +292,9 @@
                 <td></td>
                 <td></td>
                 <td colspan="3"></td>
-
             </tr>
         </xpath>
+
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_20']" position="after">
             <tr style="border-bottom: 1px solid black; text-align: left;" id='employee_info_21'>
                 <td colspan="3" class="left">Prélévement IGR</td>
@@ -298,6 +305,7 @@
                 <td colspan="3"></td>
             </tr>
         </xpath>
+
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_21']" position="after">
             <tr style="border-bottom: 1px solid black; text-align: left;" id='employee_info_22'>
                 <td colspan="3" class="left">Gain Net</td>
@@ -308,6 +316,7 @@
                 <td colspan="3"></td>
             </tr>
         </xpath>
+
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_22']" position="after">
             <tr style="border-bottom: 1px solid black; text-align: left;" id='employee_info_23'>
                 <td colspan="3" class="left">Arrodi Du Mois Précédent</td>
@@ -316,9 +325,9 @@
                 <td></td>
                 <td></td>
                 <td colspan="3"></td>
-
             </tr>
         </xpath>
+
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_23']" position="after">
             <tr style="border-bottom: 1px solid black; text-align: left;" id='employee_info_24'>
                 <td colspan="3" class="left">Arrodi Du Mois En Cours</td>
@@ -329,6 +338,7 @@
                 <td colspan="3"></td>
             </tr>
         </xpath>
+
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_24']" position="after">
             <tr style="border-bottom: 1px solid black; text-align: center; background-color: #74E291;
                             color: green;" id='employee_info_25'>
@@ -341,9 +351,9 @@
                 <td>Déd.Charges Familales</td>
                 <td>Jours Travaillés</td>
                 <td colspan="3">Net A Payer</td>
-
             </tr>
         </xpath>
+
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_25']" position="after">
             <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_26'>
                 <td>Période</td>
@@ -354,11 +364,13 @@
                 <td></td>
                 <td></td>
                 <td>
-                    <span t-field="o.worked_days_line_ids.number_of_days" style="color: #888888;"/>
+                    <span t-foreach="o.worked_days_line_ids" t-as="line" style="color: #888888;"/>
+                    <t t-esc="line.number_of_days"/>
                 </td>
                 <td rowspan="2"></td>
             </tr>
         </xpath>
+
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_26']" position="after">
             <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_27'>
                 <td>Année</td>
@@ -372,13 +384,14 @@
             </tr>
         </xpath>
 
-
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_5']" position="attributes">
             <attribute name="style">display: none;</attribute>
         </xpath>
+
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_6']" position="attributes">
             <attribute name="style">display: none;</attribute>
         </xpath>
+
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_7']" position="attributes">
             <attribute name="style">display: none;</attribute>
         </xpath>
@@ -387,11 +400,9 @@
             <attribute name="style">display: none;</attribute>
         </xpath>
 
-
         <xpath expr="//div[@id='total']" position="attributes">
             <attribute name="style">display: none;</attribute>
         </xpath>
-
 
         <xpath expr="//div[@id='to_pay']" position="replace">
             <div id='to_pay'>
@@ -403,8 +414,6 @@
             <t t-set="line_style" t-value="'payslip_custom_paper_report'"/>
         </xpath>
 
-
     </template>
-
 
 </odoo>
