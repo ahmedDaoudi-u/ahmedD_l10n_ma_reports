@@ -124,7 +124,7 @@
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_7']" position="after">
             <tr style="border-bottom: 1px solid black; text-align: center;background-color: #D5F0C1;"
                 id='employee_info_8'>
-                <td colspan="3" class="left">
+                <td colspan="2" class="left">
                     <b>Désignation</b>
                 </td>
                 <td>
@@ -133,13 +133,13 @@
                 <td>
                     <b>Base</b>
                 </td>
-                <td>
+                <td colspan="2">
                     <b>Taux</b>
                 </td>
                 <td>
                     <b>Gain</b>
                 </td>
-                <td colspan="3">
+                <td colspan="2">
                     <b>Retenue</b>
                 </td>
             </tr>
@@ -148,28 +148,26 @@
 
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_8']" position="after">
             <span t-foreach="o.line_ids.filtered(lambda line: line.appears_on_payslip)" t-as="line">
-                <t t-set="line_styling" t-value="line.get_payslip_styling_dict()"/>
-                <t t-set="line_style"/>
-                <t t-set="line_class"/>
-                <t t-if="line.code in line_styling">
-                    <t t-set="line_style" t-value="line_styling[line.code]['line_style']"/>
-                    <t t-set="line_class" t-value="line_styling[line.code]['line_class']"/>
-                </t>
                 <tr t-att-class="line_class" t-att-style="line_style" id="employee_info_9">
-                    <td id="payslip_line_name" colspan="3">
+
+                    <td id="payslip_line_name" colspan="2">
                         <span t-field="line.name"/>
                     </td>
-                    <td id="payslip_line_rate"></td>
+                    
                     <td id="payslip_line_quantity">
                         <span t-if="line.quantity &gt; 1" t-esc="line.quantity"/>
                     </td>
-                    <td id="payslip_line_total" class="text-end">
+
+                    <td id="payslip_line_total" class="text-end" colspan="2">
                         <span t-esc="line.total"
                               t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.company_id.currency_id}"
                               t-att-style="'color:#875A7B;' if line.total &lt; 0 else ''"/>
                     </td>
+
+
                     <td></td>
-                    <td colspan="3"></td>
+                    <td></td>
+                    <td></td>
                 </tr>
             </span>
         </xpath>
