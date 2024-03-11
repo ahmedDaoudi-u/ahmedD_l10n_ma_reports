@@ -12,3 +12,4 @@ class HrPayslip(models.Model):
         String="Paiement Par")
 
     commentaire = fields.Char(String="comment about the employee")
+
