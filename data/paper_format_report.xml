@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-   <record id="payslip_custom_paper_report" model="report.paperformat">
+    <record id="payslip_custom_paper_report" model="report.paperformat">
         <field name="name">Custom Payslip Paper</field>
-        <field name="format">A4Payslip</field>
+        <field name="format">A4</field>
         <field name="orientation">Portrait</field>
         <field name="page_height">0</field>
         <field name="page_width">0</field>
-        <field name="margin_top">0</field>
-        <field name="margin_left">25</field>
-        <field name="margin_right">35</field>
-        <field name="margin_bottom">60</field>
-        <field name="header_spacing">35</field>
+        <field name="margin_top">20</field>
+        <field name="margin_left">8</field>
+        <field name="margin_right">8</field>
+        <field name="margin_bottom">0</field>
+        <field name="header_spacing">0</field>
         <field name="dpi">90</field>
     </record>
+
 </odoo>
 
 

@@ -263,7 +263,8 @@
 
         <xpath expr="//div[@id='to_pay']" position="replace">
             <div id='to_pay'>
-                <p style="text-align :center;">DANS VOTRE INTERET ET POUR VOUS AIDER A FAIRE VALOIR VOS DROITS, CONSERVEZ CE
+                <p style="text-align :center;">DANS VOTRE INTERET ET POUR VOUS AIDER A FAIRE VALOIR VOS DROITS,
+                    CONSERVEZ CE
                     BULLETIN DE PAIE SANS LIMITATION DE DUREE
                 </p>
             </div>
@@ -272,7 +273,8 @@
         <xpath expr="//t[@t-set='line_style']" position="replace">
             <t t-set="line_style" t-value="'payslip_custom_paper_report'"/>
         </xpath>
-
+        <field name="paperformat_id" ref="payslip_custom_paper_report"></field>
     </template>
+
 
 </odoo>
