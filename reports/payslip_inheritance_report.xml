@@ -1,7 +1,8 @@
 <odoo>
     <template id="payslip_template_inherited" inherit_id="hr_payroll.report_payslip">
+
         <xpath expr="//div[@class='page']" position="attributes">
-            <attribute name="style">margin-top: 0px;margin-bottom: 100px;</attribute>
+            <attribute name="style">margin-top: 0px;margin-bottom: 0px;</attribute>
         </xpath>
 
         <xpath expr="//h2[@id='payslip_name']" position="attributes">
@@ -37,8 +38,7 @@
                     <span t-field="o.employee_id.company_id" style="color: #888888;text-align: center;"/>
                 </td>
                 <td style="text-align: center;">Matricule:
-                    <span t-foreach="o.worked_days_line_ids" t-as="line" style="color: #888888;"/>
-                    <t t-esc="line.number_of_hours"/>
+                   <span t-field="o.employee_id.registration_number" style="color: #888888;text-align: center;"/>
                 </td>
                 <td style="text-align: center;" colspan="3">Ancienneté:</td>
                 <td style="text-align: center;">N°CNSS:
@@ -72,10 +72,13 @@
             <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_line_4'>
                 <td style="text-align: center;">Qualification:</td>
                 <td style="text-align: center;">Horaire:
-                    <span t-field="o.worked_days_line_ids.number_of_hours" style="color: #888888;text-align: center;"/>
+                    <span t-field="o.worked_days_line_ids.number_of_hours"
+                          style="color: #888888;text-align: center;"/>
                 </td>
-                <td style="text-align: center;" colspan="2">Salaire de base: (<span class="text-capitalize"
-                                                                                    t-out="o.contract_id.wage_type"/>)
+                <td style="text-align: center;" colspan="2">Salaire de base: (
+                    <span class="text-capitalize"
+                          t-out="o.contract_id.wage_type"/>
+                    )
                     <span t-out="o.contract_id._get_contract_wage()" style="color: #888888;"/>
                 </td>
                 <td style="text-align: center;">Taux horraire:
@@ -91,7 +94,8 @@
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_4']" position="after">
             <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_5'>
                 <td></td>
-                <td style="text-align: center; background-color: #D7E4C0;" colspan="9" class="highlight-cell">Address
+                <td style="text-align: center; background-color: #D7E4C0;" colspan="9" class="highlight-cell">
+                    Address
                     Employe :
                     <span t-field="o.employee_id.address_id" style="color: #888888;text-align: center;"/>
                 </td>
@@ -153,21 +157,30 @@
                     <td id="payslip_line_name" colspan="2">
                         <span t-field="line.name"/>
                     </td>
-                    
+
                     <td id="payslip_line_quantity">
                         <span t-if="line.quantity &gt; 1" t-esc="line.quantity"/>
                     </td>
 
-                    <td id="payslip_line_total" class="text-end" colspan="2">
-                        <span t-esc="line.total"
-                              t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.company_id.currency_id}"
-                              t-att-style="'color:#875A7B;' if line.total &lt; 0 else ''"/>
+                    <td colspan="2"></td>
+                    <td></td>
+
+                    <td id="payslip_line_total" class="text-end">
+                        <t t-if="line.name in ['Basic Salary', 'Kilometric Exemption', 'Transportation Exemption', 'House Rent Allowance', 'Dearness Allowance', 'Meal Allowance','Extra Hours 50%','Seniority']">
+                            <span t-esc="line.total"
+                                  t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.company_id.currency_id}"
+                                  t-att-style="'color:#875A7B;' if line.total &lt; 0 else ''"/>
+                        </t>
                     </td>
 
 
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>
+                        <t t-if="line.name in ['Employee CNSS', 'Job Loss Allowance', 'CIMR', 'Employee AMO','Medical Allowance','Professional Contribution']">
+                            <t t-esc="line.total"
+                               t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.company_id.currency_id}"
+                               t-att-style="'color:#875A7B;' if line.total &lt; 0 else ''"/>
+                        </t>
+                    </td>
                 </tr>
             </span>
         </xpath>
@@ -201,10 +214,14 @@
         </xpath>
 
         <xpath expr="//table[@class='table table-sm']//tr[@id='employee_1']" position="after">
-            <tr style="border-bottom: 1px solid black; text-align: center;
-                            color: green;" id='employee_2'>
+            <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_2'>
                 <td>Période</td>
-                <td></td>
+                <td>
+                    <span t-foreach="o.line_ids.filtered(lambda line: line.appears_on_payslip)" t-as="line"/>
+                    <t t-if="line.name == 'Gross'">
+                        <t t-esc="line.total"/>
+                    </t>
+                </td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -214,7 +231,14 @@
                     <span t-foreach="o.worked_days_line_ids" t-as="line" style="color: #888888;"/>
                     <t t-esc="line.number_of_days"/>
                 </td>
-                <td rowspan="2"></td>
+
+                <td rowspan="2">
+                    <span t-foreach="o.line_ids.filtered(lambda line: line.appears_on_payslip)" t-as="line"/>
+                    <t t-if="line.name == 'Net Salary'">
+                        <t t-esc="line.total"/>
+                    </t>
+                </td>
+
             </tr>
         </xpath>
 
@@ -238,14 +262,17 @@
 
         <xpath expr="//div[@id='to_pay']" position="replace">
             <div id='to_pay'>
-                <h1></h1>
+                <p style="text-align :center;">DANS VOTRE INTERET ET POUR VOUS AIDER A FAIRE VALOIR VOS DROITS,
+                    CONSERVEZ CE
+                    BULLETIN DE PAIE SANS LIMITATION DE DUREE
+                </p>
             </div>
         </xpath>
 
         <xpath expr="//t[@t-set='line_style']" position="replace">
             <t t-set="line_style" t-value="'payslip_custom_paper_report'"/>
         </xpath>
-
     </template>
+
 
 </odoo>

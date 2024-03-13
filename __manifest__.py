@@ -9,7 +9,7 @@
     "data": [
         'security/ir.model.access.csv',
         'reports/payslip_inheritance_report.xml',
-        #'data/paper_format_report.xml',
+        'data/paper_format_report.xml',
         'views/employee_data.xml'
     ],
     "category": "",
