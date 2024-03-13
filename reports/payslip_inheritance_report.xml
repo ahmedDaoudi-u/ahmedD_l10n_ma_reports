@@ -167,7 +167,7 @@
                     <td></td>
 
                     <td id="payslip_line_total" class="text-end">
-                        <t t-if="line.name in ['Basic Salary', 'Kilometric Exemption', 'Transportation Exemption', 'House Rent Allowance', 'Dearness Allowance', 'Meal Allowance']">
+                        <t t-if="line.name in ['Basic Salary', 'Kilometric Exemption', 'Transportation Exemption', 'House Rent Allowance', 'Dearness Allowance', 'Meal Allowance','Extra Hours 50%','Seniority']">
                             <span t-esc="line.total"
                                   t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.company_id.currency_id}"
                                   t-att-style="'color:#875A7B;' if line.total &lt; 0 else ''"/>
@@ -273,7 +273,6 @@
         <xpath expr="//t[@t-set='line_style']" position="replace">
             <t t-set="line_style" t-value="'payslip_custom_paper_report'"/>
         </xpath>
-        <field name="paperformat_id" ref="payslip_custom_paper_report"></field>
     </template>
 
 
