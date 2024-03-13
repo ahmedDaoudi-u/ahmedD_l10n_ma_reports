@@ -38,8 +38,7 @@
                     <span t-field="o.employee_id.company_id" style="color: #888888;text-align: center;"/>
                 </td>
                 <td style="text-align: center;">Matricule:
-                    <span t-foreach="o.worked_days_line_ids" t-as="line" style="color: #888888;"/>
-                    <t t-esc="line.number_of_hours"/>
+                   <span t-field="o.employee_id.registration_number" style="color: #888888;text-align: center;"/>
                 </td>
                 <td style="text-align: center;" colspan="3">Ancienneté:</td>
                 <td style="text-align: center;">N°CNSS:
