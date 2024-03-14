@@ -1,5 +1,6 @@
 from odoo import models, fields, api
-
+from dateutil.relativedelta import relativedelta
+from datetime import datetime
 
 class HrPayslip(models.Model):
     _inherit = ['hr.payslip']
@@ -12,4 +13,5 @@ class HrPayslip(models.Model):
         String="Paiement Par")
 
     commentaire = fields.Char(String="comment about the employee")
+
 

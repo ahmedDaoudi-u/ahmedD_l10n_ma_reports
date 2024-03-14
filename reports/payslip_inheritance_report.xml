@@ -41,9 +41,18 @@
                     <span t-field="o.employee_id.company_id" style="color: #888888;text-align: center;"/>
                 </td>
                 <td style="text-align: center;">Matricule:
-                   <span t-field="o.employee_id.registration_number" style="color: #888888;text-align: center;"/>
+                    <span t-field="o.employee_id.registration_number" style="color: #888888;text-align: center;"/>
                 </td>
-                <td style="text-align: center;" colspan="3">Ancienneté:</td>
+
+                <td style="text-align: center;" colspan="3">Ancienneté:
+                    <span t-set="duration" t-value="o.date_to - o.contract_id.date_start"/>
+                    <t t-set="ans" t-value="duration.days//365"/>
+                    <t t-set="mois" t-value="(duration.days % 365) // 30"/>
+                    <t t-set="jours" t-value="(duration.days % 365) % 30"/>
+                    <span t-esc="'{} ans, {} mois, et {} jours'.format(ans, mois, jours)"
+                          style="color: #888888;text-align: center;"/>
+                </td>
+
                 <td style="text-align: center;">N°CNSS:
                     <span t-field="o.employee_id.l10n_ma_cin_number" style="color: #888888;text-align: center;"/>
                 </td>
@@ -110,7 +119,9 @@
                 <td style="text-align: center;" rowspan="2" colspan="2">Commentaire:
                     <span t-field="o.commentaire" style="color: #888888;"/>
                 </td>
-                <td style="text-align: center;" colspan="1">Congés</td>
+                <td style="text-align: center;" colspan="1">Congés :
+                    <span t-field="o.holiday_id.duration_display" t-as="line" style="color: #888888;"/>
+                </td>
                 <td style="text-align: center;" colspan="2">Répliquat n-1</td>
                 <td></td>
                 <td style="text-align: center;">Pris</td>
@@ -201,9 +212,10 @@
             <attribute name="style">display: none;</attribute>
         </xpath>
 
+
         <xpath expr="//table[@class='table table-sm']//tr" position="replace">
             <tr style="border-bottom: 1px solid black; text-align: center; background-color: #74E291;
-                            color: green;" id='employee_1'>
+                           color: green;" id='employee_1'>
                 <td></td>
                 <td>Brut Imposable</td>
                 <td>Net Imposable</td>
@@ -271,6 +283,7 @@
                 </p>
             </div>
         </xpath>
+
 
         <xpath expr="//t[@t-set='line_style']" position="replace">
             <t t-set="line_style" t-value="'payslip_custom_paper_report'"/>
