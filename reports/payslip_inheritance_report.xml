@@ -22,7 +22,7 @@
                     <th colspan="2" style="text-align: center;">Période du:
                         <span t-field="o.date_from" style="color: #888888;"/>
                     </th>
-                    <th style="text-align: center;">au:
+                    <th style="text-align: center;">Au:
                         <span t-field="o.date_to" style="color: #888888;"/>
                     </th>
                     <th colspan="2" style="text-align: center;">Paiement le:
@@ -120,9 +120,11 @@
                     <span t-field="o.commentaire" style="color: #888888;"/>
                 </td>
                 <td style="text-align: center;" colspan="1">Congés</td>
-                <td style="text-align: center;" colspan="2">Répliquat n-1</td>
+                <td style="text-align: center;" colspan="2">Réliquat n-1</td>
                 <td></td>
-                <td style="text-align: center;">Pris</td>
+                <td style="text-align: center;">Pris
+                    <span t-field="o.employee_id.leaves_count" style="color: #888888;"/>
+                </td>
                 <td style="text-align: center;" colspan="3"></td>
             </tr>
         </xpath>
@@ -130,9 +132,14 @@
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_6']" position="after">
             <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_7'>
                 <td style="text-align: center;" colspan="1"></td>
-                <td style="text-align: center;" colspan="2">Droit</td>
+                <td style="text-align: center;" colspan="2">Droit
+                    <span t-field="o.employee_id.allocation_count" style="color: #888888;"/>
+                </td>
+
                 <td></td>
-                <td style="text-align: center;">Solde</td>
+                <td style="text-align: center;">Solde
+                    <span t-field="o.employee_id.allocation_remaining_display" style="color: #888888;"/>
+                </td>
                 <td style="text-align: center;" colspan="3"></td>
             </tr>
         </xpath>
