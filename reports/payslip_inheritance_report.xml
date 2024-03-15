@@ -119,30 +119,36 @@
                 <td style="text-align: center;" rowspan="2" colspan="2">Commentaire:
                     <span t-field="o.commentaire" style="color: #888888;"/>
                 </td>
-                <td style="text-align: center;" colspan="1">Congés</td>
-                <td style="text-align: center;" colspan="2">Réliquat n-1</td>
-                <td></td>
+                <td style="text-align: center;" colspan="1" rowspan="2">Congés</td>
+                <td style="text-align: center;" colspan="1">Réliquat n-1</td>
+                <td colspan="2"></td>
                 <td style="text-align: center;">Pris
-                    <span t-field="o.employee_id.leaves_count" style="color: #888888;"/>
+
                 </td>
-                <td style="text-align: center;" colspan="3"></td>
+                <td style="text-align: center;" colspan="1">
+                    <span t-esc="float(o.employee_id.allocation_count) - float(o.employee_id.allocation_remaining_display)"
+                          style="color: #888888;"/>
+                </td>
             </tr>
         </xpath>
 
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_6']" position="after">
             <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_7'>
-                <td style="text-align: center;" colspan="1"></td>
-                <td style="text-align: center;" colspan="2">Droit
-                    <span t-field="o.employee_id.allocation_count" style="color: #888888;"/>
+                <td style="text-align: center;" colspan="1">Droit
+
                 </td>
 
-                <td></td>
+                <td colspan="2">
+                    <span t-field="o.employee_id.allocation_count" style="color: #888888;"/>
+                </td>
                 <td style="text-align: center;">Solde
+                </td>
+                <td style="text-align: center;" colspan="1">
                     <span t-field="o.employee_id.allocation_remaining_display" style="color: #888888;"/>
                 </td>
-                <td style="text-align: center;" colspan="3"></td>
             </tr>
         </xpath>
+
 
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_7']" position="after">
             <tr style="border-bottom: 1px solid black; text-align: center;background-color: #D5F0C1;"
@@ -185,7 +191,7 @@
                     <td></td>
 
                     <td id="payslip_line_total" class="text-end">
-                        <t t-if="line.name in ['Basic Salary', 'Kilometric Exemption', 'Transportation Exemption', 'House Rent Allowance', 'Dearness Allowance', 'Meal Allowance','Extra Hours 50%','Seniority','Gross']">
+                        <t t-if="line.name in ['Basic Salary', 'Kilometric Exemption', 'Transportation Exemption', 'House Rent Allowance', 'Dearness Allowance', 'Meal Allowance','Extra Hours 50%','Seniority','Gross','Medical Allowance']">
                             <span t-esc="line.total"
                                   t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.company_id.currency_id}"
                                   t-att-style="'color:#875A7B;' if line.total &lt; 0 else ''"/>
@@ -194,7 +200,7 @@
 
 
                     <td>
-                        <t t-if="line.name in ['Employee CNSS', 'Job Loss Allowance', 'CIMR', 'Employee AMO','Professional Contribution','Net Salary','Medical Allowance','Social Contribution']">
+                        <t t-if="line.name in ['Employee CNSS', 'Job Loss Allowance', 'CIMR', 'Employee AMO','Professional Contribution','Net Salary','Social Contribution']">
                             <t t-esc="line.total"
                                t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.company_id.currency_id}"
                                t-att-style="'color:#875A7B;' if line.total &lt; 0 else ''"/>
