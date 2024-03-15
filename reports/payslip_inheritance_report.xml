@@ -119,9 +119,7 @@
                 <td style="text-align: center;" rowspan="2" colspan="2">Commentaire:
                     <span t-field="o.commentaire" style="color: #888888;"/>
                 </td>
-                <td style="text-align: center;" colspan="1">Congés :
-                    <span t-field="o.holiday_id.duration_display" t-as="line" style="color: #888888;"/>
-                </td>
+                <td style="text-align: center;" colspan="1">Congés</td>
                 <td style="text-align: center;" colspan="2">Répliquat n-1</td>
                 <td></td>
                 <td style="text-align: center;">Pris</td>
@@ -180,7 +178,7 @@
                     <td></td>
 
                     <td id="payslip_line_total" class="text-end">
-                        <t t-if="line.name in ['Basic Salary', 'Kilometric Exemption', 'Transportation Exemption', 'House Rent Allowance', 'Dearness Allowance', 'Meal Allowance','Extra Hours 50%','Seniority']">
+                        <t t-if="line.name in ['Basic Salary', 'Kilometric Exemption', 'Transportation Exemption', 'House Rent Allowance', 'Dearness Allowance', 'Meal Allowance','Extra Hours 50%','Seniority','Medical Allowance','Gross']">
                             <span t-esc="line.total"
                                   t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.company_id.currency_id}"
                                   t-att-style="'color:#875A7B;' if line.total &lt; 0 else ''"/>
@@ -189,7 +187,7 @@
 
 
                     <td>
-                        <t t-if="line.name in ['Employee CNSS', 'Job Loss Allowance', 'CIMR', 'Employee AMO','Medical Allowance','Professional Contribution']">
+                        <t t-if="line.name in ['Employee CNSS', 'Job Loss Allowance', 'CIMR', 'Employee AMO','Professional Contribution','Net Salary']">
                             <t t-esc="line.total"
                                t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.company_id.currency_id}"
                                t-att-style="'color:#875A7B;' if line.total &lt; 0 else ''"/>
@@ -277,7 +275,8 @@
 
         <xpath expr="//div[@id='to_pay']" position="replace">
             <div id='to_pay'>
-                <p style="text-align :center;">DANS VOTRE INTERET ET POUR VOUS AIDER A FAIRE VALOIR VOS DROITS,
+                <p style="text-align :center; margin-top:20 px;">DANS VOTRE INTERET ET POUR VOUS AIDER A FAIRE VALOIR
+                    VOS DROITS,
                     CONSERVEZ CE
                     BULLETIN DE PAIE SANS LIMITATION DE DUREE
                 </p>
