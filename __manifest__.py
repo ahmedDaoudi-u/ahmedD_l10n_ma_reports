@@ -14,7 +14,7 @@
         'views/custom_employee_data.xml'
     ],
     "category": "",
-    "depends": ['l10n_ma_hr_payroll','hr_payroll', 'l10n_ma'],
+    "depends": ['l10n_ma_hr_payroll','hr_payroll', 'l10n_ma','hr_holidays'],
     "installable": True,
     "application": True,
     "license": "LGPL-3"
