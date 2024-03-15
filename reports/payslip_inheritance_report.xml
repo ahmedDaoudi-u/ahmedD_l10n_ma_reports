@@ -178,7 +178,7 @@
                     <td></td>
 
                     <td id="payslip_line_total" class="text-end">
-                        <t t-if="line.name in ['Basic Salary', 'Kilometric Exemption', 'Transportation Exemption', 'House Rent Allowance', 'Dearness Allowance', 'Meal Allowance','Extra Hours 50%','Seniority','Medical Allowance','Gross']">
+                        <t t-if="line.name in ['Basic Salary', 'Kilometric Exemption', 'Transportation Exemption', 'House Rent Allowance', 'Dearness Allowance', 'Meal Allowance','Extra Hours 50%','Seniority','Gross']">
                             <span t-esc="line.total"
                                   t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.company_id.currency_id}"
                                   t-att-style="'color:#875A7B;' if line.total &lt; 0 else ''"/>
@@ -187,7 +187,7 @@
 
 
                     <td>
-                        <t t-if="line.name in ['Employee CNSS', 'Job Loss Allowance', 'CIMR', 'Employee AMO','Professional Contribution','Net Salary']">
+                        <t t-if="line.name in ['Employee CNSS', 'Job Loss Allowance', 'CIMR', 'Employee AMO','Professional Contribution','Net Salary','Medical Allowance','Social Contribution']">
                             <t t-esc="line.total"
                                t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.company_id.currency_id}"
                                t-att-style="'color:#875A7B;' if line.total &lt; 0 else ''"/>
