@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_employee_data_payment_type" model="ir.ui.view">
+            <field name="name">hr.leave.accrual.plan</field>
+            <field name="model">hr.leave.accrual.plan</field>
+            <field name="inherit_id" ref="hr_holidays.hr_accrual_plan_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='company_id']" position="before">
+                    <field name="reliquat"/>
+                </xpath>
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="droit"/>
+                </xpath>
+            </field>
+        </record>
+</odoo>

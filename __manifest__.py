@@ -11,7 +11,8 @@
         'security/ir.model.access.csv',
         'reports/payslip_inheritance_report.xml',
         'data/paper_format_report.xml',
-        'views/custom_employee_data.xml'
+        'views/custom_employee_data.xml',
+        "views/custom_time_off.xml"
     ],
     "category": "",
     "depends": ['l10n_ma_hr_payroll','hr_payroll', 'l10n_ma','hr_holidays'],
