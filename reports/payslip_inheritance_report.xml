@@ -120,32 +120,32 @@
                     <span t-field="o.commentaire" style="color: #888888;"/>
                 </td>
                 <td style="text-align: center;" colspan="1" rowspan="2">Congés</td>
+
                 <td style="text-align: center;" colspan="1">Réliquat n-1</td>
                 <td colspan="2"></td>
-                <td style="text-align: center;">Pris
 
-                </td>
+                <td style="text-align: center;">Pris</td>
                 <td style="text-align: center;" colspan="1">
                     <span t-esc="float(o.employee_id.allocation_count) - float(o.employee_id.allocation_remaining_display)"
                           style="color: #888888;"/>
                 </td>
+
             </tr>
         </xpath>
 
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_6']" position="after">
             <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_7'>
-                <td style="text-align: center;" colspan="1">Droit
 
-                </td>
-
+                <td style="text-align: center;" colspan="1">Droit</td>
                 <td colspan="2">
                     <span t-field="o.employee_id.allocation_count" style="color: #888888;"/>
                 </td>
-                <td style="text-align: center;">Solde
-                </td>
+
+                <td style="text-align: center;">Solde</td>
                 <td style="text-align: center;" colspan="1">
                     <span t-field="o.employee_id.allocation_remaining_display" style="color: #888888;"/>
                 </td>
+
             </tr>
         </xpath>
 
