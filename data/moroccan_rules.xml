@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data>
+
+         <record id="l10n_ma_hr_rule_extra_hours_25" model="hr.salary.rule">
+            <field name="name">Salaire Congé</field>
+            <field name="code">SC</field>
+            <field name="sequence">2</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = 'SC' in inputs</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = inputs['SC'].amount</field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+
+        <record id="l10n_ma_hr_rule_extra_hours_25" model="hr.salary.rule">
+            <field name="name">Salaire De Base</field>
+            <field name="code">SB</field>
+            <field name="sequence">1</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = 'SB' in inputs</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = inputs['SB'].amount</field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+
+        <record id="l10n_ma_hr_rule_extra_hours_100" model="hr.salary.rule">
+            <field name="name">Heures Normales</field>
+            <field name="code">HN</field>
+            <field name="sequence">3</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python"></field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute"></field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+
+        <record id="l10n_ma_hr_rule_extra_hours_25" model="hr.salary.rule">
+            <field name="name">Heures Supplémentaires 25%</field>
+            <field name="code">EXTRA_HOURS_25</field>
+            <field name="sequence">4</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = 'EXTRA_HOURS_25' in inputs</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = inputs['EXTRA_HOURS_25'].amount</field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+
+        <record id="l10n_ma_hr_rule_extra_hours_50" model="hr.salary.rule">
+            <field name="name">Heures Supplémentaires 50%</field>
+            <field name="code">EXTRA_HOURS_50</field>
+            <field name="sequence">5</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = 'EXTRA_HOURS_50' in inputs</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = inputs['EXTRA_HOURS_50'].amount</field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+
+        <record id="l10n_ma_hr_rule_extra_hours_100" model="hr.salary.rule">
+            <field name="name">Heures Supplémentaires 100%</field>
+            <field name="code">EXTRA_HOURS_100</field>
+            <field name="sequence">6</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = 'EXTRA_HOURS_100' in inputs</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = inputs['EXTRA_HOURS_100'].amount</field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+
+        <record id="l10n_ma_hr_rule_extra_hours_25" model="hr.salary.rule">
+            <field name="name">Jours Fériès</field>
+            <field name="code">JF</field>
+            <field name="sequence">7</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python"></field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute"></field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+
+        <record id="l10n_ma_hr_rule_extra_hours_25" model="hr.salary.rule">
+            <field name="name">Crédit Logement</field>
+            <field name="code">CL</field>
+            <field name="sequence">8</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python"></field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute"></field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+
+        <record id="l10n_ma_hr_rule_extra_hours_25" model="hr.salary.rule">
+            <field name="name">Prime de Responsabilité</field>
+            <field name="code">PR</field>
+            <field name="sequence">9</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python"></field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute"></field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+
+        <record id="l10n_ma_hr_rule_extra_hours_25" model="hr.salary.rule">
+            <field name="name">Prime de Production</field>
+            <field name="code">PP</field>
+            <field name="sequence">10</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python"></field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute"></field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+
+        <record id="l10n_ma_hr_rule_extra_hours_25" model="hr.salary.rule">
+            <field name="name">Acompte</field>
+            <field name="code">Aco</field>
+            <field name="sequence">11</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python"></field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute"></field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+
+
+    </data>
+
+
+</odoo>

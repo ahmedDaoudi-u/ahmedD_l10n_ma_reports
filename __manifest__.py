@@ -13,7 +13,9 @@
         'data/paper_format_report.xml',
         'views/custom_employee_data.xml',
         "views/custom_time_off.xml",
-        "data/moroccan_structure.xml"
+        "data/moroccan_structure.xml",
+        "data/moroccan_rules.xml",
+        "data/category_data.xml"
     ],
     "category": "",
     "depends": ['l10n_ma_hr_payroll','hr_payroll', 'l10n_ma','hr_holidays'],
