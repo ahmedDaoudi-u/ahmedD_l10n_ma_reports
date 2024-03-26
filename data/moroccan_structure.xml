@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record id="hr_payroll_salary_ma_structure_reference" model="hr.payroll.structure">
+            <field name="code">MAR</field>
+            <field name="name">Moroccan Payroll Structure Reference</field>
+            <field name="type_id" ref="l10n_ma_hr_payroll.structure_type_employee_mar"/>
+            <field name="country_id" ref="base.ma"/>
+        </record>
+
+    </data>
+</odoo>
