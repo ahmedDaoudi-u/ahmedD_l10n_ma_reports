@@ -162,7 +162,7 @@
 
         <record id="Prime_de_panier" model="hr.salary.rule">
             <field name="name">Prime De Panier</field>
-            <field name="code">PrimeRepre</field>
+            <field name="code">PrimePanier</field>
             <field name="sequence">14</field>
             <field name="category_id" ref="hr_payroll.ALW"/>
             <field name="condition_select">python</field>
@@ -173,8 +173,20 @@
         </record>
 
         <record id="Rappel" model="hr.salary.rule">
-            <field name="name">Acompte</field>
-            <field name="code">PrimeRepre</field>
+            <field name="name">Rappel</field>
+            <field name="code">rappel</field>
+            <field name="sequence">15</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python"></field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute"></field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+
+        <record id="primes_divers" model="hr.salary.rule">
+            <field name="name">Prime Divers</field>
+            <field name="code">PrimeDiv</field>
             <field name="sequence">16</field>
             <field name="category_id" ref="hr_payroll.ALW"/>
             <field name="condition_select">python</field>
@@ -183,6 +195,74 @@
             <field name="amount_python_compute"></field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
+
+        <record id="Indemnité_lait" model="hr.salary.rule">
+            <field name="name">Indemnité De Lait</field>
+            <field name="code">IndemniteLait</field>
+            <field name="sequence">17</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python"></field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute"></field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+        <record id="Indemnité_licencieument" model="hr.salary.rule">
+            <field name="name">Indemnité De Licenciement</field>
+            <field name="code">rappel</field>
+            <field name="sequence">12</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python"></field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute"></field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+        <record id="Rappel" model="hr.salary.rule">
+            <field name="name">Rappel</field>
+            <field name="code">rappel</field>
+            <field name="sequence">15</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python"></field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute"></field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+        <record id="Rappel" model="hr.salary.rule">
+            <field name="name">Rappel</field>
+            <field name="code">rappel</field>
+            <field name="sequence">15</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python"></field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute"></field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+        <record id="Rappel" model="hr.salary.rule">
+            <field name="name">Rappel</field>
+            <field name="code">rappel</field>
+            <field name="sequence">15</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python"></field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute"></field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+        <record id="Rappel" model="hr.salary.rule">
+            <field name="name">Rappel</field>
+            <field name="code">rappel</field>
+            <field name="sequence">15</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python"></field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute"></field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+
 
     </data>
 
