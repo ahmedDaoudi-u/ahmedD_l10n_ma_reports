@@ -387,9 +387,9 @@
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
 
-        <record id="salaire_net_imposable" model="hr.salary.rule">
-            <field name="name">Salaire Net Imposable</field>
-            <field name="code">SNI</field>
+        <record id="Ir_brut" model="hr.salary.rule">
+            <field name="name">IR Brut</field>
+            <field name="code">IR_B</field>
             <field name="sequence">63</field>
             <field name="category_id" ref="hr_payroll.ALW"/>
             <field name="condition_select">python</field>
@@ -399,8 +399,7 @@
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
 
-
-
+        
 
     </data>
 
