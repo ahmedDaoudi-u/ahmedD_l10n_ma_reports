@@ -266,6 +266,32 @@
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
 
+        <record id="Prime_anciennté" model="hr.salary.rule">
+            <field name="name">Prime D'ancienneté</field>
+            <field name="code">PrimeAncien</field>
+            <field name="sequence">22</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python"></field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute"></field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+
+        <record id="Prime_anciennté" model="hr.salary.rule">
+            <field name="name">Prime D'ancienneté</field>
+            <field name="code">PrimeAncien</field>
+            <field name="sequence">22</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python"></field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute"></field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+
+
+
     </data>
 
 </odoo>
