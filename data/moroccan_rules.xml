@@ -268,7 +268,7 @@
 
         <record id="igr" model="hr.salary.rule">
             <field name="name">Prélevement IGR</field>
-            <field name="code">igr</field>
+            <field name="code">IGR</field>
             <field name="sequence">23</field>
             <field name="category_id" ref="hr_payroll.ALW"/>
             <field name="condition_select">python</field>
@@ -280,7 +280,7 @@
 
         <record id="cnss" model="hr.salary.rule">
             <field name="name">Cotisation CNSS</field>
-            <field name="code">cnss</field>
+            <field name="code">CNSS</field>
             <field name="sequence">24</field>
             <field name="category_id" ref="hr_payroll.ALW"/>
             <field name="condition_select">python</field>
@@ -292,7 +292,7 @@
 
         <record id="AMO" model="hr.salary.rule">
             <field name="name">AMO</field>
-            <field name="code">amo</field>
+            <field name="code">AMO</field>
             <field name="sequence">25</field>
             <field name="category_id" ref="hr_payroll.ALW"/>
             <field name="condition_select">python</field>
@@ -304,7 +304,7 @@
 
         <record id="cimr" model="hr.salary.rule">
             <field name="name">Cotisation Retraite</field>
-            <field name="code">cimr</field>
+            <field name="code">CIMR</field>
             <field name="sequence">26</field>
             <field name="category_id" ref="hr_payroll.ALW"/>
             <field name="condition_select">python</field>
@@ -316,7 +316,7 @@
 
         <record id="Contribution_sociale" model="hr.salary.rule">
             <field name="name">Contribution Sociale De Solidarité</field>
-            <field name="code">contrubSoc</field>
+            <field name="code">ContruSoc</field>
             <field name="sequence">27</field>
             <field name="category_id" ref="hr_payroll.ALW"/>
             <field name="condition_select">python</field>
@@ -399,7 +399,7 @@
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
 
-        
+
 
     </data>
 
