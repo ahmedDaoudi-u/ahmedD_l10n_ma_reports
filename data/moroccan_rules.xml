@@ -266,10 +266,10 @@
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
 
-        <record id="Prime_anciennté" model="hr.salary.rule">
-            <field name="name">Prime D'ancienneté</field>
-            <field name="code">PrimeAncien</field>
-            <field name="sequence">22</field>
+        <record id="igr" model="hr.salary.rule">
+            <field name="name">Prélevement IGR</field>
+            <field name="code">igr</field>
+            <field name="sequence">23</field>
             <field name="category_id" ref="hr_payroll.ALW"/>
             <field name="condition_select">python</field>
             <field name="condition_python"></field>
@@ -278,10 +278,10 @@
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
 
-        <record id="Prime_anciennté" model="hr.salary.rule">
-            <field name="name">Prime D'ancienneté</field>
-            <field name="code">PrimeAncien</field>
-            <field name="sequence">22</field>
+        <record id="cnss" model="hr.salary.rule">
+            <field name="name">Cotisation CNSS</field>
+            <field name="code">cnss</field>
+            <field name="sequence">24</field>
             <field name="category_id" ref="hr_payroll.ALW"/>
             <field name="condition_select">python</field>
             <field name="condition_python"></field>
@@ -289,6 +289,116 @@
             <field name="amount_python_compute"></field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
+
+        <record id="AMO" model="hr.salary.rule">
+            <field name="name">AMO</field>
+            <field name="code">amo</field>
+            <field name="sequence">25</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python"></field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute"></field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+
+        <record id="cimr" model="hr.salary.rule">
+            <field name="name">Cotisation Retraite</field>
+            <field name="code">cimr</field>
+            <field name="sequence">26</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python"></field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute"></field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+
+        <record id="Contribution_sociale" model="hr.salary.rule">
+            <field name="name">Contribution Sociale De Solidarité</field>
+            <field name="code">contrubSoc</field>
+            <field name="sequence">27</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python"></field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute"></field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+
+        <record id="Accompte_sur_paie" model="hr.salary.rule">
+            <field name="name">Accompte Sur Paie</field>
+            <field name="code">PrimeAncien</field>
+            <field name="sequence">28</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python"></field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute"></field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+
+        <record id="salaire_net" model="hr.salary.rule">
+            <field name="name">Salaire Net</field>
+            <field name="code">SalNet</field>
+            <field name="sequence">29</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python"></field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute"></field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+
+
+        <record id="salaire_brut_global" model="hr.salary.rule">
+            <field name="name">Salaire Brut Global</field>
+            <field name="code">SBG</field>
+            <field name="sequence">60</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python"></field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute"></field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+
+        <record id="salaire_brut_imposbale" model="hr.salary.rule">
+            <field name="name">Salaire Brut Imposable</field>
+            <field name="code">SBI</field>
+            <field name="sequence">61</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python"></field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute"></field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+
+        <record id="salaire_net_imposable" model="hr.salary.rule">
+            <field name="name">Salaire Net Imposable</field>
+            <field name="code">SNI</field>
+            <field name="sequence">62</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python"></field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute"></field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+
+        <record id="salaire_net_imposable" model="hr.salary.rule">
+            <field name="name">Salaire Net Imposable</field>
+            <field name="code">SNI</field>
+            <field name="sequence">63</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python"></field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute"></field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+
 
 
 
