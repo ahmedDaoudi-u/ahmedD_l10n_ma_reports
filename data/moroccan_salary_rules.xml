@@ -40,7 +40,7 @@
         </record>
 
 
-        <!-- l'impot sur le revenue Mensuel -->
+        <!-- impot  Mensuel sur le revenue -->
          <record id="Impot_sur_le_revenue_mensuel" model="hr.rule.parameter">
             <field name="name">Impot Sur Le Revenue Mensuel</field>
             <field name="code">impot_revenue_code_mensuel</field>
@@ -60,7 +60,7 @@
         </record>
 
 
-        <!-- impot Mensuel sur le revenue  -->
+        <!-- impot annuel sur le revenue  -->
          <record id="Impot_sur_le_revenue_annuel" model="hr.rule.parameter">
             <field name="name">Impot Sur Le Revenue Annuel</field>
             <field name="code">impot_revenue_code_annuel</field>
@@ -96,7 +96,7 @@
             <field name="date_from" eval="datetime(2024, 1, 1).date()"/>
         </record>
 
-
+        <!-- max frais Professionel Mensuel -->
         <record id="max_frais_pro_mensuel" model="hr.rule.parameter">
             <field name="name">Max Frais Professionel Mensuel</field>
             <field name="code">max_frais_pro_mensuel</field>
@@ -124,7 +124,7 @@
             <field name="date_from" eval="datetime(2024, 1, 1).date()"/>
         </record>
 
-
+        <!-- max frais professioanl annuel -->
         <record id="max_frais_pro_annuel" model="hr.rule.parameter">
             <field name="name">Max Frais Professionel Annuel</field>
             <field name="code">max_frais_pro_annuel</field>
@@ -135,6 +135,13 @@
             <field name="rule_parameter_id" ref="max_frais_pro_annuel"/>
             <field name="date_from" eval="datetime(2024, 1, 1).date()"/>
         </record>
+
+
+        <!-- cotisation CNSS employe-->
+        <!-- max cotisation CNSS employe-->
+        <!-- cotisation AMO employe-->
+        <!-- cotisation sociale  -->
+        <!-- Costisation de retrait -->
 
 
     </data>
