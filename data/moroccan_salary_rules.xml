@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data>
+
+        <!-- le calcul fait pour la prime d'ancienneté -->
+        <record id="parametre_anciennete" model="hr.rule.parameter">
+            <field name="name">Ancienneté</field>
+            <field name="code">anciennte_maroc</field>
+            <field name="country_id" ref="base.ma"/>
+        </record>
+        <record id="parametre_anciennete_valeur" model="hr.rule.parameter.value">
+            <field name="parameter_value">[
+                ( 0, 2, 0),
+                ( 2, 5, 0.05),
+                ( 5, 12, 0.10),
+                (12, 15, 0.15),
+                (15, 25, 0.20),
+                (25,100, 0.25),
+            ]</field>
+            <field name="rule_parameter_id" ref="parametre_anciennete"/>
+            <field name="date_from" eval="datetime(2024, 1, 1).date()"/>
+        </record>
+
+         <!-- le calcul fait pour la prime de licenciement -->
+         <record id="licenciement" model="hr.rule.parameter">
+            <field name="name">Licenciement</field>
+            <field name="code">licenciement</field>
+            <field name="country_id" ref="base.ma"/>
+        </record>
+        <record id="licenciement_valeur" model="hr.rule.parameter.value">
+            <field name="parameter_value">[
+                ( 0, 5, 96),
+                ( 6, 10, 144),
+                ( 11, 15, 192),
+                (15,100, 240),
+            ]</field>
+            <field name="rule_parameter_id" ref="licenciement"/>
+            <field name="date_from" eval="datetime(2024, 1, 1).date()"/>
+        </record>
+
+
+    </data>
+
+
+</odoo>
