@@ -3,7 +3,7 @@
 <odoo>
     <data>
 
-        <!-- le calcul fait pour la prime d'ancienneté -->
+        <!-- prime d'ancienneté -->
         <record id="parametre_anciennete" model="hr.rule.parameter">
             <field name="name">Ancienneté</field>
             <field name="code">anciennte_maroc</field>
@@ -14,15 +14,15 @@
                 ( 0, 2, 0),
                 ( 2, 5, 0.05),
                 ( 5, 12, 0.10),
-                (12, 15, 0.15),
-                (15, 25, 0.20),
+                (12, 20, 0.15),
+                (20, 25, 0.20),
                 (25,100, 0.25),
             ]</field>
             <field name="rule_parameter_id" ref="parametre_anciennete"/>
             <field name="date_from" eval="datetime(2024, 1, 1).date()"/>
         </record>
 
-         <!-- le calcul fait pour la prime de licenciement -->
+         <!-- prime de licenciement -->
          <record id="licenciement" model="hr.rule.parameter">
             <field name="name">Licenciement</field>
             <field name="code">licenciement</field>
@@ -36,6 +36,103 @@
                 (15,100, 240),
             ]</field>
             <field name="rule_parameter_id" ref="licenciement"/>
+            <field name="date_from" eval="datetime(2024, 1, 1).date()"/>
+        </record>
+
+
+        <!-- l'impot sur le revenue Mensuel -->
+         <record id="Impot_sur_le_revenue_mensuel" model="hr.rule.parameter">
+            <field name="name">Impot Sur Le Revenue Mensuel</field>
+            <field name="code">impot_revenue_code_mensuel</field>
+            <field name="country_id" ref="base.ma"/>
+        </record>
+        <record id="Impot_sur_le_revenue_mensuel_valeur" model="hr.rule.parameter.value">
+            <field name="parameter_value">[
+                (      2500.00,  0,    0.00),
+                (      4166.67, 10,  250.00),
+                (      5000.00, 20,  666.67),
+                (      6666.67, 30, 1166.67),
+                (     15000.00, 34, 1433.33),
+                (100000000000000.00, 38, 2033.00),
+            ]</field>
+            <field name="rule_parameter_id" ref="Impot_sur_le_revenue_mensuel"/>
+            <field name="date_from" eval="datetime(2024, 1, 1).date()"/>
+        </record>
+
+
+        <!-- impot Mensuel sur le revenue  -->
+         <record id="Impot_sur_le_revenue_annuel" model="hr.rule.parameter">
+            <field name="name">Impot Sur Le Revenue Annuel</field>
+            <field name="code">impot_revenue_code_annuel</field>
+            <field name="country_id" ref="base.ma"/>
+        </record>
+        <record id="Impot_sur_le_revenue_annuel_valeur" model="hr.rule.parameter.value">
+            <field name="parameter_value">[
+                (      30000.00,  0,    0.00),
+                (      50000.00, 10,  3000.00),
+                (      60000.00, 20,  8000.00),
+                (      80000.00, 30, 14000.00),
+                (     180000.00, 34, 17200.00),
+                (1000000000000000.00, 38, 24400.00),
+            ]</field>
+            <field name="rule_parameter_id" ref="Impot_sur_le_revenue_annuel"/>
+            <field name="date_from" eval="datetime(2024, 1, 1).date()"/>
+        </record>
+
+
+
+        <!-- frais Professionel Mensuel -->
+         <record id="Frais_Professionel_mensuel" model="hr.rule.parameter">
+            <field name="name">Frais Professionel Mensuel</field>
+            <field name="code">frais_pro_mensuel</field>
+            <field name="country_id" ref="base.ma"/>
+        </record>
+        <record id="Frais_Professional_mensuel_valeur" model="hr.rule.parameter.value">
+            <field name="parameter_value">[
+                ( 0, 6500.00, 0.35),
+                ( 6501.00, 10000000000.00, 0.25),
+            ]</field>
+            <field name="rule_parameter_id" ref="Frais_Professionel_mensuel"/>
+            <field name="date_from" eval="datetime(2024, 1, 1).date()"/>
+        </record>
+
+
+        <record id="max_frais_pro_mensuel" model="hr.rule.parameter">
+            <field name="name">Max Frais Professionel Mensuel</field>
+            <field name="code">max_frais_pro_mensuel</field>
+            <field name="country_id" ref="base.ma"/>
+        </record>
+        <record id="max_frais_pro_mensuel_valeur" model="hr.rule.parameter.value">
+            <field name="parameter_value">2916.67</field>
+            <field name="rule_parameter_id" ref="max_frais_pro_mensuel"/>
+            <field name="date_from" eval="datetime(2024, 1, 1).date()"/>
+        </record>
+
+
+        <!-- frais professioanl annuel -->
+         <record id="Frais_Professionel_annuel" model="hr.rule.parameter">
+            <field name="name">Frais Professionel Annuel</field>
+            <field name="code">frais_pro_annuel</field>
+            <field name="country_id" ref="base.ma"/>
+        </record>
+        <record id="Frais_Professional_annuel_valeur" model="hr.rule.parameter.value">
+            <field name="parameter_value">[
+                ( 0, 78000.00, 0.35),
+                ( 78001.00, 10000000000.00, 0.25),
+            ]</field>
+            <field name="rule_parameter_id" ref="Frais_Professionel_annuel"/>
+            <field name="date_from" eval="datetime(2024, 1, 1).date()"/>
+        </record>
+
+
+        <record id="max_frais_pro_annuel" model="hr.rule.parameter">
+            <field name="name">Max Frais Professionel Annuel</field>
+            <field name="code">max_frais_pro_annuel</field>
+            <field name="country_id" ref="base.ma"/>
+        </record>
+        <record id="max_frais_pro_annuel_valeur" model="hr.rule.parameter.value">
+            <field name="parameter_value">35000</field>
+            <field name="rule_parameter_id" ref="max_frais_pro_annuel"/>
             <field name="date_from" eval="datetime(2024, 1, 1).date()"/>
         </record>
 
