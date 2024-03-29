@@ -268,7 +268,7 @@
 
         <record id="igr" model="hr.salary.rule">
             <field name="name">Prélevement IGR</field>
-            <field name="code">IGR</field>
+            <field name="code">IR_NET</field>
             <field name="sequence">23</field>
             <field name="category_id" ref="hr_payroll.ALW"/>
             <field name="condition_select">python</field>
@@ -398,7 +398,6 @@
             <field name="amount_python_compute"></field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
-
 
 
     </data>
