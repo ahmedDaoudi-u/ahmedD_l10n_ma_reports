@@ -136,10 +136,45 @@
             <field name="date_from" eval="datetime(2024, 1, 1).date()"/>
         </record>
 
-
         <!-- cotisation CNSS employe-->
+         <record id="taux_CNSS" model="hr.rule.parameter">
+            <field name="name">TAUX CNSS</field>
+            <field name="code">cnss</field>
+            <field name="country_id" ref="base.ma"/>
+        </record>
+        <record id="taux_CNSS_valeur" model="hr.rule.parameter.value">
+            <field name="parameter_value">0.0448</field>
+            <field name="rule_parameter_id" ref="taux_CNSS"/>
+            <field name="date_from" eval="datetime(2024, 1, 1).date()"/>
+        </record>
+
+
+
         <!-- max cotisation CNSS employe-->
+        <record id="max_taux_CNSS" model="hr.rule.parameter">
+            <field name="name">MAX TAUX CNSS</field>
+            <field name="code">max_cnss</field>
+            <field name="country_id" ref="base.ma"/>
+        </record>
+        <record id="max_taux_CNSS_valeur" model="hr.rule.parameter.value">
+            <field name="parameter_value">6000</field>
+            <field name="rule_parameter_id" ref="max_taux_CNSS"/>
+            <field name="date_from" eval="datetime(2024, 1, 1).date()"/>
+        </record>
+
         <!-- cotisation AMO employe-->
+        <record id="taux_AMO" model="hr.rule.parameter">
+            <field name="name">TAUX AMO</field>
+            <field name="code">amo</field>
+            <field name="country_id" ref="base.ma"/>
+        </record>
+        <record id="max_taux_CNSS_valeur" model="hr.rule.parameter.value">
+            <field name="parameter_value">0.0226</field>
+            <field name="rule_parameter_id" ref="taux_AMO"/>
+            <field name="date_from" eval="datetime(2024, 1, 1).date()"/>
+        </record>
+
+
         <!-- cotisation sociale  -->
         <!-- Costisation de retrait -->
 
