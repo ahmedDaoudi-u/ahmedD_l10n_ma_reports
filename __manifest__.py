@@ -16,6 +16,7 @@
         "data/moroccan_structure_rules.xml",
         "data/moroccan_rules.xml",
         "data/moroccan_category_data.xml",
+        "data/moroccan_structure_type.xml",
         "data/moroccan_salary_rules.xml"
     ],
     "category": "",
