@@ -139,7 +139,7 @@
         <!-- cotisation CNSS employe-->
          <record id="taux_CNSS" model="hr.rule.parameter">
             <field name="name">Taux Cnss</field>
-            <field name="code">cnss</field>
+            <field name="code">cnss_empl</field>
             <field name="country_id" ref="base.ma"/>
         </record>
         <record id="taux_CNSS_valeur" model="hr.rule.parameter.value">
@@ -165,7 +165,7 @@
         <!-- cotisation AMO employe-->
         <record id="taux_AMO" model="hr.rule.parameter">
             <field name="name">Taux Amo</field>
-            <field name="code">amo</field>
+            <field name="code">amo_empl</field>
             <field name="country_id" ref="base.ma"/>
         </record>
         <record id="max_taux_CNSS_valeur" model="hr.rule.parameter.value">
