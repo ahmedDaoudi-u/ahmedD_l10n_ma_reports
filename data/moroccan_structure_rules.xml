@@ -2,16 +2,14 @@
 
 <odoo>
     <data>
-
         <record id="hr_payroll_salary_ma_structure_reference" model="hr.payroll.structure">
             <field name="code">MAR</field>
             <field name="name">Système De Paie Marocain</field>
-            <field name="type_id" ref="l10n_ma_hr_payroll.structure_type_employee_mar"/>
-            <field name="country_id" eval="False"/>
-            <field name="active">True</field>
+            <field name="type_id" ref="teos_l10n_ma_reports.structure_type_salarier_marocain"/>
+            <field name="country_id" ref="base.ma"/>
         </record>
 
-        <record id="l10n_ma_hr_payroll.structure_type_employee_mar" model="hr.payroll.structure.type">
+        <record id="teos_l10n_ma_reports.structure_type_salarier_marocain" model="hr.payroll.structure.type">
             <field name="default_struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
 
