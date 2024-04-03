@@ -106,11 +106,15 @@
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_4']" position="after">
             <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_5'>
                 <td></td>
-                <td style="text-align: center; background-color: #D7E4C0;" colspan="9" class="highlight-cell">
+                <td>Nom Employé(e) :
+                    <span t-field="o.employee_id.name" colspan="5" style="color: #888888;text-align: center;"/>
+                </td>
+                <td style="text-align: center; background-color: #D7E4C0;" colspan="6" class="highlight-cell">
                     Address
                     Employe :
                     <span t-field="o.employee_id.address_id" style="color: #888888;text-align: center;"/>
                 </td>
+
             </tr>
         </xpath>
 
@@ -255,7 +259,13 @@
                 <td></td>
                 <td>
                     <span t-foreach="o.worked_days_line_ids" t-as="line" style="color: #888888;"/>
-                    <t t-esc="line.number_of_days"/>
+                    <t t-if="line.number_of_hours &lt; 8">
+                        <t t-esc="line.number_of_hours"/> heures.
+                    </t>
+                    <t t-else="line.number_of_days &gt; 1">
+                        <t t-esc="line.number_of_days"/>
+                    </t>
+
                 </td>
 
                 <td rowspan="2">
