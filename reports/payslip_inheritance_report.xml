@@ -86,20 +86,38 @@
                 <td style="text-align: center;">Horaire:
                     <span t-field="o.worked_days_line_ids.number_of_hours"
                           style="color: #888888;text-align: center;"/>
+                    H
                 </td>
                 <td style="text-align: center;" colspan="2">Salaire de base: (
                     <span class="text-capitalize"
                           t-out="o.contract_id.wage_type"/>
                     )
-                    <span t-out="o.contract_id._get_contract_wage()" style="color: #888888;"/>
+                    <span t-out="o.contract_id._get_contract_wage()" style="color: #888888;text-align: center;"/>
+                    DH
                 </td>
-                <td style="text-align: center;">Taux horraire:
-                    <span t-field="o.employee_id.hourly_cost" style="color: #888888;"/>
+
+                <td>Taux horraire:
+                    <t t-if="o.contract_id.hourly_wage">
+                        <span t-out="o.contract_id._get_contract_wage()" style="color: #888888;text-align: center;"/>
+                        DH
+                    </t>
+                    <t t-else="o.contract_id.wage &gt;0">
+                        <t t-set="hour_cost" t-value="o.contract_id._get_contract_wage() // 191"/>
+                        <span t-esc="hour_cost" style="color: #888888;text_align:center;"/>
+                    </t>
                 </td>
+
                 <td style="text-align: center;">Situation familiale:
                     <span t-field="o.employee_id.marital" style="color: #888888;"/>
                 </td>
-                <td style="text-align: center;" colspan="3">Nbre déductions:</td>
+                <td colspan="3">Nbre Déductions:
+                    <t t-if="o.employee_id.gender=='female'"></t>
+                    <t t-else="o.employee_id.gender=='male'">
+                        <t t-set="nombre" t-value="o.employee_id.children + 1"/>
+                        <span t-esc="nombre" style="color: #888888;text-align: center;"/>
+                    </t>
+
+                </td>
             </tr>
         </xpath>
 
@@ -109,7 +127,7 @@
                 <td>Nom Employé(e) :
                     <span t-field="o.employee_id.name" colspan="5" style="color: #888888;text-align: center;"/>
                 </td>
-                <td style="text-align: center; background-color: #D7E4C0;" colspan="6" class="highlight-cell">
+                <td style="background-color: #D7E4C0;" colspan="6" class="highlight-cell">
                     Address
                     Employe :
                     <span t-field="o.employee_id.address_id" style="color: #888888;text-align: center;"/>
@@ -260,7 +278,10 @@
                 <td>
                     <span t-foreach="o.worked_days_line_ids" t-as="line" style="color: #888888;"/>
                     <t t-if="line.number_of_hours &lt; 8">
-                        <t t-esc="line.number_of_hours"/> heures.
+                        <t t-esc="line.number_of_hours"/>
+                        Heures ~
+                        <t t-esc="line.number_of_days"/>
+                        Jours.
                     </t>
                     <t t-else="line.number_of_days &gt; 1">
                         <t t-esc="line.number_of_days"/>
