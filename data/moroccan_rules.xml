@@ -7,6 +7,11 @@
             <field name="code">allocations</field>
         </record>
 
+        <record id="BRUT" model="hr.salary.rule.category">
+            <field name="name">BRUT</field>
+            <field name="code">BRUT</field>
+        </record>
+
         <record id="retenue" model="hr.salary.rule.category">
             <field name="name">Retenues</field>
             <field name="code">retenue</field>
@@ -384,19 +389,24 @@
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
 
+
+
+
         <record id="salaire_brut_imposbale" model="hr.salary.rule">
             <field name="name">Salaire Brut Imposable</field>
             <field name="code">SBI</field>
             <field name="sequence">61</field>
-            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="category_id" ref="hr_payroll.ALW"/>
             <field name="condition_select">python</field>
-            <field name="condition_python"></field>
             <field name="amount_select">code</field>
             <field name="amount_python_compute">
-result = categories['allocations']
+result = categories['allocations']['total']
             </field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
+
+
+
 
         <record id="salaire_net_imposable" model="hr.salary.rule">
             <field name="name">Salaire Net Imposable</field>
