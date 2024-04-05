@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data>
+
+        <record id="allocations" model="hr.salary.rule.category">
+            <field name="name">Allocations</field>
+            <field name="code">allocations</field>
+        </record>
+
+        <record id="retenue" model="hr.salary.rule.category">
+            <field name="name">Retenues</field>
+            <field name="code">retenue</field>
+        </record>
+
+        <record id="déductions" model="hr.salary.rule.category">
+            <field name="name">Déduction</field>
+            <field name="code">déductions</field>
+        </record>
+
+        <record id="exoneration" model="hr.salary.rule.category">
+            <field name="name">Exoneration</field>
+            <field name="code">exoneration</field>
+        </record>
+
+    </data>
+
+
+
+
+
+</odoo>

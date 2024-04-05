@@ -2,15 +2,36 @@
 
 <odoo>
     <data>
+        <record id="allocations" model="hr.salary.rule.category">
+            <field name="name">Allocations</field>
+            <field name="code">allocations</field>
+        </record>
+
+        <record id="retenue" model="hr.salary.rule.category">
+            <field name="name">Retenues</field>
+            <field name="code">retenue</field>
+        </record>
+
+        <record id="déductions" model="hr.salary.rule.category">
+            <field name="name">Déduction</field>
+            <field name="code">déductions</field>
+        </record>
+
+        <record id="exoneration" model="hr.salary.rule.category">
+            <field name="name">Exoneration</field>
+            <field name="code">exoneration</field>
+        </record>
+
+
         <record id="salaire_base" model="hr.salary.rule">
             <field name="name">Salaire De Base</field>
             <field name="code">SalaireBase</field>
             <field name="sequence">1</field>
-            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="category_id" ref="teos_l10n_ma_reports.allocations"/>
             <field name="condition_select">python</field>
-            <field name="condition_python">result = 'SB' in inputs</field>
+            <field name="condition_python">result = contract.wage</field>
             <field name="amount_select">code</field>
-            <field name="amount_python_compute">result = inputs['SB'].amount</field>
+            <field name="amount_python_compute">result = contract.wage</field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
 
@@ -18,7 +39,7 @@
             <field name="name">Salaire Congé</field>
             <field name="code">SalaireCong</field>
             <field name="sequence">2</field>
-            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="category_id" ref="teos_l10n_ma_reports.allocations"/>
             <field name="condition_select">python</field>
             <field name="condition_python">result = 'SC' in inputs</field>
             <field name="amount_select">code</field>
@@ -42,11 +63,11 @@
             <field name="name">Heures Supplémentaires 25%</field>
             <field name="code">Heures_Sup_25</field>
             <field name="sequence">4</field>
-            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="category_id" ref="teos_l10n_ma_reports.allocations"/>
             <field name="condition_select">python</field>
-            <field name="condition_python">result = 'EXTRA_HOURS_25' in inputs</field>
+            <field name="condition_python">result = 'Heures_Sup_25' in inputs</field>
             <field name="amount_select">code</field>
-            <field name="amount_python_compute">result = inputs['EXTRA_HOURS_25'].amount</field>
+            <field name="amount_python_compute">result = inputs['Heures_Sup_25'].amount</field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
 
@@ -54,11 +75,11 @@
             <field name="name">Heures Supplémentaires 50%</field>
             <field name="code">Heures_Sup_50</field>
             <field name="sequence">5</field>
-            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="category_id" ref="teos_l10n_ma_reports.allocations"/>
             <field name="condition_select">python</field>
-            <field name="condition_python">result = 'EXTRA_HOURS_50' in inputs</field>
+            <field name="condition_python">result = 'Heures_Sup_50' in inputs</field>
             <field name="amount_select">code</field>
-            <field name="amount_python_compute">result = inputs['EXTRA_HOURS_50'].amount</field>
+            <field name="amount_python_compute">result = inputs['Heures_Sup_50'].amount</field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
 
@@ -66,11 +87,11 @@
             <field name="name">Heures Supplémentaires 100%</field>
             <field name="code">Heures_Sup_100</field>
             <field name="sequence">6</field>
-            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="category_id" ref="teos_l10n_ma_reports.allocations"/>
             <field name="condition_select">python</field>
-            <field name="condition_python">result = 'EXTRA_HOURS_100' in inputs</field>
+            <field name="condition_python">result = 'Heures_Sup_100' in inputs</field>
             <field name="amount_select">code</field>
-            <field name="amount_python_compute">result = inputs['EXTRA_HOURS_100'].amount</field>
+            <field name="amount_python_compute">result = inputs['Heures_Sup_100'].amount</field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
 
@@ -98,11 +119,11 @@
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
 
-        <record id="l10n_ma_hr_rule_extra_hours_25" model="hr.salary.rule">
+        <record id="prime_de_responsabilité" model="hr.salary.rule">
             <field name="name">Prime de Responsabilité</field>
             <field name="code">PrimeRespo</field>
             <field name="sequence">9</field>
-            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="category_id" ref="teos_l10n_ma_reports.allocations"/>
             <field name="condition_select">python</field>
             <field name="condition_python"></field>
             <field name="amount_select">code</field>
@@ -114,7 +135,7 @@
             <field name="name">Prime de Production</field>
             <field name="code">PrimeProdu</field>
             <field name="sequence">10</field>
-            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="category_id" ref="teos_l10n_ma_reports.allocations"/>
             <field name="condition_select">python</field>
             <field name="condition_python"></field>
             <field name="amount_select">code</field>
@@ -126,7 +147,7 @@
             <field name="name">Indemnité de Représentation</field>
             <field name="code">IndemniteRpre</field>
             <field name="sequence">11</field>
-            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="category_id" ref="teos_l10n_ma_reports.allocations"/>
             <field name="condition_select">python</field>
             <field name="condition_python"></field>
             <field name="amount_select">code</field>
@@ -139,7 +160,7 @@
             <field name="name">Prime Exceptionnelle</field>
             <field name="code">PrimeExcep</field>
             <field name="sequence">12</field>
-            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="category_id" ref="teos_l10n_ma_reports.allocations"/>
             <field name="condition_select">python</field>
             <field name="condition_python"></field>
             <field name="amount_select">code</field>
@@ -152,7 +173,7 @@
             <field name="name">Prime de Salissure</field>
             <field name="code">PrimeRepre</field>
             <field name="sequence">13</field>
-            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="category_id" ref="teos_l10n_ma_reports.allocations"/>
             <field name="condition_select">python</field>
             <field name="condition_python"></field>
             <field name="amount_select">code</field>
@@ -164,7 +185,7 @@
             <field name="name">Prime De Panier</field>
             <field name="code">PrimePanier</field>
             <field name="sequence">14</field>
-            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="category_id" ref="teos_l10n_ma_reports.allocations"/>
             <field name="condition_select">python</field>
             <field name="condition_python"></field>
             <field name="amount_select">code</field>
@@ -176,7 +197,7 @@
             <field name="name">Rappel</field>
             <field name="code">Rappel</field>
             <field name="sequence">15</field>
-            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="category_id" ref="teos_l10n_ma_reports.allocations"/>
             <field name="condition_select">python</field>
             <field name="condition_python"></field>
             <field name="amount_select">code</field>
@@ -188,7 +209,7 @@
             <field name="name">Prime Divers</field>
             <field name="code">PrimeDiv</field>
             <field name="sequence">16</field>
-            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="category_id" ref="teos_l10n_ma_reports.allocations"/>
             <field name="condition_select">python</field>
             <field name="condition_python"></field>
             <field name="amount_select">code</field>
@@ -200,7 +221,7 @@
             <field name="name">Indemnité De Lait</field>
             <field name="code">IndemniteLait</field>
             <field name="sequence">17</field>
-            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="category_id" ref="teos_l10n_ma_reports.allocations"/>
             <field name="condition_select">python</field>
             <field name="condition_python"></field>
             <field name="amount_select">code</field>
@@ -211,7 +232,7 @@
             <field name="name">Indemnité De Licenciement</field>
             <field name="code">IndemniteLicen</field>
             <field name="sequence">18</field>
-            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="category_id" ref="teos_l10n_ma_reports.allocations"/>
             <field name="condition_select">python</field>
             <field name="condition_python"></field>
             <field name="amount_select">code</field>
@@ -223,7 +244,7 @@
             <field name="name">Indemnité De Préavis</field>
             <field name="code">IndemnitéPrea</field>
             <field name="sequence">19</field>
-            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="category_id" ref="teos_l10n_ma_reports.allocations"/>
             <field name="condition_select">python</field>
             <field name="condition_python"></field>
             <field name="amount_select">code</field>
@@ -234,7 +255,7 @@
             <field name="name">Prime De Transport</field>
             <field name="code">PrimeTrans</field>
             <field name="sequence">20</field>
-            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="category_id" ref="teos_l10n_ma_reports.allocations"/>
             <field name="condition_select">python</field>
             <field name="condition_python"></field>
             <field name="amount_select">code</field>
@@ -258,7 +279,7 @@
             <field name="name">Prime D'ancienneté</field>
             <field name="code">PrimeAncien</field>
             <field name="sequence">22</field>
-            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="category_id" ref="teos_l10n_ma_reports.allocations"/>
             <field name="condition_select">python</field>
             <field name="condition_python"></field>
             <field name="amount_select">code</field>
@@ -367,11 +388,13 @@
             <field name="name">Salaire Brut Imposable</field>
             <field name="code">SBI</field>
             <field name="sequence">61</field>
-            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="category_id" ref="hr_payroll.DED"/>
             <field name="condition_select">python</field>
             <field name="condition_python"></field>
             <field name="amount_select">code</field>
-            <field name="amount_python_compute"></field>
+            <field name="amount_python_compute">
+result = categories['allocations']
+            </field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
 
