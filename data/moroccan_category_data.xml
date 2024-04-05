@@ -3,25 +3,25 @@
 <odoo>
     <data>
         <record id="AVS" model="hr.payslip.input.type">
-            <field name="code">AVS</field>
+            <field name="code">Accomptes</field>
             <field name="name">Accomptes</field>
             <field name="country_id" ref="base.ma"/>
             <field name="struct_ids" eval="[(4, ref('teos_l10n_ma_reports.hr_payroll_salary_ma_structure_reference'))]"/>
         </record>
         <record id="input_extra_hours_25" model="hr.payslip.input.type">
-            <field name="code">EXTRA_HOURS_25</field>
+            <field name="code">Heures_Sup_25</field>
             <field name="name">Heures Supplémentaires 25%</field>
             <field name="country_id" ref="base.ma"/>
             <field name="struct_ids" eval="[(4, ref('teos_l10n_ma_reports.hr_payroll_salary_ma_structure_reference'))]"/>
         </record>
         <record id="input_extra_hours_50" model="hr.payslip.input.type">
-            <field name="code">EXTRA_HOURS_50</field>
+            <field name="code">Heures_Sup_50</field>
             <field name="name">Heures Supplémentaires 50%</field>
             <field name="country_id" ref="base.ma"/>
             <field name="struct_ids" eval="[(4, ref('teos_l10n_ma_reports.hr_payroll_salary_ma_structure_reference'))]"/>
         </record>
         <record id="input_extra_hours_100" model="hr.payslip.input.type">
-            <field name="code">EXTRA_HOURS_100</field>
+            <field name="code">Heures_Sup_100</field>
             <field name="name">Heures Supplémentaires 100%</field>
             <field name="country_id" ref="base.ma"/>
             <field name="struct_ids" eval="[(4, ref('teos_l10n_ma_reports.hr_payroll_salary_ma_structure_reference'))]"/>
