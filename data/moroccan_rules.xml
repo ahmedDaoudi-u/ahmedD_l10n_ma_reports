@@ -311,7 +311,7 @@
             <field name="category_id" ref="teos_l10n_ma_reports.déductions"/>
             <field name="amount_select">code</field>
             <field name="amount_python_compute">
-SBI = result_rules['SBI']
+SBI = rules['SBI']
 cnss_pour= payslip._rule_parameter('cnss_empl')
 cnss_max = payslip._rule_parameter('max_cnss_empl')
 result = min(cnss_max, SBI) * cnss_pour
