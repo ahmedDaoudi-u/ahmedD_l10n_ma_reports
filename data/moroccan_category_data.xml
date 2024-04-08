@@ -27,5 +27,19 @@
             <field name="struct_ids" eval="[(4, ref('teos_l10n_ma_reports.hr_payroll_salary_ma_structure_reference'))]"/>
         </record>
 
+        <record id="input_INDMTD" model="hr.payslip.input.type">
+            <field name="code">avantage</field>
+            <field name="name">Avantages</field>
+            <field name="country_id" ref="base.ma"/>
+            <field name="struct_ids" eval="[(4, ref('teos_l10n_ma_reports.hr_payroll_salary_ma_structure_reference'))]"/>
+        </record>
+
+        <record id="input_INDMTD" model="hr.payslip.input.type">
+            <field name="code">indemnite_depla</field>
+            <field name="name">Indemnité De Déplacement</field>
+            <field name="country_id" ref="base.ma"/>
+            <field name="struct_ids" eval="[(4, ref('teos_l10n_ma_reports.hr_payroll_salary_ma_structure_reference'))]"/>
+        </record>
+
     </data>
 </odoo>

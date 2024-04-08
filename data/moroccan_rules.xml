@@ -100,10 +100,34 @@
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
 
+        <record id="avantage_employe" model="hr.salary.rule">
+            <field name="name">Avantages</field>
+            <field name="code">avantage</field>
+            <field name="sequence">7</field>
+            <field name="category_id" ref="teos_l10n_ma_reports.allocations"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = 'avantage' in inputs</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = inputs['avantage'].amount</field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+
+        <record id="indemnite_deplacement" model="hr.salary.rule">
+            <field name="name">Indemnité De Déplacement</field>
+            <field name="code">indemnite_depla</field>
+            <field name="sequence">8</field>
+            <field name="category_id" ref="teos_l10n_ma_reports.allocations"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = 'indemnite_depla' in inputs</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = inputs['indemnite_depla'].amount</field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+
         <record id="Jours_ferier" model="hr.salary.rule">
             <field name="name">Jours Fériès</field>
             <field name="code">JoursFerier</field>
-            <field name="sequence">7</field>
+            <field name="sequence">9</field>
             <field name="category_id" ref="hr_payroll.ALW"/>
             <field name="condition_select">python</field>
             <field name="condition_python"></field>
@@ -115,7 +139,7 @@
         <record id="credit_logement" model="hr.salary.rule">
             <field name="name">Crédit Logement</field>
             <field name="code">CreditLoge</field>
-            <field name="sequence">8</field>
+            <field name="sequence">9</field>
             <field name="category_id" ref="hr_payroll.ALW"/>
             <field name="condition_select">python</field>
             <field name="condition_python"></field>
@@ -307,11 +331,13 @@
         <record id="cnss" model="hr.salary.rule">
             <field name="name">Cotisation CNSS</field>
             <field name="code">CNSS</field>
-            <field name="sequence">24</field>
+            <field name="sequence">60</field>
             <field name="category_id" ref="teos_l10n_ma_reports.déductions"/>
+            <field name="condition_select">none</field>
             <field name="amount_select">code</field>
             <field name="amount_python_compute">
-SBI = rules['SBI']
+
+SBI = result_rules['SBI']['total']
 cnss_pour= payslip._rule_parameter('cnss_empl')
 cnss_max = payslip._rule_parameter('max_cnss_empl')
 result = min(cnss_max, SBI) * cnss_pour
@@ -322,12 +348,16 @@ result = min(cnss_max, SBI) * cnss_pour
         <record id="AMO" model="hr.salary.rule">
             <field name="name">AMO</field>
             <field name="code">AMO</field>
-            <field name="sequence">25</field>
-            <field name="category_id" ref="hr_payroll.ALW"/>
-            <field name="condition_select">python</field>
+            <field name="sequence">61</field>
+            <field name="category_id" ref="teos_l10n_ma_reports.déductions"/>
+            <field name="condition_select">none</field>
             <field name="condition_python"></field>
             <field name="amount_select">code</field>
-            <field name="amount_python_compute"></field>
+            <field name="amount_python_compute">
+SBI_1 = result_rules['SBI']['total']
+amo_pour= payslip._rule_parameter('amo_empl')
+result = SBI_1 * amo_pour
+            </field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
 
@@ -406,14 +436,6 @@ result = categories['allocations']
             </field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
-
-         <function model="hr.salary.rule" name="write">
-            <value model="hr.salary.rule" search="[
-                ('struct_id', '=', ref('teos_l10n_ma_reports.hr_payroll_salary_ma_structure_reference')),
-                ('code', '=', 'SBI')]"/>
-            <value eval="{'sequence': 20}"/>
-        </function>
-
 
 
         <record id="salaire_net_imposable" model="hr.salary.rule">
