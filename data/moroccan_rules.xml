@@ -32,6 +32,16 @@
             <field name="code">BRUT</field>
         </record>
 
+        <record id="brutg" model="hr.salary.rule.category">
+            <field name="name">brutg</field>
+            <field name="code">BRUT-G</field>
+        </record>
+
+        <record id="avantages" model="hr.salary.rule.category">
+            <field name="name">avantage</field>
+            <field name="code">avantages</field>
+        </record>
+
 
         <record id="salaire_base" model="hr.salary.rule">
             <field name="name">Salaire De Base</field>
@@ -109,7 +119,7 @@
             <field name="name">Avantages</field>
             <field name="code">avantage</field>
             <field name="sequence">7</field>
-            <field name="category_id" ref="teos_l10n_ma_reports.allocations"/>
+            <field name="category_id" ref="teos_l10n_ma_reports.avantages"/>
             <field name="condition_select">python</field>
             <field name="condition_python">result = 'avantage' in inputs</field>
             <field name="amount_select">code</field>
@@ -121,7 +131,7 @@
             <field name="name">Indemnité De Déplacement</field>
             <field name="code">indemnite_depla</field>
             <field name="sequence">8</field>
-            <field name="category_id" ref="teos_l10n_ma_reports.allocations"/>
+            <field name="category_id" ref="teos_l10n_ma_reports.exoneration"/>
             <field name="condition_select">python</field>
             <field name="condition_python">result = 'indemnite_depla' in inputs</field>
             <field name="amount_select">code</field>
@@ -349,7 +359,7 @@ for low, high, rate in payslip._rule_parameter('anciennte_maroc'):
         <record id="cnss" model="hr.salary.rule">
             <field name="name">Cotisation CNSS</field>
             <field name="code">CNSS</field>
-            <field name="sequence">60</field>
+            <field name="sequence">63</field>
             <field name="category_id" ref="teos_l10n_ma_reports.déductions"/>
             <field name="condition_select">none</field>
             <field name="amount_select">code</field>
@@ -366,7 +376,7 @@ result = min(cnss_max, SBI) * cnss_pour
         <record id="AMO" model="hr.salary.rule">
             <field name="name">AMO</field>
             <field name="code">AMO</field>
-            <field name="sequence">61</field>
+            <field name="sequence">64</field>
             <field name="category_id" ref="teos_l10n_ma_reports.déductions"/>
             <field name="condition_select">none</field>
             <field name="condition_python"></field>
@@ -431,14 +441,17 @@ result = SBI_1 * amo_pour
         <record id="salaire_brut_global" model="hr.salary.rule">
             <field name="name">Salaire Brut Global</field>
             <field name="code">SBG</field>
-            <field name="sequence">60</field>
-            <field name="category_id" ref="hr_payroll.ALW"/>
-            <field name="condition_select">python</field>
+            <field name="sequence">58</field>
+            <field name="category_id" ref="teos_l10n_ma_reports.allocations"/>
+            <field name="condition_select">none</field>
             <field name="condition_python"></field>
             <field name="amount_select">code</field>
-            <field name="amount_python_compute"></field>
+            <field name="amount_python_compute">
+result = categories['allocations'] + categories['BRUT'] + categories['exoneration'] + categories['avantages']
+            </field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
+
 
 
 
@@ -450,7 +463,26 @@ result = SBI_1 * amo_pour
             <field name="condition_select">none</field>
             <field name="amount_select">code</field>
             <field name="amount_python_compute">
-result = categories['allocations'] + categories['BRUT']
+result = result_rules['SBG']['total'] - categories['exoneration']
+            </field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+
+        <record id="frais_profesionnelles" model="hr.salary.rule">
+            <field name="name">Frais Profesionnelles</field>
+            <field name="code">frais-pro</field>
+            <field name="sequence">61</field>
+            <field name="category_id" ref="teos_l10n_ma_reports.déductions"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+SBI_2 = result_rules['SBI']['total']
+result = 0
+max_frais = payslip._rule_parameter('max_frais_pro_mensuel')
+for low, high, rate in payslip._rule_parameter('frais_pro_mensuel'):
+    if low &lt;= years &lt;= high:
+        result = min((SBI_2 - categories['avantages'])* rate,max_frais)
+        break
             </field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
