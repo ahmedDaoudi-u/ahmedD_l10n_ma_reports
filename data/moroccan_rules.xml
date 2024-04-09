@@ -595,7 +595,7 @@ result = categories['IR_B'] - categories['deduF']
             <field name="condition_python"></field>
             <field name="amount_select">code</field>
             <field name="amount_python_compute">
-result = result_rules['CNSS']['total'] +  result_rules['cimr']['total'] +  result_rules['AMO']['total']
+result = result_rules['SBG']['total'] - result_rules['accomptes']['total'] - result_rules['CNSS']['total'] -  result_rules['cimr']['total'] -  result_rules['AMO']['total'] -result_rules['IR Net']['total']
             </field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
