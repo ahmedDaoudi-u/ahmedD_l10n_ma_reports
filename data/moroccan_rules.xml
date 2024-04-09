@@ -47,6 +47,11 @@
             <field name="code">IR_B</field>
         </record>
 
+        <record id="deduF" model="hr.salary.rule.category">
+            <field name="name">deduF</field>
+            <field name="code">deduF</field>
+        </record>
+
 
         <record id="salaire_base" model="hr.salary.rule">
             <field name="name">Salaire De Base</field>
@@ -528,6 +533,38 @@ for max ,rate,dedu in payslip._rule_parameter('impot_revenue_code_mensuel'):
         continue
     result = SNI * rate - dedu
     break
+            </field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+
+
+        <record id="deduction_famille" model="hr.salary.rule">
+            <field name="name">Déduction / personnes à charges</field>
+            <field name="code">DédF</field>
+            <field name="sequence">68</field>
+            <field name="category_id" ref="teos_l10n_ma_reports.deduF"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+result = 0
+if contract.employee_id.marital == 'married':
+    result+=30
+if contract.employee_id.children:
+    result+=min(180, 30*contract.employee_id.children)
+            </field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+
+        <record id="IRnet" model="hr.salary.rule">
+            <field name="name">IR Net </field>
+            <field name="code">IR Net</field>
+            <field name="sequence">69</field>
+            <field name="category_id" ref="teos_l10n_ma_reports.deduF"/>
+            <field name="condition_select">none</field>
+            <field name="condition_python"></field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+result = categories['IR_B'] - categories['deduF']
             </field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
