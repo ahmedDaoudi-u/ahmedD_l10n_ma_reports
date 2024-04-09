@@ -7,9 +7,9 @@
             <field name="code">allocations</field>
         </record>
 
-        <record id="BRUT" model="hr.salary.rule.category">
-            <field name="name">BRUT</field>
-            <field name="code">BRUT</field>
+        <record id="Basic" model="hr.salary.rule.category">
+            <field name="name">Basic</field>
+            <field name="code">Basic</field>
         </record>
 
         <record id="retenue" model="hr.salary.rule.category">
@@ -25,11 +25,6 @@
         <record id="exoneration" model="hr.salary.rule.category">
             <field name="name">Exoneration</field>
             <field name="code">exoneration</field>
-        </record>
-
-        <record id="brut" model="hr.salary.rule.category">
-            <field name="name">brut</field>
-            <field name="code">BRUT</field>
         </record>
 
         <record id="brutg" model="hr.salary.rule.category">
@@ -52,12 +47,18 @@
             <field name="code">deduF</field>
         </record>
 
+        <record id="Net" model="hr.salary.rule.category">
+            <field name="name">Net</field>
+            <field name="code">Net</field>
+        </record>
+
+<!--___________________________________________________________________________________________________________ -->
 
         <record id="salaire_base" model="hr.salary.rule">
             <field name="name">Salaire De Base</field>
             <field name="code">SalaireBase</field>
             <field name="sequence">1</field>
-            <field name="category_id" ref="teos_l10n_ma_reports.BRUT"/>
+            <field name="category_id" ref="teos_l10n_ma_reports.Basic"/>
             <field name="condition_select">python</field>
             <field name="condition_python">result = contract.wage</field>
             <field name="amount_select">code</field>
@@ -93,7 +94,7 @@
             <field name="name">Heures Supplémentaires 25%</field>
             <field name="code">Heures_Sup_25</field>
             <field name="sequence">4</field>
-            <field name="category_id" ref="teos_l10n_ma_reports.BRUT"/>
+            <field name="category_id" ref="teos_l10n_ma_reports.Basic"/>
             <field name="condition_select">python</field>
             <field name="condition_python">result = 'Heures_Sup_25' in inputs</field>
             <field name="amount_select">code</field>
@@ -105,7 +106,7 @@
             <field name="name">Heures Supplémentaires 50%</field>
             <field name="code">Heures_Sup_50</field>
             <field name="sequence">5</field>
-            <field name="category_id" ref="teos_l10n_ma_reports.BRUT"/>
+            <field name="category_id" ref="teos_l10n_ma_reports.Basic"/>
             <field name="condition_select">python</field>
             <field name="condition_python">result = 'Heures_Sup_50' in inputs</field>
             <field name="amount_select">code</field>
@@ -117,7 +118,7 @@
             <field name="name">Heures Supplémentaires 100%</field>
             <field name="code">Heures_Sup_100</field>
             <field name="sequence">6</field>
-            <field name="category_id" ref="teos_l10n_ma_reports.BRUT"/>
+            <field name="category_id" ref="teos_l10n_ma_reports.Basic"/>
             <field name="condition_select">python</field>
             <field name="condition_python">result = 'Heures_Sup_100' in inputs</field>
             <field name="amount_select">code</field>
@@ -344,11 +345,11 @@ result = months >= 24
 months = (payslip.date_from.year - contract.first_contract_date.year) * 12 + (payslip.date_from.month - contract.first_contract_date.month)
 years = months / 12
 
-brut = categories['BRUT']
+base = categories['Basic']
 result = 0
 for low, high, rate in payslip._rule_parameter('anciennte_maroc'):
     if low &lt;= years &lt;= high:
-        result = brut * rate
+        result = base * rate
         break
             </field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
@@ -384,7 +385,7 @@ result = min(cnss_max, SBI) * cnss_pour
         </record>
 
         <record id="AMO" model="hr.salary.rule">
-            <field name="name">AMO</field>
+            <field name="name">Cotisation AMO</field>
             <field name="code">AMO</field>
             <field name="sequence">64</field>
             <field name="category_id" ref="teos_l10n_ma_reports.déductions"/>
@@ -400,7 +401,7 @@ result = SBI_1 * amo_pour
         </record>
 
         <record id="cimr" model="hr.salary.rule">
-            <field name="name">CIMR</field>
+            <field name="name">Cotisation CIMR</field>
             <field name="code">cimr</field>
             <field name="sequence">65</field>
             <field name="category_id" ref="teos_l10n_ma_reports.déductions"/>
@@ -462,7 +463,7 @@ result = SBI_3 * cimr_pour
             <field name="condition_python"></field>
             <field name="amount_select">code</field>
             <field name="amount_python_compute">
-result = categories['allocations'] + categories['BRUT'] + categories['exoneration'] + categories['avantages']
+result = categories['allocations'] + categories['Basic'] + categories['exoneration'] + categories['avantages']
             </field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
@@ -565,6 +566,32 @@ if contract.employee_id.children:
             <field name="amount_select">code</field>
             <field name="amount_python_compute">
 result = categories['IR_B'] - categories['deduF']
+            </field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+
+        <record id="accomptes" model="hr.salary.rule">
+            <field name="name">Accomptes</field>
+            <field name="code">accomptes</field>
+            <field name="sequence">70</field>
+            <field name="category_id" ref="teos_l10n_ma_reports.Net"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = 'accomptes' in inputs</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = inputs['accomptes'].amount</field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+
+        <record id="salaire_Net" model="hr.salary.rule">
+            <field name="name">Salaire Net</field>
+            <field name="code">SNet</field>
+            <field name="sequence">71</field>
+            <field name="category_id" ref="teos_l10n_ma_reports.Net"/>
+            <field name="condition_select">none</field>
+            <field name="condition_python"></field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+result = result_rules['SBG']['total'] - result_rules['accomptes']['total'] - result_rules['CNSS']['total'] -  result_rules['cimr']['total'] -  result_rules['AMO']['total'] -result_rules['IR Net']['total']
             </field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
