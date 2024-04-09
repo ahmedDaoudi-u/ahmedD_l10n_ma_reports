@@ -52,6 +52,11 @@
             <field name="code">deduF</field>
         </record>
 
+        <record id="Net" model="hr.salary.rule.category">
+            <field name="name">Net</field>
+            <field name="code">Net</field>
+        </record>
+
 
         <record id="salaire_base" model="hr.salary.rule">
             <field name="name">Salaire De Base</field>
@@ -565,6 +570,32 @@ if contract.employee_id.children:
             <field name="amount_select">code</field>
             <field name="amount_python_compute">
 result = categories['IR_B'] - categories['deduF']
+            </field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+
+        <record id="accomptes" model="hr.salary.rule">
+            <field name="name">Accomptes</field>
+            <field name="code">accomptes</field>
+            <field name="sequence">70</field>
+            <field name="category_id" ref="teos_l10n_ma_reports.Net"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = 'accomptes' in inputs</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = inputs['accomptes'].amount</field>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+        </record>
+
+        <record id="salaire_Net" model="hr.salary.rule">
+            <field name="name">Salaire Net</field>
+            <field name="code">SNet</field>
+            <field name="sequence">71</field>
+            <field name="category_id" ref="teos_l10n_ma_reports.Net"/>
+            <field name="condition_select">none</field>
+            <field name="condition_python"></field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+result = result_rules['CNSS']['total'] +  result_rules['cimr']['total'] +  result_rules['AMO']['total']
             </field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
