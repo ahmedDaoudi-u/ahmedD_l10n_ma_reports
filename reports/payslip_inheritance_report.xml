@@ -201,8 +201,8 @@
             <span t-foreach="o.line_ids.filtered(lambda line: line.appears_on_payslip)" t-as="line">
                 <tr t-att-class="line_class" t-att-style="line_style" id="employee_info_9">
 
-                    <td id="payslip_line_name" colspan="2">
-                        <span t-field="line.name"/>
+                    <td id="payslip_line_payslip_name" colspan="2">
+                            <span t-field="line.name"/>
                     </td>
 
                     <td id="payslip_line_quantity">
@@ -212,8 +212,9 @@
                     <td colspan="2"></td>
                     <td></td>
 
-                    <td id="payslip_line_total" class="text-end">
-                        <t t-if="line.name in ['Basic Salary', 'Kilometric Exemption', 'Transportation Exemption', 'House Rent Allowance', 'Dearness Allowance', 'Meal Allowance','Extra Hours 50%','Seniority','Gross','Medical Allowance']">
+                    <td>
+                        <t t-if="line.name in ['Salaire De Base','Heures Supplémentaires 25%','Heures Supplémentaires 50%',
+                        'Heures Supplémentaires 100%','Avantages','Indemnité De Déplacement','Prime Ancienneté','Salaire Brut Global','Salaire Brut Imposable','Frais Profesionnelles','Salaire Net Imposable','Déduction / personnes à charges']">
                             <span t-esc="line.total"
                                   t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.company_id.currency_id}"
                                   t-att-style="'color:#875A7B;' if line.total &lt; 0 else ''"/>
@@ -222,7 +223,7 @@
 
 
                     <td>
-                        <t t-if="line.name in ['Employee CNSS', 'Job Loss Allowance', 'CIMR', 'Employee AMO','Professional Contribution','Net Salary','Social Contribution']">
+                        <t t-if="line.name in ['Cotisation CNSS','Cotisation AMO','Cotisation CIMR','Accomptes','IR Brut','Salaire Net','IR Net']">
                             <t t-esc="line.total"
                                t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.company_id.currency_id}"
                                t-att-style="'color:#875A7B;' if line.total &lt; 0 else ''"/>
@@ -266,15 +267,32 @@
                 <td>Période</td>
                 <td>
                     <span t-foreach="o.line_ids.filtered(lambda line: line.appears_on_payslip)" t-as="line"/>
-                    <t t-if="line.name == 'Gross'">
+                    <t t-if="line.name == 'Salaire Net'">
+                        <t t-esc="line.total"/>
+                    </t>
+                </td>
+                <td>
+                    <span t-foreach="o.line_ids.filtered(lambda line: line.appears_on_payslip)" t-as="line"/>
+                    <t t-if="line.name == 'Salaire Net'">
                         <t t-esc="line.total"/>
                     </t>
                 </td>
                 <td></td>
+                <td>
+                    <span t-foreach="o.line_ids.filtered(lambda line: line.appears_on_payslip)" t-as="line"/>
+                    <t t-if="line.name == 'Salaire Net'">
+                        <t t-esc="line.total"/>
+                    </t>
+                </td>
                 <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+
+                <td>
+                    <span t-foreach="o.line_ids.filtered(lambda line: line.appears_on_payslip)" t-as="line"/>
+                    <t t-if="line.name == 'Salaire Net'">
+                        <t t-esc="line.total"/>
+                    </t>
+                </td>
+
                 <td>
                     <span t-foreach="o.worked_days_line_ids" t-as="line" style="color: #888888;"/>
                     <t t-if="line.number_of_hours &lt; 8">
@@ -286,12 +304,11 @@
                     <t t-else="line.number_of_days &gt; 1">
                         <t t-esc="line.number_of_days"/>
                     </t>
-
                 </td>
 
                 <td rowspan="2">
                     <span t-foreach="o.line_ids.filtered(lambda line: line.appears_on_payslip)" t-as="line"/>
-                    <t t-if="line.name == 'Net Salary'">
+                    <t t-if="line.name == 'Salaire Net'">
                         <t t-esc="line.total"/>
                     </t>
                 </td>
