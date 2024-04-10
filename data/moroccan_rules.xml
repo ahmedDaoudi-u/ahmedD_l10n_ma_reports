@@ -33,7 +33,7 @@
         </record>
 
         <record id="avantages" model="hr.salary.rule.category">
-            <field name="name">avantage</field>
+            <field name="name">Avantages</field>
             <field name="code">avantages</field>
         </record>
 
@@ -331,7 +331,7 @@
         </record>
 
         <record id="Prime_anciennté" model="hr.salary.rule">
-            <field name="name">Prime D'ancienneté</field>
+            <field name="name">Prime Ancienneté</field>
             <field name="code">PrimeAncien</field>
             <field name="sequence">22</field>
             <field name="category_id" ref="teos_l10n_ma_reports.allocations"/>
