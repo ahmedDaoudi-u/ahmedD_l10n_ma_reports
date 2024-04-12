@@ -52,6 +52,11 @@
             <field name="code">Net</field>
         </record>
 
+        <record id="IR_Net" model="hr.salary.rule.category">
+            <field name="name">IR_Net</field>
+            <field name="code">IR_Net</field>
+        </record>
+
 <!--___________________________________________________________________________________________________________ -->
 
         <record id="salaire_base" model="hr.salary.rule">
@@ -557,10 +562,10 @@ if contract.employee_id.children:
         </record>
 
         <record id="IRnet" model="hr.salary.rule">
-            <field name="name">IR Net </field>
+            <field name="name">IR Net</field>
             <field name="code">IR Net</field>
             <field name="sequence">69</field>
-            <field name="category_id" ref="teos_l10n_ma_reports.deduF"/>
+            <field name="category_id" ref="teos_l10n_ma_reports.IR_Net"/>
             <field name="condition_select">none</field>
             <field name="condition_python"></field>
             <field name="amount_select">code</field>
