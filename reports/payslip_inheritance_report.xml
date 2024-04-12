@@ -113,6 +113,7 @@
                 <td colspan="3">Nbre Déductions :
                     <t t-if="o.employee_id.gender=='female'"></t>
                     <t t-else="o.employee_id.gender=='male'">
+                        <!-- you need to add the condition where the male is married or single -->
                         <t t-set="nombre" t-value="o.employee_id.children + 1"/>
                         <span t-esc="nombre" style="color: #888888;text-align: center;"/>
                     </t>
@@ -198,12 +199,15 @@
 
 
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_8']" position="after">
-            <span t-foreach="o.line_ids.filtered(lambda line: line.appears_on_payslip)" t-as="line">
+            <span t-foreach="o.line_ids.filtered(lambda line: line.appears_on_payslip and line.name not in ['Salaire Brut Global',
+            'Déduction / personnes à charges','Salaire Brut Imposable', 'Frais Profesionnelles','Salaire Net Imposable'])"
+                  t-as="line">
                 <tr t-att-class="line_class" t-att-style="line_style" id="employee_info_9">
 
                     <td id="payslip_line_payslip_name" colspan="2">
                         <span t-field="line.name"/>
                     </td>
+
 
                     <td id="payslip_line_quantity">
                         <span t-if="line.quantity &gt; 1" t-esc="line.quantity"/>
@@ -215,7 +219,7 @@
                     <td>
                         <t t-if="line.name in ['Salaire De Base','Heures Supplémentaires 25%','Heures Supplémentaires 50%',
                         'Heures Supplémentaires 100%','Avantages','Indemnité De Déplacement','Prime Ancienneté','Salaire Brut Global',
-                        'Salaire Brut Global','Salaire Brut Imposable','Frais Profesionnelles','Salaire Net Imposable']">
+                        'Salaire Brut Global','Salaire Brut Imposable','Salaire Net']">
                             <span t-esc="line.total"
                                   t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.company_id.currency_id}"
                                   t-att-style="'color:#875A7B;' if line.total &lt; 0 else ''"/>
@@ -224,12 +228,12 @@
 
 
                     <td>
-                        <t t-if="line.name in ['Cotisation CNSS','Cotisation AMO','Cotisation CIMR','Accomptes','IR Brut','Salaire Net','IR Net']">
-                            <t t-esc="line.total"
-                               t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.company_id.currency_id}"
-                               t-att-style="'color:#875A7B;' if line.total &lt; 0 else ''"/>
+                        <t t-if="line.name in ['Cotisation CNSS','Cotisation AMO','Cotisation CIMR','Accomptes','IR Net']">
+                            <t t-esc="line.amount"
+                               t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.company_id.currency_id}"/>
                         </t>
                     </td>
+
                 </tr>
             </span>
         </xpath>
