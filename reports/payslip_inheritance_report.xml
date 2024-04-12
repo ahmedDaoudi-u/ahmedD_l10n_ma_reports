@@ -117,7 +117,6 @@
                         <t t-set="nombre" t-value="o.employee_id.children + 1"/>
                         <span t-esc="nombre" style="color: #888888;text-align: center;"/>
                     </t>
-
                 </td>
             </tr>
         </xpath>
@@ -133,7 +132,6 @@
                     Employe :
                     <span t-field="o.employee_id.address_id" style="color: #888888;text-align: center;"/>
                 </td>
-
             </tr>
         </xpath>
 
@@ -152,7 +150,6 @@
                     <span t-esc="float(o.employee_id.allocation_count) - float(o.employee_id.allocation_remaining_display)"
                           style="color: #888888;"/>
                 </td>
-
             </tr>
         </xpath>
 
@@ -200,7 +197,7 @@
 
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_8']" position="after">
             <span t-foreach="o.line_ids.filtered(lambda line: line.appears_on_payslip and line.name not in ['Salaire Brut Global',
-            'Déduction / personnes à charges','Salaire Brut Imposable', 'Frais Profesionnelles','Salaire Net Imposable'])"
+            'Déduction / personnes à charges','Salaire Brut Imposable', 'Frais Profesionnelles','Salaire Net Imposable','IR Brut'])"
                   t-as="line">
                 <tr t-att-class="line_class" t-att-style="line_style" id="employee_info_9">
 

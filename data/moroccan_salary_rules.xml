@@ -53,7 +53,7 @@
                 (      5000.00, 0.20,  666.67),
                 (      6666.67, 0.30, 1166.67),
                 (     15000.00, 0.34, 1433.33),
-                (100000000000000.00, 0.38, 2033.00),
+                (100000000000000.00, 0.38, 2033.33),
             ]</field>
             <field name="rule_parameter_id" ref="Impot_sur_le_revenue_mensuel"/>
             <field name="date_from" eval="datetime(2024, 1, 1).date()"/>
@@ -89,7 +89,7 @@
         </record>
         <record id="Frais_Professional_mensuel_valeur" model="hr.rule.parameter.value">
             <field name="parameter_value">[
-                ( 0, 6500.00, 0.22),
+                ( 0, 6500.00, 0.25),
                 ( 6501.00, 10000000000.00, 0.35),
             ]</field>
             <field name="rule_parameter_id" ref="Frais_Professionel_mensuel"/>
