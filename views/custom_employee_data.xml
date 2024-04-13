@@ -11,6 +11,9 @@
                 <xpath expr="//field[@name='type_payment']" position="after">
                     <field name="commentaire"/>
                 </xpath>
+                <xpath expr="//field[@name='commentaire']" position="after">
+                    <field name="categorie"/>
+                </xpath>
             </field>
         </record>
 </odoo>

@@ -15,5 +15,9 @@ class HrPayslip(models.Model):
 
     commentaire = fields.Char(String="comment about the employee")
 
+    categorie = fields.Selection(
+        [('Salarié', 'salarié') ],
+        String="Categories salarié")
+
 
 
