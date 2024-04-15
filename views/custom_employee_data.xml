@@ -1,22 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <record id="view_employee_data_payment_type" model="ir.ui.view">
-            <field name="name">hr.payslip</field>
-            <field name="model">hr.payslip</field>
-            <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
-            <field name="arch" type="xml">
-                <xpath expr="//field[@name='payslip_run_id']" position="after">
-                    <field name="type_payment"/>
-                </xpath>
-                <xpath expr="//field[@name='type_payment']" position="after">
-                    <field name="commentaire"/>
-                </xpath>
-                <xpath expr="//field[@name='commentaire']" position="after">
-                    <field name="categorie"/>
-                </xpath>
-                 <xpath expr="//field[@name='categorie']" position="after">
-                    <field name="date_data"/>
-                </xpath>
-            </field>
-        </record>
+        <field name="name">hr.payslip</field>
+        <field name="model">hr.payslip</field>
+        <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='payslip_run_id']" position="after">
+                <field name="type_payment"/>
+            </xpath>
+            <xpath expr="//field[@name='type_payment']" position="after">
+                <field name="commentaire"/>
+            </xpath>
+            <xpath expr="//field[@name='commentaire']" position="after">
+                <field name="categorie"/>
+            </xpath>
+
+            <xpath expr="//field[@name='categorie']" position="after">
+                <field name="droit"/>
+            </xpath>
+
+
+            <xpath expr="//field[@name='droit']" position="after">
+                <field name="reliquat"/>
+            </xpath>
+
+            <xpath expr="//field[@name='reliquat']" position="after">
+                <field name="pris"/>
+            </xpath>
+
+            <xpath expr="//field[@name='pris']" position="after">
+                <field name="solde"/>
+            </xpath>
+
+
+        </field>
+    </record>
 </odoo>

@@ -157,10 +157,10 @@
 
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_6']" position="after">
             <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_7'>
-<!-- ____________________________Droit____________________________-->
+<!-- ____________________________Droit____________________________(checked)-->
                 <td style="text-align: center;" colspan="2">Droit</td>
                 <td colspan="1">
-                    <span t-field="o.employee_id.allocation_count" style="color: #888888;"/>
+                    <span t-field="o.droit" style="color: #888888;"/>
                 </td>
 <!-- ____________________________Solde____________________________-->
                 <td style="text-align: center;">Solde</td>

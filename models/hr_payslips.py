@@ -1,7 +1,7 @@
 from odoo import models, fields, api
 from dateutil.relativedelta import relativedelta
 from datetime import datetime
-
+from datetime import datetime
 class HrPayslip(models.Model):
 
     _inherit = ['hr.payslip']
@@ -19,15 +19,32 @@ class HrPayslip(models.Model):
         [('Salarié', 'salarié')],
         String="Categories salarié")
 
-    date_data = fields.Char(String="employee name")
+
+    droit = fields.Char(String="employee name", readonly=True)
+
+    reliquat = fields.Char(String="reliquat", readonly=True)
+    pris = fields.Char(String="pris", readonly=True)
+    solde = fields.Char(String="solde", readonly=True)
+
 
 
     def compute_sheet(self):
         for rec in self:
             employee = rec.contract_id
             if employee:
-                input_value = employee.date_start
-                rec.date_data = input_value
+                start_date = employee.date_start
+                if start_date:
+                    today_date = fields.Date.today()
+                    start_date = fields.Date.from_string(start_date)
+                    difference = today_date.year - start_date.year
+
+                    if (difference * 12) <= 60:
+                        time_off = min((difference * 12) * 1.5, 18)
+                        rec.droit = time_off
+                    else:
+                        time_off = min((difference - 5) * 1.5 + 18, 30)
+                        rec.droit = time_off
+
         return super(HrPayslip, self).compute_sheet()
 
 
