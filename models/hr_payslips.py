@@ -16,8 +16,25 @@ class HrPayslip(models.Model):
     commentaire = fields.Char(String="comment about the employee")
 
     categorie = fields.Selection(
-        [('Salarié', 'salarié') ],
+        [('Salarié', 'salarié')],
         String="Categories salarié")
+
+    employee_name = fields.Char(String="employee name")
+
+
+    def compute_sheet(self):
+        for rec in self:
+            partners = self.env["hr.employee"].search([])
+            input_value = ",".join(partners.mapped("name"))
+            # Store the input value in the field
+            rec.employee_name = input_value
+        # Call the original method if needed
+        return super(HrPayslip, self).compute_sheet()
+
+
+
+
+
 
 
 
