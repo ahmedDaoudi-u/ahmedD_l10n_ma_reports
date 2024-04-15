@@ -15,7 +15,7 @@
                     <field name="categorie"/>
                 </xpath>
                  <xpath expr="//field[@name='categorie']" position="after">
-                    <field name="employee_name"/>
+                    <field name="date_data"/>
                 </xpath>
             </field>
         </record>

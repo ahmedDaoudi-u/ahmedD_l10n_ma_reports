@@ -19,16 +19,15 @@ class HrPayslip(models.Model):
         [('Salarié', 'salarié')],
         String="Categories salarié")
 
-    employee_name = fields.Char(String="employee name")
+    date_data = fields.Char(String="employee name")
 
 
     def compute_sheet(self):
         for rec in self:
-            employee = rec.employee_id
+            employee = rec.contract_id
             if employee:
-                input_value = employee.name
-                rec.employee_name = input_value
-        # Call the original method if needed
+                input_value = employee.date_start
+                rec.date_data = input_value
         return super(HrPayslip, self).compute_sheet()
 
 
