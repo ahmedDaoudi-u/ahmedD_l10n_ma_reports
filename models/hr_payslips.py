@@ -24,10 +24,10 @@ class HrPayslip(models.Model):
 
     def compute_sheet(self):
         for rec in self:
-            partners = self.env["hr.employee"].search([])
-            input_value = ",".join(partners.mapped("name"))
-            # Store the input value in the field
-            rec.employee_name = input_value
+            employee = rec.employee_id
+            if employee:
+                input_value = employee.name
+                rec.employee_name = input_value
         # Call the original method if needed
         return super(HrPayslip, self).compute_sheet()
 
