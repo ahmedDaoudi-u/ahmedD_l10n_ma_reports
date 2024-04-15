@@ -14,6 +14,9 @@
                 <xpath expr="//field[@name='commentaire']" position="after">
                     <field name="categorie"/>
                 </xpath>
+                 <xpath expr="//field[@name='categorie']" position="after">
+                    <field name="date_data"/>
+                </xpath>
             </field>
         </record>
 </odoo>
