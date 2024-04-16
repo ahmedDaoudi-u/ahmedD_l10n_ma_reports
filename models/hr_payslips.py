@@ -50,6 +50,7 @@ class HrPayslip(models.Model):
                     else:
                         additional_accrual = (employee.number_of_years // 5) * 1.5 + 18
                         time_off += additional_accrual
+                        time_off = min(time_off, 30)
                         rec.droit = time_off
 
 
