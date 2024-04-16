@@ -26,32 +26,58 @@ class HrPayslip(models.Model):
     pris = fields.Char(String="pris", readonly=True)
     solde = fields.Char(String="solde", readonly=True)
 
+    #defining the cron function
+    def calcule_droit(self):
+        employees = self.env['hr.payslip'].search([])
+        current_day = employees.mapped('date_to')
+        for dates in current_day:
+            months = fields.Date.from_string(dates).month
+            time_off = months*1.5
+            employees.droit = time_off
 
+
+        """for employee in employees:
+            get_dat_emp = employee.employee_id
+            current_date = get_dat_emp.date_from
+            date = fields.Date.from_string(current_date)
+            months = date.month
+
+            employees.droit = months"""
 
     def compute_sheet(self):
         for rec in self:
+            #Getting the modules we need
             employee = rec.contract_id
             time_off = rec.employee_id
 
             if employee and time_off:
 
+                # Getting the fields necessary (typical the 4 fields)
                 start_date = employee.date_start
-                amount_time_off = time_off.allocation_count
-                rec.pris = amount_time_off
+                #This for  the pris but we need to add the exact field(checking...)
+                #amount_time_off = time_off.allocation_count
+                #rec.pris = amount_time_off
 
+                #This block of code is for the field PRIS(checked)
                 if start_date:
+                    #getting the todays date
                     today_date = fields.Date.today()
+                    # getting the starting date of work from the employee contract
                     start_date = fields.Date.from_string(start_date)
-                    difference = today_date.year - start_date.year
+                    #calculate the number of years & months
+                    years = today_date.year - start_date.year
+                    start_date_month = start_date.month
+                    print(start_date_month)
 
-                    if (difference * 12) <= 60:
-                        time_off = min((difference * 12) * 1.5, 18)
-                        rec.droit = time_off
+                    months = years * 12
+
+                    if months <= 60:
+                        time_off = min(start_date_month * 1.5, 18)
+                        print(time_off)
+                        rec.solde = time_off
                     else:
-                        additional_accrual = (employee.number_of_years // 5) * 1.5 + 18
-                        time_off += additional_accrual
-                        time_off = min(time_off, 30)
-                        rec.droit = time_off
+                        time_off = min((years// 5) * 1.5 + 18, 30)
+                        rec.solde = time_off
 
 
         return super(HrPayslip, self).compute_sheet()
