@@ -31,8 +31,14 @@ class HrPayslip(models.Model):
     def compute_sheet(self):
         for rec in self:
             employee = rec.contract_id
-            if employee:
+            time_off = rec.employee_id
+
+            if employee and time_off:
+
                 start_date = employee.date_start
+                amount_time_off = time_off.allocation_count
+                rec.pris = amount_time_off
+
                 if start_date:
                     today_date = fields.Date.today()
                     start_date = fields.Date.from_string(start_date)
@@ -42,8 +48,10 @@ class HrPayslip(models.Model):
                         time_off = min((difference * 12) * 1.5, 18)
                         rec.droit = time_off
                     else:
-                        time_off = min((difference - 5) * 1.5 + 18, 30)
+                        additional_accrual = (employee.number_of_years // 5) * 1.5 + 18
+                        time_off += additional_accrual
                         rec.droit = time_off
+
 
         return super(HrPayslip, self).compute_sheet()
 

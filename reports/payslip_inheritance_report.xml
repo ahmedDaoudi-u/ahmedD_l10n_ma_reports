@@ -157,7 +157,7 @@
 
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_6']" position="after">
             <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_7'>
-<!-- ____________________________Droit____________________________(checked)-->
+<!-- ____________________________Droit____________________________(checked/working)-->
                 <td style="text-align: center;" colspan="2">Droit</td>
                 <td colspan="1">
                     <span t-field="o.droit" style="color: #888888;"/>
