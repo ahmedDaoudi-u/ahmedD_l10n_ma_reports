@@ -1,7 +1,7 @@
 from odoo import models, fields, api
 from dateutil.relativedelta import relativedelta
 from datetime import datetime
-
+from datetime import datetime
 class HrPayslip(models.Model):
 
     _inherit = ['hr.payslip']
@@ -19,15 +19,67 @@ class HrPayslip(models.Model):
         [('Salarié', 'salarié')],
         String="Categories salarié")
 
-    date_data = fields.Char(String="employee name")
 
+    droit = fields.Char(String="employee name", readonly=True)
+
+    reliquat = fields.Char(String="reliquat", readonly=True)
+    pris = fields.Char(String="pris", readonly=True)
+    solde = fields.Char(String="solde", readonly=True)
+
+    #defining the cron function
+    def calcule_droit(self):
+        employees = self.env['hr.payslip'].search([])
+        current_day = employees.mapped('date_to')
+        for dates in current_day:
+            months = fields.Date.from_string(dates).month
+            time_off = months*1.5
+            employees.droit = time_off
+
+
+        """for employee in employees:
+            get_dat_emp = employee.employee_id
+            current_date = get_dat_emp.date_from
+            date = fields.Date.from_string(current_date)
+            months = date.month
+
+            employees.droit = months"""
 
     def compute_sheet(self):
         for rec in self:
+            #Getting the modules we need
             employee = rec.contract_id
-            if employee:
-                input_value = employee.date_start
-                rec.date_data = input_value
+            time_off = rec.employee_id
+
+            if employee and time_off:
+
+                # Getting the fields necessary (typical the 4 fields)
+                start_date = employee.date_start
+                #This for  the pris but we need to add the exact field(checking...)
+                #amount_time_off = time_off.allocation_count
+                #rec.pris = amount_time_off
+
+                #This block of code is for the field PRIS(checked)
+                if start_date:
+                    #getting the todays date
+                    today_date = fields.Date.today()
+                    # getting the starting date of work from the employee contract
+                    start_date = fields.Date.from_string(start_date)
+                    #calculate the number of years & months
+                    years = today_date.year - start_date.year
+                    start_date_month = start_date.month
+                    print(start_date_month)
+
+                    months = years * 12
+
+                    if months <= 60:
+                        time_off = min(start_date_month * 1.5, 18)
+                        print(time_off)
+                        rec.solde = time_off
+                    else:
+                        time_off = min((years// 5) * 1.5 + 18, 30)
+                        rec.solde = time_off
+
+
         return super(HrPayslip, self).compute_sheet()
 
 

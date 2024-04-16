@@ -18,6 +18,7 @@
         "data/moroccan_category_data.xml",
         "data/moroccan_structure_type.xml",
         "data/moroccan_salary_rules.xml",
+        "data/cron-droit.xml"
     ],
     "category": "",
     "depends": ['l10n_ma_hr_payroll','hr_payroll', 'l10n_ma','hr_holidays'],
