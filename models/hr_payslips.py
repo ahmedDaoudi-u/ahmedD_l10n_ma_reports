@@ -32,7 +32,7 @@ class HrPayslip(models.Model):
         current_day = employees.mapped('date_to')
         for dates in current_day:
             months = fields.Date.from_string(dates).month
-            time_off = months*1.5
+            time_off = months * 1.5
             employees.droit = time_off
 
 
