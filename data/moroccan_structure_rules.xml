@@ -5,13 +5,15 @@
         <record id="hr_payroll_salary_ma_structure_reference" model="hr.payroll.structure">
             <field name="code">MAR</field>
             <field name="name">Système De Paie Marocain</field>
-            <field name="type_id" ref="teos_l10n_ma_reports.structure_type_salarier_marocain"/>
+            <field name="type_id" ref="teos_l10n_ma_reports.structure_type_salarier_marocain_non_agri"/>
             <field name="country_id" ref="base.ma"/>
         </record>
 
-        <record id="teos_l10n_ma_reports.structure_type_salarier_marocain" model="hr.payroll.structure.type">
+        <record id="teos_l10n_ma_reports.structure_type_salarier_marocain_non_agri" model="hr.payroll.structure.type">
             <field name="default_struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
+
+
 
     </data>
 </odoo>

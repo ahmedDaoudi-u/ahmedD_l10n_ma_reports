@@ -2,6 +2,17 @@
 
 <odoo>
     <data>
+        <!-- This is for specifying the amount of working hours during a working day(Non agricole)-->
+
+<!--
+        <record id="resource.resource_calendar_maroc_std_48h" model="resource.calendar">
+            <field name="full_time_required_hours">48</field>
+        </record>
+        <record id="resource.resource_calendar_maroc_std_44h" model="resource.calendar">
+            <field name="full_time_required_hours">44</field>
+        </record> -->
+
+
         <record id="allocations" model="hr.salary.rule.category">
             <field name="name">Allocations</field>
             <field name="code">allocations</field>
