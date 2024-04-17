@@ -26,7 +26,7 @@ class HrPayslip(models.Model):
     pris = fields.Char(String="pris", readonly=True)
     solde = fields.Char(String="solde", readonly=True)
 
-    #defining the cron function
+    #Defining the cron function for Droit Calculation
     def calcule_droit(self):
         employees = self.env['hr.payslip'].search([])
         current_day = employees.mapped('date_to')
@@ -44,6 +44,7 @@ class HrPayslip(models.Model):
 
             employees.droit = months"""
 
+    # Defining the function for Solde calculation
     def compute_sheet(self):
         for rec in self:
             #Getting the modules we need
@@ -51,20 +52,19 @@ class HrPayslip(models.Model):
             time_off = rec.employee_id
 
             if employee and time_off:
-
                 # Getting the fields necessary (typical the 4 fields)
                 start_date = employee.date_start
-                #This for  the pris but we need to add the exact field(checking...)
-                #amount_time_off = time_off.allocation_count
-                #rec.pris = amount_time_off
+                # This for  the pris but we need to add the exact field(checking...)
+                # amount_time_off = time_off.allocation_count
+                # rec.pris = amount_time_off
 
-                #This block of code is for the field PRIS(checked)
+                # This block of code is for the field PRIS(checked)
                 if start_date:
-                    #getting the todays date
+                    # getting the todays date
                     today_date = fields.Date.today()
                     # getting the starting date of work from the employee contract
                     start_date = fields.Date.from_string(start_date)
-                    #calculate the number of years & months
+                    # calculate the number of years & months
                     years = today_date.year - start_date.year
                     start_date_month = start_date.month
                     print(start_date_month)
@@ -76,9 +76,8 @@ class HrPayslip(models.Model):
                         print(time_off)
                         rec.solde = time_off
                     else:
-                        time_off = min((years// 5) * 1.5 + 18, 30)
+                        time_off = min((years // 5) * 1.5 + 18, 30)
                         rec.solde = time_off
-
 
         return super(HrPayslip, self).compute_sheet()
 
