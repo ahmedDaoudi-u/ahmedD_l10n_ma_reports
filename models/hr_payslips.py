@@ -26,7 +26,7 @@ class HrPayslip(models.Model):
     pris = fields.Char(String="pris", readonly=True)
     solde = fields.Char(String="solde", readonly=True)
 
-    #defining the cron function
+    #Defining the cron function for Droit Calculation
     def calcule_droit(self):
         employees = self.env['hr.payslip'].search([])
         current_day = employees.mapped('date_to')
@@ -44,6 +44,7 @@ class HrPayslip(models.Model):
 
             employees.droit = months"""
 
+    # Defining the function for Solde calculation
     def compute_sheet(self):
         for rec in self:
             #Getting the modules we need
@@ -71,10 +72,12 @@ class HrPayslip(models.Model):
 
                     months = years * 12
 
-                    if months <= 60:
-                        time_off = min(start_date_month * 1.5, 18)
+                    if months <= 12:
+                        numb_months = (today_date.year - start_date.year)*12 + today_date.month - start_date.month
+                        time_off = min(numb_months * 1.5, 18)
                         print(time_off)
                         rec.solde = time_off
+
                     else:
                         time_off = min((years// 5) * 1.5 + 18, 30)
                         rec.solde = time_off
