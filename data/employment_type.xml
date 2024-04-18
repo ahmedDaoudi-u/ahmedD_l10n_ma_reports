@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="contract_type_permanent_IDMAJ" model="hr.contract.type">
+            <field name="name">Contrat d’insertion professionnelle ANAPEC - IDMAJ.</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="contract_type_permanent_TAHFIZ" model="hr.contract.type">
+            <field name="name">Contrat d’insertion professionnelle ANAPEC - TAHFIZ.</field>
+            <field name="sequence">11</field>
+        </record>
+
+    </data>
+</odoo>

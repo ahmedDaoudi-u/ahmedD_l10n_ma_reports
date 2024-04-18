@@ -20,10 +20,12 @@
         "data/moroccan_salary_rules.xml",
         "data/cron-droit.xml",
         "views/company_custom_profile.xml",
-        "data/calendrier_maroc.xml"
+        "data/calendrier_maroc.xml",
+        "views/custum_employee_maroc.xml",
+        "data/employment_type.xml"
     ],
     "category": "",
-    "depends": ['l10n_ma_hr_payroll','hr_payroll', 'l10n_ma','hr_holidays','base'],
+    "depends": ['hr_payroll', 'l10n_ma','hr_holidays','base','hr_contract'],
     "installable": True,
     "application": True,
     "license": "LGPL-3"
