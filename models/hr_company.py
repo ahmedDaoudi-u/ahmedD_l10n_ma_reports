@@ -11,6 +11,19 @@ class HrCompanydata(models.Model):
         String="Secteur d'activité")
 
 
+    @api.onchange('company_status')
+    def update_working_hours(self):
+            employees = self.env['hr.employee'].search([])
+            hours = employees.mapped('resource_calendar_id')
+            status = self.company_status
+            if status == "agricole":
+                hours.name = "Standard 40 hours/week"
+            else:
+                hours.name = "testing"
+
+
+
+
 
 
 
