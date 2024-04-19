@@ -251,18 +251,18 @@
             <field name="amount_python_compute"></field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
-
-        <record id="Prime_de_panier" model="hr.salary.rule">
+<!--
+        <record id="Prime_de_panier_employee" model="hr.salary.rule">
             <field name="name">Prime De Panier</field>
             <field name="code">PrimePanier</field>
             <field name="sequence">14</field>
-            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="category_id" ref="teos_l10n_ma_reports.Basic"/>
             <field name="condition_select">python</field>
-            <field name="condition_python"></field>
+            <field name="condition_python">result = 'PrimePanier' in inputs</field>
             <field name="amount_select">code</field>
-            <field name="amount_python_compute"></field>
+            <field name="amount_python_compute">result = inputs['PrimePanier'].amount</field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
-        </record>
+        </record>  -->
 
         <record id="Rappel" model="hr.salary.rule">
             <field name="name">Rappel</field>

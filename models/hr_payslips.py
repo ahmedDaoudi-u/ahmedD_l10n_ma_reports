@@ -71,8 +71,9 @@ class HrPayslip(models.Model):
 
                     months = years * 12
 
-                    if months <= 60:
-                        time_off = min(start_date_month * 1.5, 18)
+                    if months <= 12:
+                        numb_months = (today_date.year - start_date.year) * 12 + today_date.month - start_date.month
+                        time_off = min(numb_months * 1.5, 18)
                         print(time_off)
                         rec.solde = time_off
                     else:
