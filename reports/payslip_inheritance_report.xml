@@ -104,7 +104,7 @@
                         DH
                     </t>
                     <t t-else="o.contract_id.wage &gt;0">
-                        <t t-set="hour_cost" t-value="o.contract_id.wage // 191"/>
+                        <t t-set="hour_cost" t-value="round(o.contract_id.wage / 191,2)"/> DH
                         <span t-esc="hour_cost" style="color: #888888;text_align:center;"/>
                     </t>
                 </td>
@@ -165,7 +165,7 @@
 <!-- ____________________________Solde____________________________-->
                 <td style="text-align: center;">Solde</td>
                 <td style="text-align: center;" colspan="1">
-                    <span t-field="o.employee_id.allocation_remaining_display" style="color: #888888;"/>
+                    <span t-field="o.solde" style="color: #888888;"/>
                 </td>
 
             </tr>
@@ -217,7 +217,7 @@
 
                     <td>
                         <t t-if="line.name in ['Salaire De Base','Heures Supplémentaires 25%','Heures Supplémentaires 50%',
-                        'Heures Supplémentaires 100%','Avantages','Indemnité De Déplacement','Prime Ancienneté','Salaire Brut Global',
+                        'Heures Supplémentaires 100%','Avantages','Indemnité De Transport','Prime Exceptionnelle','Indemnité De Panier','Prime Ancienneté','Salaire Brut Global',
                         'Salaire Brut Global','Salaire Brut Imposable','Salaire Net']">
                             <span t-esc="line.total"
                                   t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.company_id.currency_id}"
@@ -227,7 +227,7 @@
 
 
                     <td>
-                        <t t-if="line.name in ['Cotisation CNSS','Cotisation AMO','Cotisation CIMR','Accomptes','IR Net']">
+                        <t t-if="line.name in ['Cotisation CNSS + IPE','Cotisation AMO','Cotisation CIMR','Accomptes','IR Net',Total]">
                             <t t-esc="line.amount"
                                t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.company_id.currency_id}"/>
                         </t>
