@@ -461,7 +461,7 @@ result = SBI_3 * cimr_pour
             <field name="amount_python_compute">
 cnss = result_rules['CNSS']['total']
 amo = result_rules['AMO']['total']
-result = cnss + cnss
+result = cnss + amo
             </field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>

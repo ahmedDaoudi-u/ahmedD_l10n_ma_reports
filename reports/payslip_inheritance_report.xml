@@ -104,7 +104,8 @@
                         DH
                     </t>
                     <t t-else="o.contract_id.wage &gt;0">
-                        <t t-set="hour_cost" t-value="round(o.contract_id.wage / 191,2)"/> DH
+                        <t t-set="hour_cost" t-value="round(o.contract_id.wage / 191,2)"/>
+                        DH
                         <span t-esc="hour_cost" style="color: #888888;text_align:center;"/>
                     </t>
                 </td>
@@ -143,10 +144,10 @@
                     <span t-field="o.commentaire" style="color: #888888;"/>
                 </td>
                 <td style="text-align: center;" colspan="1" rowspan="2">Congés</td>
-<!-- ____________________________Réliquat____________________________-->
+                <!-- ____________________________Réliquat____________________________-->
                 <td style="text-align: center;" colspan="2">Réliquat n-1</td>
                 <td colspan="1"></td>
-<!-- ____________________________Pris____________________________-->
+                <!-- ____________________________Pris____________________________-->
                 <td style="text-align: center;">Pris</td>
                 <td style="text-align: center;" colspan="1">
                     <span t-esc="float(o.employee_id.allocation_count) - float(o.employee_id.allocation_remaining_display)"
@@ -157,12 +158,12 @@
 
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_6']" position="after">
             <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_7'>
-<!-- ____________________________Droit____________________________(checked/working)-->
+                <!-- ____________________________Droit____________________________(checked/working)-->
                 <td style="text-align: center;" colspan="2">Droit</td>
                 <td colspan="1">
                     <span t-field="o.droit" style="color: #888888;"/>
                 </td>
-<!-- ____________________________Solde____________________________-->
+                <!-- ____________________________Solde____________________________-->
                 <td style="text-align: center;">Solde</td>
                 <td style="text-align: center;" colspan="1">
                     <span t-field="o.solde" style="color: #888888;"/>
@@ -227,7 +228,7 @@
 
 
                     <td>
-                        <t t-if="line.name in ['Cotisation CNSS + IPE','Cotisation AMO','Cotisation CIMR','Accomptes','IR Net',Total]">
+                        <t t-if="line.name in ['Cotisation CNSS + IPE','Cotisation AMO','Cotisation CIMR','Accomptes','IR Net','TOTAL COTISATIONS']">
                             <t t-esc="line.amount"
                                t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.company_id.currency_id}"/>
                         </t>
@@ -292,7 +293,16 @@
                     </span>
                 </td>
 
+
                 <td>
+
+                    <span t-foreach="o.line_ids.filtered(lambda line: line.appears_on_payslip)" t-as="line">
+                        <t t-if="line.name == 'TOTAL COTISATIONS'">
+                            <t t-esc="line.total"
+                               t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.company_id.currency_id}"
+                               t-att-style="'color:#875A7B;' if line.total &lt; 0 else ''"/>
+                        </t>
+                    </span>
 
                 </td>
 
