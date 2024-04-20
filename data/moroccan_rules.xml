@@ -520,7 +520,7 @@ result = 0
 
 
         <record id="salaire_brut_global" model="hr.salary.rule">
-            <field name="name">Salaire Brut Global</field>
+            <field name="name">TOTAL BRUT</field>
             <field name="code">SBG</field>
             <field name="sequence">58</field>
             <field name="category_id" ref="teos_l10n_ma_reports.allocations"/>
