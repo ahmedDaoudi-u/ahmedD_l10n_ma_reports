@@ -12,14 +12,19 @@ class HrCompanydata(models.Model):
 
 
     @api.onchange('company_status')
-    def update_working_hours(self):
-            employees = self.env['hr.employee'].search([])
-            hours = employees.mapped('resource_calendar_id')
-            status = self.company_status
-            if status == "agricole":
-                hours.name = "Standard 40 hours/week"
-            else:
-                hours.name = "testing"
+    def onchange_company_status(self):
+        employees = self.env['hr.employee'].search([])
+        hours = employees.mapped('resource_calendar_id')
+        status = self.company_status
+
+        if status == "Agricole":
+            hours.name = "Heures de travail par défaut à 44 heures par semaine"
+        else:
+            hours.name = "Heures de travail par défaut à 48 heures par semaine"
+
+
+
+
 
 
 

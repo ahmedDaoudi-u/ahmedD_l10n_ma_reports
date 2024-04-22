@@ -21,7 +21,6 @@
         "data/cron-droit.xml",
         "views/company_custom_profile.xml",
         "data/calendrier_maroc.xml",
-        "views/custum_employee_maroc.xml",
         "data/employment_type.xml"
     ],
     "category": "",

@@ -13,7 +13,5 @@
             <field name="default_struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
 
-
-
     </data>
 </odoo>

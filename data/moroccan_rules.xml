@@ -12,6 +12,10 @@
             <field name="full_time_required_hours">44</field>
         </record> -->
 
+        <record id="teos_l10n_ma_reports.resource_calendar_maroc_std_44h" model="resource.calendar">
+            <field name="full_time_required_hours">44</field>
+        </record>
+
 
         <record id="allocations" model="hr.salary.rule.category">
             <field name="name">Allocations</field>
@@ -461,7 +465,7 @@ result = SBI_3 * cimr_pour
             <field name="amount_python_compute">
 cnss = result_rules['CNSS']['total']
 amo = result_rules['AMO']['total']
-result = cnss + cnss
+result = cnss + amo
             </field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
@@ -520,7 +524,7 @@ result = 0
 
 
         <record id="salaire_brut_global" model="hr.salary.rule">
-            <field name="name">Salaire Brut Global</field>
+            <field name="name">TOTAL BRUT</field>
             <field name="code">SBG</field>
             <field name="sequence">58</field>
             <field name="category_id" ref="teos_l10n_ma_reports.allocations"/>
