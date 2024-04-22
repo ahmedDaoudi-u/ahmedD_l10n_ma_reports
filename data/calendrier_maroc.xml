@@ -3,9 +3,7 @@
     <data noupdate="1">
         <record id="resource_calendar_maroc_std_44h" model="resource.calendar">
             <field name="name">Heures de travail par défaut à 44 heures par semaine</field>
-            <field name="company_id" eval="False"/>
-            <field name="hours_per_day">8</field>
-            <field name="full_time_required_hours">44</field>
+            <field name="company_id" ref="base.ma"/>
             <field name="attendance_ids"
                 eval="[(5, 0, 0),
                     (0, 0, {'name': 'Monday Morning', 'dayofweek': '0', 'hour_from': 8, 'hour_to': 12, 'day_period': 'morning'}),
@@ -31,6 +29,7 @@
             <field name="company_id" ref="base.ma"/>
             <field name="hours_per_day">8</field>
             <field name="full_time_required_hours">48</field>
+            <field name="work_time_rate">100</field>
             <field name="attendance_ids"
                 eval="[(5, 0, 0),
                     (0, 0, {'name': 'Monday Morning', 'dayofweek': '0', 'hour_from': 8, 'hour_to': 12, 'day_period': 'morning'}),
@@ -55,6 +54,5 @@
                 ]"
             />
         </record>
-
     </data>
 </odoo>

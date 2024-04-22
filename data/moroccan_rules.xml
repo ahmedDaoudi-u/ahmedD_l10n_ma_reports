@@ -12,6 +12,10 @@
             <field name="full_time_required_hours">44</field>
         </record> -->
 
+        <record id="teos_l10n_ma_reports.resource_calendar_maroc_std_44h" model="resource.calendar">
+            <field name="full_time_required_hours">44</field>
+        </record>
+
 
         <record id="allocations" model="hr.salary.rule.category">
             <field name="name">Allocations</field>
