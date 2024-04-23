@@ -12,9 +12,6 @@
             <field name="full_time_required_hours">44</field>
         </record> -->
 
-        <record id="teos_l10n_ma_reports.resource_calendar_maroc_std_44h" model="resource.calendar">
-            <field name="full_time_required_hours">44</field>
-        </record>
 
 
         <record id="allocations" model="hr.salary.rule.category">
@@ -83,7 +80,7 @@
             <field name="name">Salaire De Base</field>
             <field name="code">SalaireBase</field>
             <field name="sequence">1</field>
-            <field name="category_id" ref="teos_l10n_ma_reports.Basic"/>
+            <field name="category_id" ref="Basic"/>
             <field name="condition_select">python</field>
             <field name="condition_python">result = contract.wage</field>
             <field name="amount_select">code</field>
@@ -119,7 +116,7 @@
             <field name="name">Heures Supplémentaires 25%</field>
             <field name="code">Heures_Sup_25</field>
             <field name="sequence">4</field>
-            <field name="category_id" ref="teos_l10n_ma_reports.Basic"/>
+            <field name="category_id" ref="Basic"/>
             <field name="condition_select">python</field>
             <field name="condition_python">result = 'Heures_Sup_25' in inputs</field>
             <field name="amount_select">code</field>
@@ -131,7 +128,7 @@
             <field name="name">Heures Supplémentaires 50%</field>
             <field name="code">Heures_Sup_50</field>
             <field name="sequence">5</field>
-            <field name="category_id" ref="teos_l10n_ma_reports.Basic"/>
+            <field name="category_id" ref="Basic"/>
             <field name="condition_select">python</field>
             <field name="condition_python">result = 'Heures_Sup_50' in inputs</field>
             <field name="amount_select">code</field>
@@ -143,7 +140,7 @@
             <field name="name">Heures Supplémentaires 100%</field>
             <field name="code">Heures_Sup_100</field>
             <field name="sequence">6</field>
-            <field name="category_id" ref="teos_l10n_ma_reports.Basic"/>
+            <field name="category_id" ref="Basic"/>
             <field name="condition_select">python</field>
             <field name="condition_python">result = 'Heures_Sup_100' in inputs</field>
             <field name="amount_select">code</field>
@@ -155,7 +152,7 @@
             <field name="name">Avantages</field>
             <field name="code">avantage</field>
             <field name="sequence">7</field>
-            <field name="category_id" ref="teos_l10n_ma_reports.avantages"/>
+            <field name="category_id" ref="avantages"/>
             <field name="condition_select">python</field>
             <field name="condition_python">result = 'avantage' in inputs</field>
             <field name="amount_select">code</field>
@@ -167,7 +164,7 @@
             <field name="name">Indemnité De Transport</field>
             <field name="code">indemnite_trans</field>
             <field name="sequence">8</field>
-            <field name="category_id" ref="teos_l10n_ma_reports.exoneration"/>
+            <field name="category_id" ref="exoneration"/>
             <field name="condition_select">python</field>
             <field name="condition_python">result = 'indemnite_trans' in inputs</field>
             <field name="amount_select">code</field>
@@ -241,7 +238,7 @@
             <field name="name">Prime Exceptionnelle</field>
             <field name="code">Pexception</field>
             <field name="sequence">12</field>
-            <field name="category_id" ref="teos_l10n_ma_reports.Basic"/>
+            <field name="category_id" ref="Basic"/>
             <field name="condition_select">python</field>
             <field name="condition_python">result = 'Pexception' in inputs</field>
             <field name="amount_select">code</field>
@@ -266,7 +263,7 @@
             <field name="name">Indemnité De Panier</field>
             <field name="code">panier</field>
             <field name="sequence">14</field>
-            <field name="category_id" ref="teos_l10n_ma_reports.exoneration"/>
+            <field name="category_id" ref="exoneration"/>
             <field name="condition_select">python</field>
             <field name="condition_python">result = 'panier' in inputs</field>
             <field name="amount_select">code</field>
@@ -373,7 +370,7 @@
             <field name="name">Prime Ancienneté</field>
             <field name="code">PrimeAncien</field>
             <field name="sequence">22</field>
-            <field name="category_id" ref="teos_l10n_ma_reports.allocations"/>
+            <field name="category_id" ref="allocations"/>
             <field name="condition_select">none</field>
             <field name="condition_python">
 months = (payslip.date_from.year - contract.first_contract_date.year) * 12 + (payslip.date_from.month - contract.first_contract_date.month)
@@ -410,7 +407,7 @@ for low, high, rate in payslip._rule_parameter('anciennte_maroc'):
             <field name="name">Cotisation CNSS + IPE</field>
             <field name="code">CNSS</field>
             <field name="sequence">63</field>
-            <field name="category_id" ref="teos_l10n_ma_reports.déductions"/>
+            <field name="category_id" ref="déductions"/>
             <field name="condition_select">none</field>
             <field name="amount_select">code</field>
             <field name="amount_python_compute">
@@ -426,7 +423,7 @@ result = min(cnss_max, SBI) * cnss_pour
             <field name="name">Cotisation AMO</field>
             <field name="code">AMO</field>
             <field name="sequence">64</field>
-            <field name="category_id" ref="teos_l10n_ma_reports.déductions"/>
+            <field name="category_id" ref="déductions"/>
             <field name="condition_select">none</field>
             <field name="condition_python"></field>
             <field name="amount_select">code</field>
@@ -458,7 +455,7 @@ result = SBI_3 * cimr_pour
             <field name="name">TOTAL COTISATIONS</field>
             <field name="code">totalCha</field>
             <field name="sequence">65</field>
-            <field name="category_id" ref="teos_l10n_ma_reports.total"/>
+            <field name="category_id" ref="total"/>
             <field name="condition_select">none</field>
             <field name="condition_python"></field>
             <field name="amount_select">code</field>
@@ -475,7 +472,7 @@ result = cnss + amo
             <field name="name">Cotisation CIMR</field>
             <field name="code">cimr</field>
             <field name="sequence">66</field>
-            <field name="category_id" ref="teos_l10n_ma_reports.déductions"/>
+            <field name="category_id" ref="déductions"/>
             <field name="condition_select">none</field>
             <field name="condition_python"></field>
             <field name="amount_select">code</field>
@@ -500,7 +497,7 @@ result = 0
 
         <record id="Accompte_sur_paie" model="hr.salary.rule">
             <field name="name">Accompte Sur Paie</field>
-            <field name="code">PrimeAncien</field>
+            <field name="code">PrimeAnciene</field>
             <field name="sequence">28</field>
             <field name="category_id" ref="hr_payroll.ALW"/>
             <field name="condition_select">python</field>
@@ -527,7 +524,7 @@ result = 0
             <field name="name">TOTAL BRUT</field>
             <field name="code">SBG</field>
             <field name="sequence">58</field>
-            <field name="category_id" ref="teos_l10n_ma_reports.allocations"/>
+            <field name="category_id" ref="allocations"/>
             <field name="condition_select">none</field>
             <field name="condition_python"></field>
             <field name="amount_select">code</field>
@@ -544,7 +541,7 @@ result = categories['allocations'] + categories['Basic'] + categories['exonerati
             <field name="name">Salaire Brut Imposable</field>
             <field name="code">SBI</field>
             <field name="sequence">59</field>
-            <field name="category_id" ref="teos_l10n_ma_reports.allocations"/>
+            <field name="category_id" ref="allocations"/>
             <field name="condition_select">none</field>
             <field name="amount_select">code</field>
             <field name="amount_python_compute">
@@ -557,7 +554,7 @@ result = result_rules['SBG']['total'] - categories['exoneration']
             <field name="name">Frais Profesionnelles</field>
             <field name="code">frais-pro</field>
             <field name="sequence">61</field>
-            <field name="category_id" ref="teos_l10n_ma_reports.déductions"/>
+            <field name="category_id" ref="déductions"/>
             <field name="condition_select">none</field>
             <field name="amount_select">code</field>
             <field name="amount_python_compute">
@@ -580,7 +577,7 @@ else:
             <field name="name">Salaire Net Imposable</field>
             <field name="code">SNI</field>
             <field name="sequence">66</field>
-            <field name="category_id" ref="teos_l10n_ma_reports.déductions"/>
+            <field name="category_id" ref="déductions"/>
             <field name="condition_select">none</field>
             <field name="condition_python"></field>
             <field name="amount_select">code</field>
@@ -594,7 +591,7 @@ result = result_rules['SBI']['total'] - categories['déductions']
             <field name="name">IR Brut</field>
             <field name="code">IR Brut</field>
             <field name="sequence">67</field>
-            <field name="category_id" ref="teos_l10n_ma_reports.IR_B"/>
+            <field name="category_id" ref="IR_B"/>
             <field name="condition_select">none</field>
             <field name="condition_python"></field>
             <field name="amount_select">code</field>
@@ -615,7 +612,7 @@ for max ,rate,dedu in payslip._rule_parameter('impot_revenue_code_mensuel'):
             <field name="name">Déduction / personnes à charges</field>
             <field name="code">DédF</field>
             <field name="sequence">68</field>
-            <field name="category_id" ref="teos_l10n_ma_reports.deduF"/>
+            <field name="category_id" ref="deduF"/>
             <field name="condition_select">none</field>
             <field name="amount_select">code</field>
             <field name="amount_python_compute">
@@ -632,7 +629,7 @@ if contract.employee_id.children:
             <field name="name">IR Net</field>
             <field name="code">IR Net</field>
             <field name="sequence">69</field>
-            <field name="category_id" ref="teos_l10n_ma_reports.IR_Net"/>
+            <field name="category_id" ref="IR_Net"/>
             <field name="condition_select">none</field>
             <field name="condition_python"></field>
             <field name="amount_select">code</field>
@@ -646,7 +643,7 @@ result = categories['IR_B'] - categories['deduF']
             <field name="name">Accomptes</field>
             <field name="code">accomptes</field>
             <field name="sequence">70</field>
-            <field name="category_id" ref="teos_l10n_ma_reports.Net"/>
+            <field name="category_id" ref="Net"/>
             <field name="condition_select">python</field>
             <field name="condition_python">result = 'accomptes' in inputs</field>
             <field name="amount_select">code</field>
@@ -658,7 +655,7 @@ result = categories['IR_B'] - categories['deduF']
             <field name="name">Salaire Net</field>
             <field name="code">SNet</field>
             <field name="sequence">71</field>
-            <field name="category_id" ref="teos_l10n_ma_reports.Net"/>
+            <field name="category_id" ref="Net"/>
             <field name="condition_select">none</field>
             <field name="condition_python"></field>
             <field name="amount_select">code</field>
