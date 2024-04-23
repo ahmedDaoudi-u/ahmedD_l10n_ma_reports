@@ -4,13 +4,13 @@
     <data>
         <record id="structure_type_salarier_marocain_non_agri" model="hr.payroll.structure.type">
             <field name="name">Maroc : Non Agricole</field>
-            <field name="default_resource_calendar_id" ref="resource_calendar_maroc_std_44h"/>
+            <!-- <field name="default_resource_calendar_id" ref="resource_calendar_maroc_std_44h"/> -->
             <field name="country_id" ref="base.ma"/>
         </record>
 
         <record id="structure_type_salarier_marocain_agri" model="hr.payroll.structure.type">
             <field name="name">Maroc : Agricole</field>
-            <field name="default_resource_calendar_id" ref="resource_calendar_std_maroc_48h"/>
+            <!-- <field name="default_resource_calendar_id" ref="resource_calendar_std_maroc_48h"/> -->
             <field name="country_id" ref="base.ma"/>
         </record>
     </data>
