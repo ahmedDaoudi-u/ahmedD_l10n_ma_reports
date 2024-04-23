@@ -81,16 +81,21 @@ class HrPayslip(models.Model):
                         rec.solde = time_off
 
 
-            # Getting the name of the field and giving it the category value
-            rec_payslip =[]
-            rec_payslip = rec.line_ids.filtered(lambda line: line.appears_on_payslip)
-            for names in rec_payslip:
-                rec_names = []
-                rec_categories_id = []
+            # Getting the name of the field and getting the values to show in the payslip
+            #rec_names = []
+            #rec_amounts = []
 
+            #rec_payslip = rec.line_ids.filtered(lambda line: line.appears_on_payslip)
+            #for names in rec_payslip:
 
-                rec_categories_id.append(names.category_id.name)
-                rec_names.append(names.name)
+                #rec_amounts.append(names.amount)
+                #rec_names.append(names.name)
+
+                #print(rec_names)
+                #print(rec_amounts)
+
+                #salaire_brut = rec.basic_wage
+                #salaire_net = rec.net_wage
 
 
         return super(HrPayslip, self).compute_sheet()
