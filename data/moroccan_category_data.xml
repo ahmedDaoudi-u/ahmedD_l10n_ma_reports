@@ -6,47 +6,47 @@
             <field name="code">Accomptes</field>
             <field name="name">Accomptes</field>
             <field name="country_id" ref="base.ma"/>
-            <field name="struct_ids" eval="[(4, ref('teos_l10n_ma_reports.hr_payroll_salary_ma_structure_reference'))]"/>
+            <field name="struct_ids" eval="[(4, ref('hr_payroll_salary_ma_structure_reference'))]"/>
         </record>
 
         <record id="input_extra_hours_25" model="hr.payslip.input.type">
             <field name="code">Heures_Sup_25</field>
             <field name="name">Heures Supplémentaires 25%</field>
             <field name="country_id" ref="base.ma"/>
-            <field name="struct_ids" eval="[(4, ref('teos_l10n_ma_reports.hr_payroll_salary_ma_structure_reference'))]"/>
+            <field name="struct_ids" eval="[(4, ref('hr_payroll_salary_ma_structure_reference'))]"/>
         </record>
         <record id="input_extra_hours_50" model="hr.payslip.input.type">
             <field name="code">Heures_Sup_50</field>
             <field name="name">Heures Supplémentaires 50%</field>
             <field name="country_id" ref="base.ma"/>
-            <field name="struct_ids" eval="[(4, ref('teos_l10n_ma_reports.hr_payroll_salary_ma_structure_reference'))]"/>
+            <field name="struct_ids" eval="[(4, ref('hr_payroll_salary_ma_structure_reference'))]"/>
         </record>
         <record id="input_extra_hours_100" model="hr.payslip.input.type">
             <field name="code">Heures_Sup_100</field>
             <field name="name">Heures Supplémentaires 100%</field>
             <field name="country_id" ref="base.ma"/>
-            <field name="struct_ids" eval="[(4, ref('teos_l10n_ma_reports.hr_payroll_salary_ma_structure_reference'))]"/>
+            <field name="struct_ids" eval="[(4, ref('hr_payroll_salary_ma_structure_reference'))]"/>
         </record>
 
         <record id="input_INDMTD_depl" model="hr.payslip.input.type">
             <field name="code">indemnite_trans</field>
             <field name="name">Indemnité De Transport</field>
             <field name="country_id" ref="base.ma"/>
-            <field name="struct_ids" eval="[(4, ref('teos_l10n_ma_reports.hr_payroll_salary_ma_structure_reference'))]"/>
+            <field name="struct_ids" eval="[(4, ref('hr_payroll_salary_ma_structure_reference'))]"/>
         </record>
 
         <record id="input_INDMTD" model="hr.payslip.input.type">
             <field name="code">avantage</field>
             <field name="name">Avantages</field>
             <field name="country_id" ref="base.ma"/>
-            <field name="struct_ids" eval="[(4, ref('teos_l10n_ma_reports.hr_payroll_salary_ma_structure_reference'))]"/>
+            <field name="struct_ids" eval="[(4, ref('hr_payroll_salary_ma_structure_reference'))]"/>
         </record>
 
         <record id="input_INDMTD_accomptes" model="hr.payslip.input.type">
             <field name="code">accomptes</field>
             <field name="name">Accomptes</field>
             <field name="country_id" ref="base.ma"/>
-            <field name="struct_ids" eval="[(4, ref('teos_l10n_ma_reports.hr_payroll_salary_ma_structure_reference'))]"/>
+            <field name="struct_ids" eval="[(4, ref('hr_payroll_salary_ma_structure_reference'))]"/>
         </record>
 
 
@@ -54,14 +54,14 @@
             <field name="code">panier</field>
             <field name="name">Indemnité De Panier</field>
             <field name="country_id" ref="base.ma"/>
-            <field name="struct_ids" eval="[(4, ref('teos_l10n_ma_reports.hr_payroll_salary_ma_structure_reference'))]"/>
+            <field name="struct_ids" eval="[(4, ref('hr_payroll_salary_ma_structure_reference'))]"/>
         </record>
 
         <record id="input_INDMTD_exceptionnel" model="hr.payslip.input.type">
             <field name="code">Pexception</field>
             <field name="name">Prime Exceptionnelle</field>
             <field name="country_id" ref="base.ma"/>
-            <field name="struct_ids" eval="[(4, ref('teos_l10n_ma_reports.hr_payroll_salary_ma_structure_reference'))]"/>
+            <field name="struct_ids" eval="[(4, ref('hr_payroll_salary_ma_structure_reference'))]"/>
         </record>
 
 

@@ -80,6 +80,19 @@ class HrPayslip(models.Model):
                         time_off = min((years // 5) * 1.5 + 18, 30)
                         rec.solde = time_off
 
+
+            # Getting the name of the field and giving it the category value
+            rec_payslip =[]
+            rec_payslip = rec.line_ids.filtered(lambda line: line.appears_on_payslip)
+            for names in rec_payslip:
+                rec_names = []
+                rec_categories_id = []
+
+
+                rec_categories_id.append(names.category_id.name)
+                rec_names.append(names.name)
+
+
         return super(HrPayslip, self).compute_sheet()
 
 
