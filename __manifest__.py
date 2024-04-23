@@ -9,6 +9,7 @@
     "description": "This Is A Project For Payslip Reporting",
     "data": [
         'security/ir.model.access.csv',
+        "data/moroccan_structure_type.xml",
         'reports/payslip_inheritance_report.xml',
         'data/paper_format_report.xml',
         'views/custom_employee_data.xml',
@@ -16,7 +17,6 @@
         "data/moroccan_structure_rules.xml",
         "data/moroccan_rules.xml",
         "data/moroccan_category_data.xml",
-        "data/moroccan_structure_type.xml",
         "data/moroccan_salary_rules.xml",
         "data/cron-droit.xml",
         "views/company_custom_profile.xml",
