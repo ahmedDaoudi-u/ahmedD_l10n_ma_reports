@@ -82,20 +82,25 @@ class HrPayslip(models.Model):
 
 
             # Getting the name of the field and getting the values to show in the payslip
-            #rec_names = []
-            #rec_amounts = []
+            rec_names = []
+            rec_amounts = []
 
-            #rec_payslip = rec.line_ids.filtered(lambda line: line.appears_on_payslip)
-            #for names in rec_payslip:
+            salaire_net = rec.net_wage
+            salaire_brut = rec.gross_wage
 
-                #rec_amounts.append(names.amount)
-                #rec_names.append(names.name)
+            rec_payslip = rec.line_ids.filtered(lambda line: line.appears_on_payslip)
+            for names in rec_payslip:
 
-                #print(rec_names)
-                #print(rec_amounts)
+                rec_amounts.append(names.amount)
+                rec_names.append(names.name)
 
-                #salaire_brut = rec.basic_wage
-                #salaire_net = rec.net_wage
+            print(rec_names)
+            print(rec_amounts)
+
+
+            for index, name in enumerate(rec_names):
+                if name == 'Gross':
+                    rec_amounts[index] = 1000
 
 
         return super(HrPayslip, self).compute_sheet()
