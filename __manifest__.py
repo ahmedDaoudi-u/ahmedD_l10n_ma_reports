@@ -21,7 +21,8 @@
         "data/cron-droit.xml",
         "views/company_custom_profile.xml",
         "data/calendrier_maroc.xml",
-        "data/employment_type.xml"
+        "data/employment_type.xml",
+        "views/res_config_settings_view.xml"
     ],
     "category": "",
     "depends": ['hr_payroll', 'l10n_ma','hr_holidays','base','hr_contract'],

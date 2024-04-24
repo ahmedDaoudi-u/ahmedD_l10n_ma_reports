@@ -79,7 +79,7 @@
         <record id="salaire_base" model="hr.salary.rule">
             <field name="name">Salaire De Base</field>
             <field name="code">SalaireBase</field>
-            <field name="sequence">1</field>
+            <field name="sequence">0</field>
             <field name="category_id" ref="Basic"/>
             <field name="condition_select">python</field>
             <field name="condition_python">result = contract.wage</field>
@@ -88,6 +88,7 @@
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
 
+<!--
         <record id="salaire_conge" model="hr.salary.rule">
             <field name="name">Salaire Congé</field>
             <field name="code">SalaireCong</field>
@@ -110,7 +111,7 @@
             <field name="amount_select">code</field>
             <field name="amount_python_compute"></field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
-        </record>
+        </record> -->
 
         <record id="heures_sup_25" model="hr.salary.rule">
             <field name="name">Heures Supplémentaires 25%</field>
@@ -246,7 +247,7 @@
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
 
-
+<!--
         <record id="Prime_de_salissure" model="hr.salary.rule">
             <field name="name">Prime de Salissure</field>
             <field name="code">PrimeRepre</field>
@@ -257,7 +258,7 @@
             <field name="amount_select">code</field>
             <field name="amount_python_compute"></field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
-        </record>
+        </record>  -->
 
         <record id="Prime_de_panier_employee" model="hr.salary.rule">
             <field name="name">Indemnité De Panier</field>
@@ -270,6 +271,7 @@
             <field name="amount_python_compute">result = inputs['panier'].amount</field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
+
 <!--
         <record id="Prime_de_panier_employee" model="hr.salary.rule">
             <field name="name">Prime De Panier</field>
@@ -353,7 +355,7 @@
             <field name="amount_python_compute"></field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
--->
+
         <record id="absence" model="hr.salary.rule">
             <field name="name">Absences</field>
             <field name="code">Absence</field>
@@ -364,7 +366,7 @@
             <field name="amount_select">code</field>
             <field name="amount_python_compute"></field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
-        </record>
+        </record> -->
 
         <record id="Prime_anciennté" model="hr.salary.rule">
             <field name="name">Prime Ancienneté</field>
@@ -391,6 +393,7 @@ for low, high, rate in payslip._rule_parameter('anciennte_maroc'):
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
 
+        <!--
         <record id="igr" model="hr.salary.rule">
             <field name="name">Prélevement IGR</field>
             <field name="code">IR_NET</field>
@@ -401,7 +404,7 @@ for low, high, rate in payslip._rule_parameter('anciennte_maroc'):
             <field name="amount_select">code</field>
             <field name="amount_python_compute"></field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
-        </record>
+        </record> -->
 
         <record id="cnss" model="hr.salary.rule">
             <field name="name">Cotisation CNSS + IPE</field>
@@ -482,7 +485,7 @@ result = 0
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
 
-
+<!--
         <record id="Contribution_sociale" model="hr.salary.rule">
             <field name="name">Contribution Sociale De Solidarité</field>
             <field name="code">ContruSoc</field>
@@ -517,7 +520,7 @@ result = 0
             <field name="amount_select">code</field>
             <field name="amount_python_compute"></field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
-        </record>
+        </record> -->
 
 
         <record id="salaire_brut_global" model="hr.salary.rule">
