@@ -89,8 +89,8 @@
         </record>
         <record id="Frais_Professional_mensuel_valeur" model="hr.rule.parameter.value">
             <field name="parameter_value">[
-                ( 0, 6500.00, 0.25),
-                ( 6501.00, 10000000000.00, 0.35),
+                ( 0, 6500.00, 0.35),
+                ( 6501.00, 10000000000.00, 0.25),
             ]</field>
             <field name="rule_parameter_id" ref="Frais_Professionel_mensuel"/>
             <field name="date_from" eval="datetime(2024, 1, 1).date()"/>

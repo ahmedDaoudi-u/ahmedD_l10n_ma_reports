@@ -415,8 +415,8 @@ for low, high, rate in payslip._rule_parameter('anciennte_maroc'):
             <field name="amount_select">code</field>
             <field name="amount_python_compute">
 SBI = result_rules['SBI']['total']
-cnss_pour= payslip._rule_parameter('cnss_empl')
-cnss_max = payslip._rule_parameter('max_cnss_empl')
+cnss_pour= float(employee.pour_cnss)/100
+cnss_max = float(employee.cnss_max_pres)
 result = min(cnss_max, SBI) * cnss_pour
             </field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
@@ -566,7 +566,7 @@ if categories['avantages'] > 0:
     result = 0
     max_frais = payslip._rule_parameter('max_frais_pro_mensuel')
     for low, high, rate in payslip._rule_parameter('frais_pro_mensuel'):
-        if low &lt;= years &lt;= high:
+        if low &lt; SBI_2 &lt;= high:
             result = min((SBI_2 - categories['avantages'])* rate,max_frais)
             break
 else:
