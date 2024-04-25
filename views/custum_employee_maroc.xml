@@ -1,4 +1,3 @@
-<!--
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <record id="view_employee_data_conge_type" model="ir.ui.view">
@@ -6,23 +5,11 @@
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
-
-            <xpath expr="//field[@name='mobile_phone']" position="after">
-                <field name="droit"/>
+            <xpath expr="//group[@name='application_group']" position="inside">
+                <field name="cnss_max_pres"/>
+                <field name="pour_cnss"/>
+                <field name="pour_amo"/>
             </xpath>
-
-            <xpath expr="//field[@name='droit']" position="after">
-                <field name="reliquat"/>
-            </xpath>
-
-            <xpath expr="//field[@name='reliquat']" position="after">
-                <field name="pris"/>
-            </xpath>
-
-            <xpath expr="//field[@name='pris']" position="after">
-                <field name="solde"/>
-            </xpath>
-
         </field>
     </record>
-</odoo>  -->
+</odoo>
