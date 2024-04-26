@@ -9,6 +9,7 @@
                 <field name="cnss_max_pres"/>
                 <field name="pour_cnss"/>
                 <field name="pour_amo"/>
+                <field name="max_frais_pro_mensuel"/>
             </xpath>
         </field>
     </record>
