@@ -27,8 +27,6 @@ class HrPayslip(models.Model):
     solde = fields.Char(String="solde", readonly=True)
 
 
-
-
     #Defining the cron function for Droit Calculation
     def calcule_droit(self):
         employees = self.env['hr.payslip'].search([])
@@ -70,7 +68,7 @@ class HrPayslip(models.Model):
                     # calculate the number of years & months
                     years = today_date.year - start_date.year
                     start_date_month = start_date.month
-                    print(start_date_month)
+                    #print(start_date_month)
 
                     months = years * 12
 
@@ -97,8 +95,8 @@ class HrPayslip(models.Model):
                 rec_amounts.append(names.amount)
                 rec_names.append(names.name)
 
-            print(rec_names)
-            print(rec_amounts)
+            #print(rec_names)
+            #print(rec_amounts)
 
 
             for index, name in enumerate(rec_names):
@@ -107,6 +105,61 @@ class HrPayslip(models.Model):
 
 
         return super(HrPayslip, self).compute_sheet()
+
+    def _compute_hours_per_day(self):
+
+
+        super(HrPayslip,self)._compute_hours_per_day()
+
+
+
+    #Setting up the limits of the hour worked during the day
+    def action_refresh_from_work_entries(self):
+    
+
+        # Setting up the maximum over-time hours per day
+        current_record_id = self.id
+        payslip_record = self.env['hr.payslip'].browse(current_record_id)
+        worked_days_records = payslip_record.worked_days_line_ids
+
+        for worked_days_record in worked_days_records:
+            if worked_days_record.code == 'OVERTIME':
+                over_time_regular_hours = min(2, worked_days_record.number_of_hours)
+                worked_days_record.number_of_hours = over_time_regular_hours
+
+
+        #overtime_worked_days = self.env['hr.payslip.worked_days']
+
+        #current_record_id = self.id
+        #total_overtime_hours = 0
+        # Assuming self.env['hr.payslip.worked_days'] is a recordset
+        #worked_days_record = self.env['hr.payslip.worked_days'].search([('payslip_id', '=', current_record_id)],
+        #                                                               limit=2)
+        #over_time_regular_hours = worked_days_record.filtered(lambda wd: wd.code == 'OVERTIME').number_of_hours
+
+        #over_time_regular_hours = min(2, over_time_regular_hours)  # Cap at 2 hours
+        #worked_days_record.write({'number_of_hours': over_time_regular_hours})
+
+
+
+        #hours_per_day = self._get_worked_day_lines_hours_per_day()
+        #worked_hours_month = hours_per_day*26
+
+        #if worked_hours_month < 200:
+        #    print(worked_hours_month)
+        #else:
+        #    pass
+        #payslips = self.worked_days_line_ids.filtered(lambda line: line)
+        #work_type = payslips.work_entry_type_id.name
+        #hours_worked = payslips.number_of_hours
+        #hours_worked = 45
+
+        #return hours_worked
+
+        #print(work_type)
+        #print(number_of_hours)
+
+        return super(HrPayslip,self).action_refresh_from_work_entries()
 
 
 

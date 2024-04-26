@@ -96,7 +96,7 @@
             <field name="date_from" eval="datetime(2024, 1, 1).date()"/>
         </record>
 
-        <!-- max frais Professionel Mensuel -->
+        <!-- max frais Professionel Mensuel
         <record id="max_frais_pro_mensuel" model="hr.rule.parameter">
             <field name="name">Max Frais Professionel Mensuel</field>
             <field name="code">max_frais_pro_mensuel</field>
@@ -106,7 +106,7 @@
             <field name="parameter_value">2500</field>
             <field name="rule_parameter_id" ref="max_frais_pro_mensuel"/>
             <field name="date_from" eval="datetime(2024, 1, 1).date()"/>
-        </record>
+        </record> -->
 
 
         <!-- frais professioanl annuel -->
@@ -136,7 +136,7 @@
             <field name="date_from" eval="datetime(2024, 1, 1).date()"/>
         </record>
 
-        <!-- cotisation CNSS employe-->
+        <!-- cotisation CNSS employe
          <record id="taux_CNSS" model="hr.rule.parameter">
             <field name="name">Taux CNSS</field>
             <field name="code">cnss_empl</field>
@@ -146,7 +146,7 @@
             <field name="parameter_value">0.0448</field>
             <field name="rule_parameter_id" ref="taux_CNSS"/>
             <field name="date_from" eval="datetime(2024, 1, 1).date()"/>
-        </record>
+        </record> -->
 
         <record id="taux_cimr" model="hr.rule.parameter">
             <field name="name">Taux CIMR</field>
@@ -161,7 +161,7 @@
 
 
 
-        <!-- max cotisation CNSS employe-->
+        <!-- max cotisation CNSS employe
         <record id="max_taux_CNSS" model="hr.rule.parameter">
             <field name="name">Max Taux CNSS</field>
             <field name="code">max_cnss_empl</field>
@@ -171,9 +171,9 @@
             <field name="parameter_value">6000</field>
             <field name="rule_parameter_id" ref="max_taux_CNSS"/>
             <field name="date_from" eval="datetime(2024, 1, 1).date()"/>
-        </record>
+        </record> -->
 
-        <!-- cotisation AMO employe-->
+        <!-- cotisation AMO employe
         <record id="taux_AMO" model="hr.rule.parameter">
             <field name="name">Taux AMO</field>
             <field name="code">amo_empl</field>
@@ -183,7 +183,7 @@
             <field name="parameter_value">0.0226</field>
             <field name="rule_parameter_id" ref="taux_AMO"/>
             <field name="date_from" eval="datetime(2024, 1, 1).date()"/>
-        </record>
+        </record> -->
 
 
 

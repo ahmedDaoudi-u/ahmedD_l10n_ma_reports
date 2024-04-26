@@ -8,34 +8,56 @@
         <field name="arch" type="xml">
             <xpath expr="//block[@id='hr_payroll_accountant']" position="after">
                 <block title="Localisation Marocaine">
-                    <setting string="Company Information" company_dependent="1">
+                    <setting string="Informations Sur La Société" company_dependent="1">
+
                         <div class="text-muted">
-                            Paramètre Entreprise Marocaine
+                            FRAIS PROFESSIONNEL
                         </div>
 
-                            <div class="row ms-2">
-                                <label for="CNSS_max" class="col-md-7 p-0 m-0"/>
-                                <div class="col-md-5 p-0">
-                                    <field name="CNSS_max" nolabel="1"/>
-                                    <span>MAD / mois</span>
-                                </div>
-                            </div>
 
-                            <div class="row ms-2">
-                                <label for="pour_cnss" class="col-md-7 p-0 m-0"/>
-                                <div class="col-md-5 p-0">
-                                    <field name="pour_cnss" nolabel="1"/>
-                                    <span>%</span>
-                                </div>
+                        <div class="row ms-2">
+                            <label for="max_frais_pro_mensuel" class="col-md-7 p-0 m-0"/>
+                            <div class="col-md-5 p-0">
+                                <span>(Si SBI > 6 500 DH / Mois)</span>
+                                <field name="max_frais_pro_mensuel" nolabel="1"/>
+                                <span>DH / Mois</span>
                             </div>
+                        </div>
 
-                            <div class="row ms-2">
-                                <label for="pour_amo" class="col-md-7 p-0 m-0"/>
-                                <div class="col-md-5 p-0">
-                                    <field name="pour_amo" nolabel="1"/>
-                                    <span>%</span>
-                                </div>
+                        <div class="row ms-2">
+                            <label for="max_frais_pro_annuel" class="col-md-7 p-0 m-0"/>
+                            <div class="col-md-5 p-0">
+                                <span>(Si SBI > 78 000 DH / Ans)</span>
+                                <field name="max_frais_pro_annuel" nolabel="1"/>
+                                <span>DH / Ans</span>
                             </div>
+                        </div>
+                    </setting>
+
+                    <setting string="COTISATIONS CNSS" company_dependent="1">
+                        <div class="row ms-2">
+                            <label for="CNSS_max" class="col-md-7 p-0 m-0"/>
+                            <div class="col-md-5 p-0">
+                                <field name="CNSS_max" nolabel="1"/>
+                                <span>DH / Mois</span>
+                            </div>
+                        </div>
+
+                        <div class="row ms-2">
+                            <label for="pour_cnss" class="col-md-7 p-0 m-0"/>
+                            <div class="col-md-5 p-0">
+                                <field name="pour_cnss" nolabel="1"/>
+                                <span>%</span>
+                            </div>
+                        </div>
+
+                        <div class="row ms-2">
+                            <label for="pour_amo" class="col-md-7 p-0 m-0"/>
+                            <div class="col-md-5 p-0">
+                                <field name="pour_amo" nolabel="1"/>
+                                <span>%</span>
+                            </div>
+                        </div>
 
                     </setting>
                 </block>
