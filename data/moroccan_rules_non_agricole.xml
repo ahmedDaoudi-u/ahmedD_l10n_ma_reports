@@ -13,7 +13,7 @@
         </record> -->
 
 
-
+<!--- Moroccan Salary Argricole Categories -->
         <record id="allocations" model="hr.salary.rule.category">
             <field name="name">Allocations</field>
             <field name="code">allocations</field>
@@ -76,7 +76,7 @@
 
 <!--___________________________________________________________________________________________________________ -->
 
-        <record id="salaire_base" model="hr.salary.rule">
+        <record id="salaire_base_non_agricole" model="hr.salary.rule">
             <field name="name">Salaire De Base</field>
             <field name="code">SalaireBase</field>
             <field name="sequence">0</field>
@@ -85,7 +85,7 @@
             <field name="condition_python">result = contract.wage</field>
             <field name="amount_select">code</field>
             <field name="amount_python_compute">result = contract.wage</field>
-            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference_Non_agricole"/>
         </record>
 
 <!--
@@ -113,7 +113,7 @@
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record> -->
 
-        <record id="heures_sup_25" model="hr.salary.rule">
+        <record id="heures_sup_25_non_agricole" model="hr.salary.rule">
             <field name="name">Heures Supplémentaires 25%</field>
             <field name="code">Heures_Sup_25</field>
             <field name="sequence">4</field>
@@ -122,10 +122,10 @@
             <field name="condition_python">result = 'Heures_Sup_25' in inputs</field>
             <field name="amount_select">code</field>
             <field name="amount_python_compute">result = inputs['Heures_Sup_25'].amount</field>
-            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference_Non_agricole"/>
         </record>
 
-        <record id="l10n_ma_hr_rule_extra_hours_50" model="hr.salary.rule">
+        <record id="l10n_ma_hr_rule_extra_hours_50_non_agricole" model="hr.salary.rule">
             <field name="name">Heures Supplémentaires 50%</field>
             <field name="code">Heures_Sup_50</field>
             <field name="sequence">5</field>
@@ -134,10 +134,10 @@
             <field name="condition_python">result = 'Heures_Sup_50' in inputs</field>
             <field name="amount_select">code</field>
             <field name="amount_python_compute">result = inputs['Heures_Sup_50'].amount</field>
-            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference_Non_agricole"/>
         </record>
 
-        <record id="l10n_ma_hr_rule_extra_hours_100" model="hr.salary.rule">
+        <record id="l10n_ma_hr_rule_extra_hours_100_non_agricole" model="hr.salary.rule">
             <field name="name">Heures Supplémentaires 100%</field>
             <field name="code">Heures_Sup_100</field>
             <field name="sequence">6</field>
@@ -146,9 +146,9 @@
             <field name="condition_python">result = 'Heures_Sup_100' in inputs</field>
             <field name="amount_select">code</field>
             <field name="amount_python_compute">result = inputs['Heures_Sup_100'].amount</field>
-            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference_Non_agricole"/>
         </record>
-
+<!--
         <record id="avantage_employe" model="hr.salary.rule">
             <field name="name">Avantages</field>
             <field name="code">avantage</field>
@@ -171,7 +171,7 @@
             <field name="amount_select">code</field>
             <field name="amount_python_compute">result = inputs['indemnite_trans'].amount</field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
-        </record>
+        </record> -->
 <!--
         <record id="Jours_ferier" model="hr.salary.rule">
             <field name="name">Jours Fériès</field>
@@ -234,7 +234,7 @@
         </record>
 -->
 
-
+<!--
         <record id="prime_exeptionnelle" model="hr.salary.rule">
             <field name="name">Prime Exceptionnelle</field>
             <field name="code">Pexception</field>
@@ -245,7 +245,7 @@
             <field name="amount_select">code</field>
             <field name="amount_python_compute">result = inputs['Pexception'].amount</field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
-        </record>
+        </record> -->
 
 <!--
         <record id="Prime_de_salissure" model="hr.salary.rule">
@@ -260,7 +260,7 @@
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>  -->
 
-        <record id="Prime_de_panier_employee" model="hr.salary.rule">
+<!--        <record id="Prime_de_panier_employee" model="hr.salary.rule">
             <field name="name">Indemnité De Panier</field>
             <field name="code">panier</field>
             <field name="sequence">14</field>
@@ -270,7 +270,7 @@
             <field name="amount_select">code</field>
             <field name="amount_python_compute">result = inputs['panier'].amount</field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
-        </record>
+        </record> -->
 
 <!--
         <record id="Prime_de_panier_employee" model="hr.salary.rule">
@@ -367,7 +367,7 @@
             <field name="amount_python_compute"></field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record> -->
-
+<!--
         <record id="Prime_anciennté" model="hr.salary.rule">
             <field name="name">Prime Ancienneté</field>
             <field name="code">PrimeAncien</field>
@@ -391,7 +391,7 @@ for low, high, rate in payslip._rule_parameter('anciennte_maroc'):
         break
             </field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
-        </record>
+        </record> -->
 
         <!--
         <record id="igr" model="hr.salary.rule">
@@ -405,7 +405,7 @@ for low, high, rate in payslip._rule_parameter('anciennte_maroc'):
             <field name="amount_python_compute"></field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record> -->
-
+<!--
         <record id="cnss" model="hr.salary.rule">
             <field name="name">Cotisation CNSS + IPE</field>
             <field name="code">CNSS</field>
@@ -420,8 +420,8 @@ cnss_max = float(employee.cnss_max_pres)
 result = min(cnss_max, SBI) * cnss_pour
             </field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
-        </record>
-
+        </record> -->
+<!--
         <record id="AMO" model="hr.salary.rule">
             <field name="name">Cotisation AMO</field>
             <field name="code">AMO</field>
@@ -436,7 +436,7 @@ amo_pour= float(employee.pour_amo)/100
 result = SBI_1 * amo_pour
             </field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
-        </record>
+        </record> -->
 <!--
         <record id="cimr" model="hr.salary.rule">
             <field name="name">Cotisation CIMR</field>
@@ -453,7 +453,7 @@ result = SBI_3 * cimr_pour
             </field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record> -->
-
+<!--
          <record id="total_cotisation" model="hr.salary.rule">
             <field name="name">TOTAL COTISATIONS</field>
             <field name="code">totalCha</field>
@@ -468,9 +468,9 @@ amo = result_rules['AMO']['total']
 result = cnss + amo
             </field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
-        </record>
+        </record> -->
 
-
+<!--
         <record id="cimr" model="hr.salary.rule">
             <field name="name">Cotisation CIMR</field>
             <field name="code">cimr</field>
@@ -483,7 +483,7 @@ result = cnss + amo
 result = 0
             </field>
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
-        </record>
+        </record> -->
 
 <!--
         <record id="Contribution_sociale" model="hr.salary.rule">
@@ -522,7 +522,7 @@ result = 0
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record> -->
 
-
+<!--
         <record id="salaire_brut_global" model="hr.salary.rule">
             <field name="name">TOTAL BRUT</field>
             <field name="code">SBG</field>
@@ -668,7 +668,7 @@ result = result_rules['SBG']['total'] - result_rules['accomptes']['total'] - res
             <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
 
-
+-->
     </data>
 
 </odoo>
