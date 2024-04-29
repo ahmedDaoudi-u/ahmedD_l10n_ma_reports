@@ -105,7 +105,7 @@ class HrPayslip(models.Model):
 
 
         return super(HrPayslip, self).compute_sheet()
-
+    # THis function will be used to check the amount of the working days from attendances
     def _compute_hours_per_day(self):
 
 
@@ -115,7 +115,7 @@ class HrPayslip(models.Model):
 
     #Setting up the limits of the hour worked during the day
     def action_refresh_from_work_entries(self):
-    
+
 
         # Setting up the maximum over-time hours per day
         current_record_id = self.id

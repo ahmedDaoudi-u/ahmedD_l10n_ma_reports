@@ -15,7 +15,7 @@
         'views/custom_employee_data.xml',
         "views/custom_time_off.xml",
         "data/moroccan_structure_rules.xml",
-        "data/moroccan_rules.xml",
+        "data/moroccan_rules_agricole.xml",
         "data/moroccan_category_data.xml",
         "data/moroccan_salary_rules.xml",
         "data/cron-droit.xml",
@@ -23,7 +23,8 @@
         "data/calendrier_maroc.xml",
         "data/employment_type.xml",
         "views/res_config_settings_view.xml",
-        "views/custum_employee_maroc.xml"
+        "views/custum_employee_maroc.xml",
+        "data/moroccan_rules_non_agricole.xml"
     ],
     "category": "",
     "depends": ['hr_payroll', 'l10n_ma','hr_holidays','base','hr_contract'],
