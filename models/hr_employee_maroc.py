@@ -12,6 +12,21 @@ class HrConge(models.Model):
     pour_amo = fields.Char(string='Taux Cotisation AMO(%)', compute='_compute_your_field_amo')
     max_frais_pro_mensuel = fields.Char(string='Max Frais Pro Mensuel(DH)', compute='_compute_your_frais_pro_mensu')
 
+    @api.onchange('company_id.company_status')
+    def onchange_company_status(self):
+        employees = self.env['hr.employee'].search([])
+        hours = employees.mapped('resource_calendar_id')
+        status = self.company_status
+
+        if status == "Agricole":
+            hours.name = "Heures de travail par défaut à 44 heures par semaine"
+        else:
+            hours.name = "Heures de travail par défaut à 48 heures par semaine"
+
+
+
+
+
     # defining the function that would that the value of the settings and get it to the users
     def _compute_your_field_max_cnss(self):
         config_parameter_max_cnss = self.env['ir.config_parameter'].sudo().get_param('teos_l10n_ma_reports.cnss_max')

@@ -2,7 +2,7 @@
 
 <odoo>
     <data>
-        <!-- Structure Non Agricole -->
+
         <record id="hr_payroll_salary_ma_structure_reference_Non_agricole" model="hr.payroll.structure">
             <field name="code">MAR</field>
             <field name="name">Morocco : Secteur Non Agricole</field>
