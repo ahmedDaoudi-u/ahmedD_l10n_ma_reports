@@ -2,6 +2,7 @@
 
 <odoo>
     <data>
+        <!-- The structures that we have added -->
         <record id="structure_type_salarier_marocain_non_agri" model="hr.payroll.structure.type">
             <field name="name">Maroc : Non Agricole</field>
             <!-- <field name="default_resource_calendar_id" ref="resource_calendar_maroc_std_44h"/> -->
@@ -14,6 +15,13 @@
             <field name="country_id" ref="base.ma"/>
         </record>
 
+
+
+
+
+
+
+<!-- The structures that we could add later -->
         <record id="anapec_IDMAJ" model="hr.payroll.structure.type">
             <field name="name">Morocco: ANAPEC - IDMAJ</field>
             <!-- <field name="default_resource_calendar_id" ref="resource_calendar_maroc_std_44h"/> -->
