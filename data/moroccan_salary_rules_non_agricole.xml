@@ -2,6 +2,17 @@
 
 <odoo>
     <data>
+        <!-- Heures supplementaires 125%
+        <record id="heures_supplementaires_125" model="hr.rule.parameter">
+            <field name="name">Heures supplementaires 125</field>
+            <field name="code">heures_supp125</field>
+            <field name="country_id" ref="base.ma"/>
+        </record>
+        <record id="heures_supplementaires_125_valeur" model="hr.rule.parameter.value">
+            <field name="parameter_value"></field>
+            <field name="rule_parameter_id" ref="heures_supplementaires_125"/>
+            <field name="date_from" eval="datetime(2024, 1, 1).date()"/>
+        </record> -->
 
         <!-- prime d'ancienneté -->
         <record id="parametre_anciennete" model="hr.rule.parameter">
