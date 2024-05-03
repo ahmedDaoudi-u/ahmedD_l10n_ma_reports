@@ -85,7 +85,7 @@
             <field name="condition_python">result = contract.wage</field>
             <field name="amount_select">code</field>
             <field name="amount_python_compute">result = contract.wage</field>
-            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference_Non_agricole"/>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
 
 <!--
@@ -122,7 +122,7 @@
             <field name="condition_python">result = 'Heures_Sup_25' in inputs</field>
             <field name="amount_select">code</field>
             <field name="amount_python_compute">result = inputs['Heures_Sup_25'].amount</field>
-            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference_Non_agricole"/>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
 
         <record id="l10n_ma_hr_rule_extra_hours_50_non_agricole" model="hr.salary.rule">
@@ -134,7 +134,7 @@
             <field name="condition_python">result = 'Heures_Sup_50' in inputs</field>
             <field name="amount_select">code</field>
             <field name="amount_python_compute">result = inputs['Heures_Sup_50'].amount</field>
-            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference_Non_agricole"/>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
 
         <record id="l10n_ma_hr_rule_extra_hours_100_non_agricole" model="hr.salary.rule">
@@ -146,7 +146,7 @@
             <field name="condition_python">result = 'Heures_Sup_100' in inputs</field>
             <field name="amount_select">code</field>
             <field name="amount_python_compute">result = inputs['Heures_Sup_100'].amount</field>
-            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference_Non_agricole"/>
+            <field name="struct_id" ref="hr_payroll_salary_ma_structure_reference"/>
         </record>
 <!--
         <record id="avantage_employe" model="hr.salary.rule">
