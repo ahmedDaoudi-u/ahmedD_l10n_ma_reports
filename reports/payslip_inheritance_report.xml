@@ -208,7 +208,7 @@
 
 
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_8']" position="after">
-            <span t-foreach="o.line_ids.filtered(lambda line: line.appears_on_payslip and line.name not in ['Déduction / personnes à charges','Salaire Brut Imposable', 'Frais Profesionnelles','Salaire Net Imposable','IR Brut','Basic Salary','Gross','Net Salary','Salaire de base','Salaire net'])"
+            <span t-foreach="o.line_ids.filtered(lambda line: line.appears_on_payslip and line.name not in ['Déduction / personnes à charges','Salaire Brut Imposable', 'Frais Profesionnelles','Salaire Net Imposable','IR Brut','Basic Salary','Gross','Net Salary','Salaire de base','Salaire net','Brut'])"
                   t-as="line">
                 <tr t-att-class="line_class" t-att-style="line_style" id="employee_info_9">
 
