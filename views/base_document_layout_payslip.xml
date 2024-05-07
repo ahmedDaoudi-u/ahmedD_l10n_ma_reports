@@ -6,6 +6,21 @@
             <field name="model">base.document.layout</field>
             <field name="arch" type="xml">
                 <form class="o_document_layout">
+                    <group>
+                        <group class="o_document_layout_company">
+                        <field name="company_id" invisible="1"/>
+                        </group>
+
+
+
+                        <div>
+                            <field name="preview" widget="iframe_wrapper" />
+                            <button name="web.action_report_layout_preview" string="Download PDF Preview" type="action" class="oe_link" icon="oi-arrow-right"/>
+                        </div>
+                    </group>
+
+
+
                     <footer>
                         <button string="Save" class="btn-primary" type="object" name="document_layout_save" data-hotkey="q"/>
                         <button special="cancel" data-hotkey="x" string="Cancel" />
@@ -19,7 +34,7 @@
             <field name="view_mode">form</field>
             <field name="target">new</field>
             <field name="res_model">base.document.layout</field>
-            <field name="view_id" ref="teos_l10n_ma_reports.view_base_document_payslip_maroc"/>
+            <field name="view_id" ref="view_base_document_payslip_maroc"/>
         </record>
 
     </data>
