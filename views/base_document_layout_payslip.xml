@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_base_document_payslip_maroc" model="ir.ui.view">
+            <field name="name">Mise en page de la fiche de paie</field>
+            <field name="model">base.document.layout</field>
+            <field name="arch" type="xml">
+                <form class="o_document_layout">
+                    <footer>
+                        <button string="Save" class="btn-primary" type="object" name="document_layout_save" data-hotkey="q"/>
+                        <button special="cancel" data-hotkey="x" string="Cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_base_document_payslip_maroc" model="ir.actions.act_window">
+            <field name="name">Configurer La Mise En Page Du Bulletin De Paie</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="res_model">base.document.layout</field>
+            <field name="view_id" ref="teos_l10n_ma_reports.view_base_document_payslip_maroc"/>
+        </record>
+
+    </data>
+</odoo>

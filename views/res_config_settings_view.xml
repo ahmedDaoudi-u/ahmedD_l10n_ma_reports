@@ -60,6 +60,19 @@
                         </div>
 
                     </setting>
+
+                    <setting id="document_layout_setting" string="Mise En Page Des Documents"
+                             help="Choisissez La Mise En Page De Vos Fiches De Paie" company_dependent="1">
+                        <div class="content-group">
+
+                            <button name="%(teos_l10n_ma_reports.action_base_document_payslip_maroc)d"
+                                    string="Configurer La Mise En Page Du Bulletin De Paie" type="action" class="oe_link"
+                                    icon="oi-arrow-right"/>
+                            <br groups="base.group_no_one"/>
+
+                        </div>
+                    </setting>
+
                 </block>
             </xpath>
         </field>
