@@ -22,6 +22,7 @@
         "views/company_custom_profile.xml",
         "data/calendrier_maroc.xml",
         "data/employment_type.xml",
+        "views/base_document_layout_payslip.xml",
         "views/res_config_settings_view.xml",
         "views/custum_employee_maroc.xml",
         "data/moroccan_rules_agricole.xml"
