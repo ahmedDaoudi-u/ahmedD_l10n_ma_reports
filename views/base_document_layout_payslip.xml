@@ -14,7 +14,7 @@
 
 
                         <div>
-                            <field name="preview" widget="iframe_wrapper" />
+                            <field name="previewdoc" widget="iframe_wrapper"/>
                             <button name="web.action_report_layout_preview" string="Download PDF Preview" type="action" class="oe_link" icon="oi-arrow-right"/>
                         </div>
                     </group>

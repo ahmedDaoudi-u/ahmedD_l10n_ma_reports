@@ -27,6 +27,10 @@ class HrPayslip(models.Model):
     solde = fields.Char(String="solde", readonly=True)
 
 
+
+
+
+
     #Defining the cron function for Droit Calculation
     def calcule_droit(self):
         employees = self.env['hr.payslip'].search([])
