@@ -32,7 +32,6 @@
                 <field name="solde"/>
             </xpath>
 
-
         </field>
     </record>
 </odoo>

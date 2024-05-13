@@ -6,16 +6,36 @@
         </xpath>
 
         <xpath expr="//h2[@id='payslip_name']" position="replace">
-                <div style="border-top: 1px solid black;">
-                    <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" alt="Company Logo"
-                         class="float-left" style="width: 3in; height: auto;margin-top:10px;"/>
-                    <div style="font-size:16px;text-align:right;">
-                        <strong t-field="o.company_id.partner_id.name"/>
-                        <span t-field="o.company_id.partner_id"
-                              t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;], &quot;no_marker&quot;: true}"/>
-                        <span t-field="o.company_id.partner_id.website"/>
-                    </div>
+
+            <div style="border-top: 1px solid black;">
+                <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" alt="Company Logo"
+                     class="float-left" style="width: 3in; height: auto;margin-top:10px;"/>
+            </div>
+
+            <div style="display:inline-flex;">
+
+                <div style="font-size:16px;text-align:left;">
+                    <strong t-field="o.company_id.partner_id.name"/>
+                    <span t-field="o.company_id.partner_id"
+                          t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;], &quot;no_marker&quot;: true}"/>
+                    <span t-field="o.company_id.partner_id.website"/>
                 </div>
+
+                <div style="font-size:16px;text-align:right;margin-left:530px;width:250px;">
+
+                    <div style="text-align:justify;">
+                        Nom Employé :
+                        <strong t-field="o.employee_id.name"/>
+                    </div>
+
+                    <div style="text-align:justify;">
+                        Address Employe :
+                        <span t-field="o.employee_id.private_street"/>
+                    </div>
+
+                </div>
+            </div>
+
         </xpath>
 
         <xpath expr="//strong[@id='invalid_warning']" position="attributes">
@@ -46,8 +66,8 @@
 
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_2']" position="replace">
             <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_line_2'>
-                <td rowspan="2" style="width:30%"> Address Employe :
-                    <span t-field="o.employee_id.address_id" style="color: #888888;text-align: center;"/>
+                <td rowspan="2" style="width:30%">Address Employe :
+                    <span t-field="o.employee_id.private_street" style="color: #888888;text-align: center;"/>
                 </td>
                 <td style="text-align: center;">Matricule :
                     <span t-field="o.employee_id.registration_number" style="color: #888888;text-align: center;"/>
