@@ -46,8 +46,8 @@
 
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_2']" position="replace">
             <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_line_2'>
-                <td rowspan="2" style="width:30%">
-                    <span t-field="o.employee_id.company_id" style="color: #888888;text-align: center;"/>
+                <td rowspan="2" style="width:30%"> Address Employe :
+                    <span t-field="o.employee_id.address_id" style="color: #888888;text-align: center;"/>
                 </td>
                 <td style="text-align: center;">Matricule :
                     <span t-field="o.employee_id.registration_number" style="color: #888888;text-align: center;"/>
@@ -127,7 +127,6 @@
                     <t t-if="o.employee_id.gender=='female'"></t>
                     <t t-else="o.employee_id.gender=='male'">
                         <t t-if="o.employee_id.marital=='married'">
-                            <!-- you need to add the condition where the male is married or single -->
                             <t t-set="nombre" t-value="o.employee_id.children + 1"/>
                             <span t-esc="nombre" style="color: #888888;text-align: center;"/>
                         </t>
@@ -136,7 +135,7 @@
             </tr>
         </xpath>
 
-        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_4']" position="after">
+        <!--<xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_4']" position="after">
             <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_5'>
                 <td colspan="2"></td>
                 <td style="background-color: #D7E4C0;" colspan="6" class="highlight-cell">
@@ -145,9 +144,9 @@
                     <span t-field="o.employee_id.address_id" style="color: #888888;text-align: center;"/>
                 </td>
             </tr>
-        </xpath>
+        </xpath>-->
 
-        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_5']" position="after">
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_4']" position="after">
             <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_6'>
                 <td style="text-align: center;" rowspan="2" colspan="2">Commentaire :
                     <span t-field="o.commentaire" style="color: #888888;"/>
