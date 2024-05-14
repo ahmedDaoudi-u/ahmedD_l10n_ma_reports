@@ -20,12 +20,11 @@ class HrPayslip(models.Model):
         String="Categories salarié")
 
 
-    droit = fields.Char(String="employee name", readonly=True)
+    droit = fields.Char(string="employee name", readonly=True)
 
-    reliquat = fields.Char(String="reliquat", readonly=True)
-    pris = fields.Char(String="pris", readonly=True)
-    solde = fields.Char(String="solde", readonly=True)
-
+    reliquat = fields.Char(string="reliquat", readonly=True)
+    pris = fields.Char(string="pris", readonly=True)
+    solde = fields.Char(string="solde", readonly=True)
 
 
 
@@ -106,6 +105,8 @@ class HrPayslip(models.Model):
             for index, name in enumerate(rec_names):
                 if name == 'Gross':
                     rec_amounts[index] = 1000
+
+
 
 
         return super(HrPayslip, self).compute_sheet()

@@ -19,6 +19,7 @@
         "data/moroccan_category_data_non_agricole.xml",
         "data/moroccan_salary_rules_non_agricole.xml",
         "data/cron-droit.xml",
+        "views/custom_contract_employee.xml",
         "views/company_custom_profile.xml",
         "data/calendrier_maroc.xml",
         "data/employment_type.xml",
@@ -27,7 +28,7 @@
         "data/moroccan_rules_agricole.xml"
     ],
     "category": "",
-    "depends": ['hr_payroll', 'l10n_ma','hr_holidays','base','hr_contract'],
+    "depends": ['hr_payroll', 'l10n_ma', 'hr_holidays', 'base', 'hr_contract','l10n_ma_hr_payroll'],
     "installable": True,
     "application": True,
     "license": "LGPL-3"
