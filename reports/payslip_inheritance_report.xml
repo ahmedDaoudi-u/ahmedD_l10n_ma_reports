@@ -25,7 +25,7 @@
                 </div>
 
 
-                <div style="font-size:16px;text-align:right;margin-left:530px;width:250px;border: 1px solid gray;">
+                <div style="font-size:16px;text-align:right;margin-right:10px;width:250px;border: 1px solid gray;">
 
                     <div style="text-align:center;">
                         <strong t-field="o.employee_id.name"/>
@@ -269,7 +269,7 @@
 
 
         <xpath expr="//table[@class='table table-sm']//tr" position="replace">
-            <tr style="border-bottom: 1px solid black; text-align: center; background-color:  #D7E4C0;
+            <tr  t-attf-style="border-bottom: 1px solid black; text-align: center; background-color:  #{request.env['ir.config_parameter'].sudo().get_param('payslip_table_bg_color')};
                            color:  black;" id='employee_1'>
                 <td></td>
                 <td>Brut Imposable</td>
