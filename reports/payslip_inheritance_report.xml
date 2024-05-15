@@ -14,12 +14,23 @@
 
             <div style="display:inline-flex;">
 
-                <div style="font-size:16px;text-align:left;">
+                 <div style="font-size:16px;text-align:left;">
+                    <strong t-field="o.company_id.partner_id.name"/>
+                    <t t-if="request.env['ir.config_parameter'].sudo().get_param('show_company_address')">
+                        <span t-field="o.company_id.partner_id"
+                              t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;], &quot;no_marker&quot;: true}"/>
+                    </t>
+                    <t t-if="request.env['ir.config_parameter'].sudo().get_param('show_company_website')">
+                        <span t-field="o.company_id.partner_id.website"/>
+                    </t>
+                </div>
+
+                <!--<div style="font-size:16px;text-align:left;">
                     <strong t-field="o.company_id.partner_id.name"/>
                     <span t-field="o.company_id.partner_id"
                           t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;], &quot;no_marker&quot;: true}"/>
                     <span t-field="o.company_id.partner_id.website"/>
-                </div>
+                </div>-->
 
                 <div style="font-size:16px;text-align:right;margin-left:530px;width:250px;border: 1px solid gray;">
 
@@ -44,7 +55,7 @@
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_1']" position="replace">
             <div id="employee_info_table_1" style="border-top: 1px solid black; margin-top:8px;">
                 <tr style="border-bottom: 1px solid black; text-align: center;">
-                    <th colspan="2" style="width:10% ; text-align: center;background-color: #D7E4C0;"
+                    <th colspan="2" t-attf-style="width:10% ; text-align: center;background-color: #{request.env['ir.config_parameter'].sudo().get_param('payslip_table_bg_color')};"
                         class="highlight-cell">
                         BULLETIN DE PAIE
                     </th>
@@ -413,3 +424,70 @@
 
 
 </odoo>
+
+
+
+<!--
+<odoo>
+    <template id="payslip_template_inherited" inherit_id="hr_payroll.report_payslip">
+        <xpath expr="//div[@class='page']" position="attributes">
+            <attribute name="style">margin-top: 0px; margin-bottom: 0px;</attribute>
+        </xpath>
+
+        <xpath expr="//h2[@id='payslip_name']" position="replace">
+            <div>
+                <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" alt="Company Logo"
+                     class="float-left"
+                     t-att-style="'width: %spx; height: %spx; margin-top:10px;' % (request.env['ir.config_parameter'].sudo().get_param('company_logo_width'), request.env['ir.config_parameter'].sudo().get_param('company_logo_height'))"/>
+            </div>
+
+            <div style="display:inline-flex;">
+                <div style="font-size:16px;text-align:left;">
+                    <strong t-field="o.company_id.partner_id.name"/>
+                    <t t-if="request.env['ir.config_parameter'].sudo().get_param('show_company_address')">
+                        <span t-field="o.company_id.partner_id"
+                              t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;], &quot;no_marker&quot;: true}"/>
+                    </t>
+                    <t t-if="request.env['ir.config_parameter'].sudo().get_param('show_company_website')">
+                        <span t-field="o.company_id.partner_id.website"/>
+                    </t>
+                </div>
+
+                <div style="font-size:16px;text-align:right;margin-left:530px;width:250px;border: 1px solid gray;">
+                    <div style="text-align:center;">
+                        <strong t-field="o.employee_id.name"/>
+                    </div>
+
+                    <div style="text-align:center;">
+                        <strong t-field="o.employee_id.private_street"/>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+
+        <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_1']" position="replace">
+            <div id="employee_info_table_1" t-att-style="'border-top: 1px solid black; margin-top:8px; padding: %spx;' % request.env['ir.config_parameter'].sudo().get_param('payslip_table_padding')">
+                <tr t-att-style="'border-bottom: 1px solid black; text-align: center; background-color: %s;' % request.env['ir.config_parameter'].sudo().get_param('payslip_table_bg_color')">
+                    <th colspan="2" style="width:10% ; text-align: center;" class="highlight-cell">
+                        BULLETIN DE PAIE
+                    </th>
+                    <th colspan="1" style="text-align: center;">Période du :
+                        <span t-field="o.date_from" style="color: #888888;"/>
+                    </th>
+                    <th style="text-align: center;" colspan="2">Au :
+                        <span t-field="o.date_to" style="color: #888888;"/>
+                    </th>
+                    <th colspan="2" style="text-align: center;">Paiement le :
+                        <span t-field="o.date_to" style="color: #888888;"/>
+                    </th>
+                    <th colspan="1" style="text-align: center;">Par :
+                        <span t-field="o.type_payment" style="color: #888888;"/>
+                    </th>
+                </tr>
+            </div>
+        </xpath>
+
+        &lt;!&ndash; Similar adjustments for other parts of the template &ndash;&gt;
+    </template>
+</odoo>
+-->
