@@ -14,13 +14,13 @@ class HrPayslip(models.Model):
          ('Chèque', 'chèque'), ],
         String="Paiement Par")
 
-    commentaire = fields.Char(String="commentaire sur l'employé")
+    commentaire = fields.Char(String="commentaire")
 
     categorie = fields.Selection(
         [('Salarié', 'salarié')],
         String="Categories salarié")
 
-    droit = fields.Char(string="droit de congés pour l'employé", readonly=True)
+    droit = fields.Char(string="droit", readonly=True)
 
     reliquat = fields.Char(string="reliquat", readonly=True)
     pris = fields.Char(string="pris", readonly=True)
