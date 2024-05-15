@@ -36,9 +36,9 @@
 
                     <setting string="COTISATIONS CNSS" company_dependent="1">
                         <div class="row ms-2">
-                            <label for="CNSS_max" class="col-md-7 p-0 m-0"/>
+                            <label for="cnss_max" class="col-md-7 p-0 m-0"/>
                             <div class="col-md-5 p-0">
-                                <field name="CNSS_max" nolabel="1"/>
+                                <field name="cnss_max" nolabel="1"/>
                                 <span>DH / Mois</span>
                             </div>
                         </div>
@@ -58,6 +58,15 @@
                                 <span>%</span>
                             </div>
                         </div>
+
+                    </setting>
+
+                    <setting string="Personnalisation de la fiche de paie">
+                        <group>
+                            <field name="payslip_table_bg_color"/>
+                            <field name="show_company_address"/>
+                            <field name="show_company_website"/>
+                        </group>
 
                     </setting>
 
