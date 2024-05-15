@@ -15,7 +15,6 @@ class HrContacts(models.Model):
             hourly_wage = employees.hourly_wage
             wage_type = employees.wage_type
             wage = employees.wage
-            print(wage_type)
 
             if wage_type =='hourly wage':
                 rec.hourly_wage_employee = hourly_wage

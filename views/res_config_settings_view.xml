@@ -61,15 +61,13 @@
 
                     </setting>
 
-                    <setting string="Personnalisation de la fiche de paie">
+                    <setting string="Personnalisation De La Fiche De Paie">
                         <group>
                             <field name="payslip_table_bg_color"/>
                             <field name="show_company_address"/>
                             <field name="show_company_website"/>
                         </group>
-
                     </setting>
-
 
                 </block>
             </xpath>
