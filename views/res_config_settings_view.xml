@@ -63,7 +63,7 @@
 
                     <setting string="Personnalisation De La Fiche De Paie">
                         <group>
-                            <field name="payslip_table_bg_color"/>
+                            <field name="payslip_table_bg_color" widget="color"/>
                             <field name="show_company_address"/>
                             <field name="show_company_website"/>
                         </group>

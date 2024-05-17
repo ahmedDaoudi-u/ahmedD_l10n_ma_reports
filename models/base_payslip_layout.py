@@ -3,13 +3,13 @@ from odoo import models, fields, api
 class BasePayslipLayout(models.TransientModel):
     _inherit = 'base.document.layout'
 
-    #preview = fields.Html(compute="_compute_preview", sanitize=False)
+    '''#preview = fields.Html(compute="_compute_preview", sanitize=False)
 
     # def _compute_preview(self):
     #     styles = self._get_asset_style()
     #     return styles
     #
-    #     super(Documentpayslip, self)._compute_preview()
+    #     super(Documentpayslip, self)._compute_preview()'''
 
     def _get_asset_style(self):
         payslip_style = self.env['ir.qweb']._render('payslip_template_inherited', {

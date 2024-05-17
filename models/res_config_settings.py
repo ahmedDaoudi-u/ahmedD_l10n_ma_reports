@@ -25,16 +25,15 @@ class ResConfigSettings(models.TransientModel):
 
     def set_values(self):
         super(ResConfigSettings, self).set_values()
-        self.env['ir.config_parameter'].sudo().set_param('table_bg_color', self.payslip_table_bg_color)
+        self.env['ir.config_parameter'].sudo().set_param('payslip_table_bg_color', self.payslip_table_bg_color)
         self.env['ir.config_parameter'].set_param('show_company_address', self.show_company_address)
         self.env['ir.config_parameter'].set_param('show_company_website', self.show_company_website)
 
 
     def get_values(self):
         res = super(ResConfigSettings, self).get_values()
-        table_bg_color = self.env['ir.config_parameter'].sudo().get_param('table_bg_color', default="#D7E4C0")
         res.update(
-            payslip_table_bg_color=table_bg_color,
+            payslip_table_bg_color=self.env['ir.config_parameter'].sudo().get_param('payslip_table_bg_color', default="#D7E4C0"),
             show_company_address=self.env['ir.config_parameter'].get_param('show_company_address',
                                                                            default=True) == 'True',
             show_company_website=self.env['ir.config_parameter'].get_param('show_company_website',
