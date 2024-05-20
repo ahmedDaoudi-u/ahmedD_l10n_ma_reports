@@ -5,9 +5,7 @@
             <attribute name="style">margin-top: 0px;margin-bottom: 0px;</attribute>
         </xpath>
 
-        <xpath expr="//h2[@id='payslip_name']" position="replace">
-
-        </xpath>
+        <xpath expr="//h2[@id='payslip_name']" position="replace"> </xpath>
 
         <xpath expr="//strong[@id='invalid_warning']" position="attributes">
             <attribute name="style">display: none;</attribute>
@@ -21,16 +19,17 @@
                         class="highlight-cell">
                         BULLETIN DE PAIE
                     </th>
-                    <th colspan="1" style="text-align: center;text_size:5px;">Période du :
+
+                    <th colspan="1" style="text-align: center;font-size:13px">Période du :
                         <span t-field="o.date_from" style="color: #888888;"/>
                     </th>
-                    <th style="text-align: center;text_size:5px;" colspan="2">Au :
+                    <th style="text-align: center;font-size:13px" colspan="2">Au :
                         <span t-field="o.date_to" style="color: #888888;"/>
                     </th>
-                    <th colspan="2" style="text-align: center;text_size:5px;">Paiement le :
+                    <th colspan="2" style="text-align: center;font-size:12px">Paiement le :
                         <span t-field="o.date_to" style="color: #888888;"/>
                     </th>
-                    <th colspan="2" style="text-align: center;text_size:5px;">Par :
+                    <th colspan="2" style="text-align: center;font-size:12px">Par :
                         <span t-field="o.type_payment" style="color: #888888;"/>
                     </th>
                 </tr>
@@ -43,7 +42,7 @@
                 <td style="text-align: center;" colspan="2" rowspan="3">
                     <div>
                         <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" alt="Company Logo"
-                             class="float-left" style="width: 2.5in; height: auto;margin-top:10px;"/>
+                             class="float-left" style="width: 2in; height: auto;margin-top:10px;"/>
                         <div style="font-size:16px;text-align:left;">
                             <t t-if="request.env['ir.config_parameter'].sudo().get_param('show_company_address')">
                                 <span t-field="o.company_id.partner_id"
@@ -55,11 +54,11 @@
                         </div>
                     </div>
                 </td>
-                <td style="text-align: center;" colspan="2">Matricule :
+                <td style="text-align: center;font-size:12px" colspan="2">Matricule :
                     <span t-field="o.employee_id.registration_number" style="color: #888888;text-align: center;"/>
                 </td>
 
-                <td style="text-align: center;" colspan="1">Ancienneté :
+                <td style="text-align: center;font-size:12px" colspan="1">Ancienneté :
                     <span t-set="duration" t-value="o.date_to - o.contract_id.date_start"/>
                     <t t-set="ans" t-value="duration.days//365"/>
                     <t t-set="mois" t-value="(duration.days % 365) // 30"/>
@@ -68,13 +67,13 @@
                           style="color: #888888;text-align: center;"/>
                 </td>
 
-                <td style="text-align: center;" colspan="1">N°CNSS :
+                <td style="text-align: center;font-size:12px" colspan="1">N°CNSS :
                     <span t-field="o.employee_id.l10n_ma_cin_number" style="color: #888888;text-align: center;"/>
                 </td>
-                <td style="text-align: center;" colspan="1">N°CIN :
+                <td style="text-align: center;font-size:12px" colspan="1">N°CIN :
                     <span t-field="o.employee_id.l10n_ma_cnss_number" style="color: #888888;text-align: center;"/>
                 </td>
-                <td style="text-align: center;" colspan="1">N°CIMR :
+                <td style="text-align: center;font-size:12px" colspan="1">N°CIMR :
                     <span t-field="o.employee_id.l10n_ma_cimr_number" style="color: #888888;text-align: center;"/>
                 </td>
             </tr>
@@ -82,16 +81,16 @@
 
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_3']" position="replace">
             <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_line_3'>
-                <td style="text-align: center;" colspan="2">Catégorie :
+                <td style="text-align: center;font-size:12px" colspan="2">Catégorie :
                     <span t-field="o.categorie" style="color: #888888;"/>
                 </td>
-                <td style="text-align: center;" colspan="2">Emploi occupé :
+                <td style="text-align: center;font-size:12px" colspan="2">Emploi occupé :
                     <span t-field="o.employee_id.job_title" style="color: #888888;text-align: center;"/>
                 </td>
-                <td style="text-align: center;" colspan="1">Département :
+                <td style="text-align: center;font-size:12px" colspan="1">Département :
                     <span t-field="o.employee_id.department_id" style="color: #888888;text-align: center;"/>
                 </td>
-                <td style="text-align: center;" colspan="1">Date d'éntrée :
+                <td style="text-align: center;font-size:12px" colspan="1">Date d'éntrée :
                     <span t-field="o.contract_id.date_start" style="color: #888888;text-align: center;"/>
                 </td>
             </tr>
@@ -100,17 +99,17 @@
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_4']" position="replace">
             <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_line_4'>
 
-                <td style="text-align: center;" colspan="1">Horaires :
+                <td style="text-align: center;font-size:12px" colspan="1">Horaires :
                     <span t-field="o.worked_days_line_ids.number_of_hours"
                           style="color: #888888;text-align: center;"/>
                     H
                 </td>
-                <td style="text-align: center;" colspan="1">Salaire de base:
+                <td style="text-align: center;font-size:12px" colspan="1">Salaire de base:
                     <span t-out="o.contract_id.wage" style="color: #888888;text-align: center;"/>
                     DH
                 </td>
 
-                <td colspan="1">Taux horraire :
+                <td colspan="1" style="text-align: center;font-size:12px">Taux horraire :
                     <t t-if="o.contract_id.wage_type=='hourly wage'">
                         <span t-out="o.contract_id.hourly_wage" style="color: #888888;text-align: center;"/>
                         DH
@@ -122,11 +121,11 @@
                     </t>
                 </td>
 
-                <td style="text-align: center;" colspan="1">Situation familiale :
+                <td style="text-align: center;font-size:12px" colspan="1">Situation familiale :
                     <span t-field="o.employee_id.marital" style="color: #888888;"/>
                 </td>
 
-                <td colspan="2">Nbre Déductions :
+                <td colspan="2" style="text-align: center;font-size:12px">Nbre Déductions :
                     <t t-if="o.employee_id.gender=='female'"></t>
                     <t t-else="o.employee_id.gender=='male'">
                         <t t-if="o.employee_id.marital=='married'">
@@ -141,7 +140,8 @@
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_4']" position="after">
             <tr id='employee_info_7'>
                 <td colspan="4"></td>
-                <td colspan="5" t-attf-style="background-color: #{request.env['ir.config_parameter'].sudo().get_param('payslip_table_bg_color')};" >
+                <td colspan="5"
+                    t-attf-style="background-color: #{request.env['ir.config_parameter'].sudo().get_param('payslip_table_bg_color')};">
                     <div>
 
                         <div style="text-align:center;">
@@ -158,19 +158,18 @@
         </xpath>
 
 
-
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_7']" position="after">
             <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_6'>
-                <td style="text-align: center;" rowspan="2" colspan="3">Commentaire :
+                <td style="text-align: center;font-size:12px" rowspan="2" colspan="3">Commentaire :
                     <span t-field="o.commentaire" style="color: #888888;"/>
                 </td>
-                <td style="text-align: center;" colspan="1" rowspan="2">Congés</td>
+                <td style="text-align: center;font-size:12px" colspan="1" rowspan="2">Congés</td>
                 <!-- ____________________________Réliquat____________________________-->
-                <td style="text-align: center;" colspan="1">Réliquat n-1</td>
+                <td style="text-align: center;font-size:12px" colspan="1">Réliquat n-1</td>
                 <td colspan="1"></td>
                 <!-- ____________________________Pris____________________________-->
-                <td style="text-align: center;" colspan="1">Pris</td>
-                <td style="text-align: center;" colspan="1">
+                <td style="text-align: center;font-size:12px" colspan="1">Pris</td>
+                <td style="text-align: center;font-size:12px" colspan="1">
                     <span t-esc="float(o.employee_id.allocation_count) - float(o.employee_id.allocation_remaining_display)"
                           style="color: #888888;"/>
                 </td>
@@ -178,15 +177,15 @@
         </xpath>
 
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_6']" position="after">
-            <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_df'>
+            <tr style="border-bottom: 1px solid black; text-align: center;font-size:12px" id='employee_info_df'>
                 <!-- ____________________________Droit____________________________(checked/working)-->
-                <td style="text-align: center;" colspan="1">Droit</td>
+                <td style="text-align: center;font-size:12px" colspan="1">Droit</td>
                 <td colspan="1">
                     <span t-field="o.droit" style="color: #888888;"/>
                 </td>
                 <!-- ____________________________Solde____________________________-->
-                <td style="text-align: center;" colspan="1">Solde</td>
-                <td style="text-align: center;" colspan="1">
+                <td style="text-align: center;font-size:12px" colspan="1">Solde</td>
+                <td style="text-align: center;font-size:12px" colspan="1">
                     <span t-field="o.solde" style="color: #888888;"/>
                 </td>
 
@@ -194,9 +193,8 @@
         </xpath>
 
 
-
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_df']" position="after">
-            <tr t-attf-style="border-bottom: 1px solid black; text-align: center;"
+            <tr t-attf-style="border-bottom: 1px solid black; text-align: center;font-size:12px"
                 id='employee_info_9'>
                 <td colspan="3" class="left">
                     <b>Désignation</b>
@@ -225,19 +223,19 @@
                   t-as="line">
                 <tr t-att-class="line_class" t-att-style="line_style" id="employee_info_10">
 
-                    <td id="payslip_line_payslip_name" colspan="3">
+                    <td id="payslip_line_payslip_name" style="text-align: center;font-size:12px" colspan="3">
                         <span t-field="line.name"/>
                     </td>
 
 
-                    <td id="payslip_line_quantity" colspan="1">
+                    <td id="payslip_line_quantity" colspan="1" style="text-align: center;font-size:12px">
                         <span t-if="line.quantity &gt; 1" t-esc="line.quantity"/>
                     </td>
 
                     <td colspan="1"></td>
                     <td colspan="1"></td>
 
-                    <td colspan="1">
+                    <td colspan="1" style="text-align: center;font-size:12px">
                         <t t-if="line.name in ['Salaire De Base','Heures Supplémentaires 25%','Heures Supplémentaires 50%',
                         'Heures Supplémentaires 100%','Avantages','Indemnité De Transport','Prime Exceptionnelle','Indemnité De Panier','Prime Ancienneté','Salaire Brut Global',
                         'Salaire Brut Global','Salaire Brut Imposable','Salaire Net','TOTAL BRUT']">
@@ -248,7 +246,7 @@
                     </td>
 
 
-                    <td colspan="1">
+                    <td colspan="1" style="text-align: center;font-size:12px">
                         <t t-if="line.name in ['Cotisation CNSS + IPE','Cotisation AMO','Cotisation CIMR','Accomptes','IR Net','TOTAL COTISATIONS']">
                             <t t-esc="line.amount"
                                t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.company_id.currency_id}"/>
@@ -272,27 +270,33 @@
             <attribute name="style">display: none;</attribute>
         </xpath>
 
+         <xpath expr="//table[@class='table table-sm']" position="attributes">
+            <attribute name="style">position :absolute ;top:1200px;</attribute>
+        </xpath>
+
 
         <xpath expr="//table[@class='table table-sm']//tr" position="replace">
-            <tr t-attf-style="border-bottom: 1px solid black; text-align: center; color:  black;" id='employee_1'>
-                <td></td>
-                <td>Brut Imposable</td>
-                <td>Net Imposable</td>
-                <td>Ch.Salaires</td>
-                <td>F.Professionnels</td>
-                <td>Déd.Logement</td>
-                <td>Déd.Charges Familales</td>
-                <td>Jours Travaillés</td>
-                <td colspan="3"
-                    t-attf-style="center; background-color:  #{request.env['ir.config_parameter'].sudo().get_param('payslip_table_bg_color')};">
-                    <b>Net A Payer</b>
-                </td>
-            </tr>
+                <tr t-attf-style="border-bottom: 1px solid black; text-align: center; color:  black;font-size:12px ;" id='employee_1'>
+                    <td><b>Cumuls</b></td>
+                    <td><b>Brut Imposable</b></td>
+                    <td><b>Net Imposable</b></td>
+                    <td><b>Ch.Salaires</b></td>
+                    <td><b>F.Professionnels</b></td>
+                    <td><b>Déd.Logement</b></td>
+                    <td><b>Déd.Charges Familales</b></td>
+                    <td><b>Jours Travaillés</b></td>
+                    <td colspan="3"
+                        t-attf-style="center; background-color:  #{request.env['ir.config_parameter'].sudo().get_param('payslip_table_bg_color')};">
+                        <b>Net A Payer</b>
+                    </td>
+                </tr>
+
+
         </xpath>
 
         <xpath expr="//table[@class='table table-sm']//tr[@id='employee_1']" position="after">
 
-            <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_2'>
+            <tr style="border-bottom: 1px solid black; text-align: center;font-size:12px ;" id='employee_2'>
 
                 <td>Période</td>
 
@@ -347,7 +351,7 @@
                         <t t-if="line.name == 'Déduction / personnes à charges'">
                             <t t-esc="line.total"
                                t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.company_id.currency_id}"
-                               t-att-style="'color:#875A7B;' if line.total &lt; 0 else ''"/>
+                               t    -att-style="'color:#875A7B;' if line.total &lt; 0 else ''"/>
                         </t>
                     </span>
                 </td>
@@ -390,23 +394,27 @@
                 <td></td>
                 <td></td>
             </tr>
+
         </xpath>
+
+        <xpath expr="//table[@class='table table-sm']//tr[@id='employee_3']" position="after">
+            <tr style=" text-align: center; font-size:13px" id='employee_4'>
+                <td colspan="10">DANS VOTRE INTERET ET POUR VOUS AIDER A FAIRE VALOIR
+                    VOS DROITS,
+                    CONSERVEZ CE
+                    BULLETIN DE PAIE SANS LIMITATION DE DUREE</td>
+            </tr>
+        </xpath>
+
 
 
         <xpath expr="//div[@id='total']" position="attributes">
             <attribute name="style">display: none;</attribute>
         </xpath>
 
-        <xpath expr="//div[@id='to_pay']" position="replace">
-            <div id='to_pay'>
-                <p style="text-align :center; margin-top:20 px;">DANS VOTRE INTERET ET POUR VOUS AIDER A FAIRE VALOIR
-                    VOS DROITS,
-                    CONSERVEZ CE
-                    BULLETIN DE PAIE SANS LIMITATION DE DUREE
-                </p>
-            </div>
+        <xpath expr="//div[@id='to_pay']" position="attributes">
+            <attribute name="style">display: none;</attribute>
         </xpath>
-
 
         <xpath expr="//t[@t-set='line_style']" position="replace">
             <t t-set="line_style" t-value="'payslip_custom_paper_report'"/>

@@ -1,4 +1,4 @@
-.tr{
-        border-bottom: 1px solid black;
-        text-align: center;
+/* static/src/css/payslip_styles.css */
+.payslip * {
+    font-size: 6px !important; /* Adjust the size as needed */
 }

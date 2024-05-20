@@ -27,8 +27,13 @@
         "views/custum_employee_maroc.xml",
         "data/moroccan_rules_agricole.xml"
     ],
+    "assets": {
+        'web.report_assets_common' :
+        ['teos_l10n_ma_reports/static/src/CSS/custom_page.css'],
+
+    },
     "category": "",
-    "depends": ['hr_payroll', 'l10n_ma', 'hr_holidays', 'base', 'hr_contract','l10n_ma_hr_payroll'],
+    "depends": ['hr_payroll', 'l10n_ma', 'hr_holidays', 'base', 'hr_contract', 'l10n_ma_hr_payroll'],
     "installable": True,
     "application": True,
     "license": "LGPL-3"
