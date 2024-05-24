@@ -20,16 +20,16 @@
                         BULLETIN DE PAIE
                     </th>
 
-                    <th colspan="1" style="text-align: center;font-size:13px">Période du :
+                    <th colspan="1" style="text-align: center;font-size:13px">Période du
                         <span t-field="o.date_from" style="color: #888888;"/>
                     </th>
-                    <th style="text-align: center;font-size:13px" colspan="2">Au :
+                    <th style="text-align: center;font-size:13px" colspan="2">Au
                         <span t-field="o.date_to" style="color: #888888;"/>
                     </th>
-                    <th colspan="2" style="text-align: center;font-size:13px">Paiement le :
+                    <th colspan="2" style="text-align: center;font-size:13px">Paiement le
                         <span t-field="o.date_to" style="color: #888888;"/>
                     </th>
-                    <th colspan="2" style="text-align: center;font-size:13px">Par :
+                    <th colspan="2" style="text-align: center;font-size:13px">Par
                         <span t-field="o.type_payment" style="color: #888888;"/>
                     </th>
                 </tr>
@@ -54,11 +54,11 @@
                         </div>
                     </div>
                 </td>
-                <td style="text-align: center;font-size:12px" colspan="2">Matricule :
+                <td style="text-align: center;font-size:12px" colspan="2">Matricule
                     <span t-field="o.employee_id.registration_number" style="color: #888888;text-align: center;"/>
                 </td>
 
-                <td style="text-align: center;font-size:13px" colspan="1">Ancienneté :
+                <td style="text-align: center;font-size:13px" colspan="1">Ancienneté
                     <span t-set="duration" t-value="o.date_to - o.contract_id.date_start"/>
                     <t t-set="ans" t-value="duration.days//365"/>
                     <t t-set="mois" t-value="(duration.days % 365) // 30"/>
@@ -67,13 +67,13 @@
                           style="color: #888888;text-align: center;"/>
                 </td>
 
-                <td style="text-align: center;font-size:13px" colspan="1">N°CNSS :
+                <td style="text-align: center;font-size:13px" colspan="1">N°CNSS
                     <span t-field="o.employee_id.l10n_ma_cin_number" style="color: #888888;text-align: center;"/>
                 </td>
-                <td style="text-align: center;font-size:13px" colspan="1">N°CIN :
+                <td style="text-align: center;font-size:13px" colspan="1">N°CIN
                     <span t-field="o.employee_id.l10n_ma_cnss_number" style="color: #888888;text-align: center;"/>
                 </td>
-                <td style="text-align: center;font-size:13px" colspan="1">N°CIMR :
+                <td style="text-align: center;font-size:13px" colspan="1">N°CIMR
                     <span t-field="o.employee_id.l10n_ma_cimr_number" style="color: #888888;text-align: center;"/>
                 </td>
             </tr>
@@ -81,16 +81,16 @@
 
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_3']" position="replace">
             <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_line_3'>
-                <td style="text-align: center;font-size:13px" colspan="2">Catégorie :
+                <td style="text-align: center;font-size:13px" colspan="2">Catégorie
                     <span t-field="o.categorie" style="color: #888888;"/>
                 </td>
-                <td style="text-align: center;font-size:13px" colspan="2">Emploi occupé :
+                <td style="text-align: center;font-size:13px" colspan="2">Emploi occupé
                     <span t-field="o.employee_id.job_title" style="color: #888888;text-align: center;"/>
                 </td>
-                <td style="text-align: center;font-size:13px" colspan="1">Département :
+                <td style="text-align: center;font-size:13px" colspan="1">Département
                     <span t-field="o.employee_id.department_id" style="color: #888888;text-align: center;"/>
                 </td>
-                <td style="text-align: center;font-size:13px" colspan="1">Date d'éntrée :
+                <td style="text-align: center;font-size:13px" colspan="1">Date d'éntrée
                     <span t-field="o.contract_id.date_start" style="color: #888888;text-align: center;"/>
                 </td>
             </tr>
@@ -99,17 +99,17 @@
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_line_4']" position="replace">
             <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_line_4'>
 
-                <td style="text-align: center;font-size:13px" colspan="1">Horaires :
+                <td style="text-align: center;font-size:13px" colspan="1">Horaires
                     <span t-field="o.worked_days_line_ids.number_of_hours"
                           style="color: #888888;text-align: center;"/>
                     H
                 </td>
-                <td style="text-align: center;font-size:13px" colspan="1">Salaire de base:
+                <td style="text-align: center;font-size:13px" colspan="1">Salaire de base
                     <span t-out="o.contract_id.wage" style="color: #888888;text-align: center;"/>
                     DH
                 </td>
 
-                <td colspan="1" style="text-align: center;font-size:13px">Taux horraire :
+                <td colspan="1" style="text-align: center;font-size:13px">Taux horraire
                     <t t-if="o.contract_id.wage_type=='hourly wage'">
                         <span t-out="o.contract_id.hourly_wage" style="color: #888888;text-align: center;"/>
                         DH
@@ -121,11 +121,11 @@
                     </t>
                 </td>
 
-                <td style="text-align: center;font-size:13px" colspan="1">Situation familiale :
+                <td style="text-align: center;font-size:13px" colspan="1">Situation familiale
                     <span t-field="o.employee_id.marital" style="color: #888888;"/>
                 </td>
 
-                <td colspan="2" style="text-align: center;font-size:13px">Nbre Déductions :
+                <td colspan="2" style="text-align: center;font-size:13px">Nbre Déductions
                     <t t-if="o.employee_id.gender=='female'"></t>
                     <t t-else="o.employee_id.gender=='male'">
                         <t t-if="o.employee_id.marital=='married'">
@@ -145,12 +145,12 @@
                     t-attf-style="background-color: #{request.env['ir.config_parameter'].sudo().get_param('payslip_table_bg_color')}; padding-top: 50px;padding-bottom: 50px;">
                     <div>
 
-                        <div style="text-align:center;">
+                        <div style="text-align:right;">
                             <strong t-field="o.employee_id.name"/>
                         </div>
 
-                        <div t-attf-style="text-align:center;">
-                            <strong t-field="o.employee_id.private_street"/>
+                        <div t-attf-style="text-align:right;">
+                            <span t-field="o.employee_id.private_street"/>
                         </div>
 
                     </div>
@@ -161,7 +161,7 @@
 
         <xpath expr="//table[@id='employee_info_table_1']//tr[@id='employee_info_7']" position="after">
             <tr style="border-bottom: 1px solid black; text-align: center;" id='employee_info_6'>
-                <td style="text-align: center;font-size:13px" rowspan="2" colspan="3">Commentaire :
+                <td style="text-align: center;font-size:13px" rowspan="2" colspan="3">Commentaire
                     <span t-field="o.commentaire" style="color: #888888;"/>
                 </td>
                 <td style="text-align: center;font-size:13px" colspan="1" rowspan="2">Congés</td>
@@ -224,7 +224,7 @@
                   t-as="line">
                 <tr t-att-class="line_class" t-att-style="line_style" id="employee_info_10">
 
-                    <td id="payslip_line_payslip_name" style="text-align: center;font-size:13px" colspan="3">
+                    <td id="payslip_line_payslip_name" style="font-size:13px" colspan="3">
                         <span t-field="line.name"/>
                     </td>
 
@@ -272,7 +272,7 @@
         </xpath>
 
          <xpath expr="//table[@class='table table-sm']" position="attributes">
-            <attribute name="style">position :absolute ;top:1200px;</attribute>
+            <attribute name="style">position :absolute ;top:1280px;</attribute>
         </xpath>
 
 
