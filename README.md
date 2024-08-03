@@ -1,4 +1,4 @@
-# Partial addition of the Moroccan Payroll System to the lastest version of Odoo 17 
+# Partial Customization of lastest version of Odoo 17 to fit the Moroccan Payroll System 
 
 ## 1 - Use Case Diagram 
 
