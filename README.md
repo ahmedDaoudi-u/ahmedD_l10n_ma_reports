@@ -15,4 +15,4 @@
 ![sequence](https://github.com/user-attachments/assets/c24a7473-552c-43de-9e8d-c3fca0f30893)
 
 
-## Part 2 : Project Conception 
+## Part 2 :  
