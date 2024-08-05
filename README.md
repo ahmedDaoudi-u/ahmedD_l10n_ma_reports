@@ -14,5 +14,7 @@
 
 ![sequence](https://github.com/user-attachments/assets/c24a7473-552c-43de-9e8d-c3fca0f30893)
 
+## Part 2 :  Project CI \ CD Workflow
 
-## Part 2 :  
+![Screenshot from 2024-08-05 16-09-19](https://github.com/user-attachments/assets/e843f2de-286c-43f4-99b1-62a9ad0888cd)
+
